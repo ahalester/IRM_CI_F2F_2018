@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <title>Test Suite</title>
+</head>
+<body>
+<table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
+<tr><td><b>Test Suite</b></td></tr>
+<tr><td><a href="ICT-843-Home">ICT-843-Home</a></td></tr>
+<tr><td><a href="ICT-843-MyProjects">ICT-843-MyProjects</a></td></tr>
+<tr><td><a href="ICT-843-MySchedBlocks">ICT-843-MySchedBlocks</a></td></tr>
+<tr><td><a href="ICT-843-SciencePortal">ICT-843-SciencePortal</a></td></tr>
+<tr><td><a href="ICT-843-ArchiveQuery">ICT-843-ArchiveQuery</a></td></tr>
+<tr><td><a href="ICT-843-Helpdesk">ICT-843-Helpdesk</a></td></tr>
+<tr><td><a href="ICT943-ESO">ICT943-ESO</a></td></tr>
+<tr><td><a href="ICT943-NRAO">ICT943-NRAO</a></td></tr>
+<tr><td><a href="ICT-843-NAOJ">ICT-843-NAOJ</a></td></tr>
+<tr><td><a href="ICT-843-Projects">ICT-843-Projects</a></td></tr>
+<tr><td><a href="ICT-843-MoreNews">ICT-843-MoreNews</a></td></tr>
+<tr><td><a href="ICT-843-Tickets">ICT-843-Tickets</a></td></tr>
+<tr><td><a href="ICT-843-AllProjects">ICT-843-AllProjects</a></td></tr>
+<tr><td><a href="ICT-843-ContactScientist">ICT-843-ContactScientist</a></td></tr>
+<tr><td><a href="ICT-843-MyProfile">ICT-843-MyProfile</a></td></tr>
+<tr><td><a href="ICT-843-Logout">ICT-843-Logout</a></td></tr>
+<tr><td><a href="ICT-843-REST">ICT-843-REST</a></td></tr>
+</tbody></table>
+</body>
+</html>

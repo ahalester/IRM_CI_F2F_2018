@@ -1,0 +1,48 @@
+*Precondition*
+
+- Open Reports of Protrack http://baucis.sco.alma.cl:8080/protrack/ with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Searching by COI Userid*
+1. Input in the quick search: aremijan
+2. Expected result: There are no results with COI Userid aremijan. For example: 2013.1.01061.S
+3. Passed: OK (testcase01.png ICT-4741-TestCase01.html)
+
+*Test Case #2: Searching by State*
+1. Input in the quick search: Completed
+2. Expected result: There are no results with State Completed. For example: 2013.1.01061.S
+3. Passed: OK (testcase02.png ICT-4741-TestCase02.html)
+
+*Test Case #3: Searching by Project Status UID*
+1. Input in the quick search: uid://A001/X111/X22a
+2. Expected result: There are no results with Project Status UID uid://A001/X111/X22a
+3. Passed: OK (testcase03.png ICT-4741-TestCase03.html)
+
+*Test Case #4: Searching by Project UID*
+1. Input in the quick search: uid://A001/X111/X226
+2. Expected result: There is one result with Project UID uid://A001/X111/X226
+3. Passed: OK (testcase04.png ICT-4741-TestCase04.html)
+
+*Test Case #5: Searching by Code*
+1. Input in the quick search: 2013.1.01061.S
+2. Expected result: There is one result with Code 2013.1.01061.S
+3. Passed: OK (testcase05.png ICT-4741-TestCase05.html)
+
+*Test Case #6: Searching by Name*
+1. Input in the quick search: Examining the molecular coma of comet C/2012 K1 (PanSTARRS)
+2. Expected result: There is one result with Name Examining the molecular coma of comet C/2012 K1 (PanSTARRS)
+3. Passed: OK (testcase06.png ICT-4741-TestCase06.html)
+
+*Test Case #7: Searching by Cycle*
+1. Input in the quick search: 2013.1
+2. Expected result: There are results with Cycle 2013.1
+3. Passed: OK (testcase07.png ICT-4741-TestCase07.html)
+
+*Test Case #8: Searching by PI Userid*
+1. Input in the quick search: sebastian
+2. Expected result: There are results with PI Userid sebastian
+3. Passed: OK (testcase08.png ICT-4741-TestCase08.html)
+
+{color:red}Note: We noted that the tooltip of the quick search is still saying: "Quick Search: Input a simple search term, and press Enter. The search returns all projects that have a partial match in any of the following fields: Project UID, Code, Name, Cycle, PI Userid, COI Userid, State, ProjectStatus UID. Example usage: 2012*123.S" (See quicksearch-tooltip.png){color}

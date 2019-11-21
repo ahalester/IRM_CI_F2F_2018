@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://hermione.sco.alma.cl:8080/" />
+<title>ICT-2777-TestCase03</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ICT-2777-TestCase03</td></tr>
+</thead><tbody>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_38-cnt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_76-cnt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//*[@id='zk_c_177']</td>
+	<td>uid://X02/X63b6d/Xa</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>//*[@id='zk_c_177']</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//*[@id='zk_c_215-head']/table[1]/tbody[2]/tr[1]/th[4]/div[1]</td>
+	<td>QA2 Status</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//*[@id='zk_c_215-head']/table[1]/tbody[2]/tr[1]/th[5]/div[1]</td>
+	<td>QA2 Time</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>id=zk_c_215-cave.0.0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_208-rows']/tr[1]/td[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[contains(text(),'Session')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[contains(text(),'Session')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@class='z-label' and contains(text(), 'Start Time')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//*[@class='z-label' and contains(text(), '2014-01-06T03:43:56')]</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

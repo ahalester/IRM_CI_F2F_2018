@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://urda.sco.alma.cl:8080/" />
+<title>ICT-3499-TestCase01</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ICT-3499-TestCase01</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/webaqua/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_38-cnt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_74-cnt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>xpath=//input[@id='zk_c_95']@style</td>
+	<td>width: 250px;</td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>xpath=//input[@id='zk_c_98']@style</td>
+	<td>width: 250px;</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_75-cnt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>xpath=//input[@id='zk_c_141']@style</td>
+	<td>width: 250px;</td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>xpath=//input[@id='zk_c_144']@style</td>
+	<td>width: 250px;</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_76-cnt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>xpath=//input[@id='zk_c_178']@style</td>
+	<td>width: 250px;</td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>xpath=//input[@id='zk_c_181']@style</td>
+	<td>width: 250px;</td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>xpath=//input[@id='zk_c_184']@style</td>
+	<td>width: 250px;</td>
+</tr>
+</tbody></table>
+</body>
+</html>

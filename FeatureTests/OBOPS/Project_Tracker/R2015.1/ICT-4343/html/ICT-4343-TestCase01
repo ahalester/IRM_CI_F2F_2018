@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://laetitia.sco.alma.cl:8080/" />
+<title>ICT-4343-TestCase01</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ICT-4343-TestCase01</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://laetitia.sco.alma.cl:8080/protrack/admin/drmTool.zul</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=zk_c_8</td>
+	<td>2011*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_962-cave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_2849-cave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//table[@id='zk_c_1239-box']/tbody/tr[2]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//table[@id='zk_c_1239-box']/tbody/tr[2]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//table[@id='zk_c_183-box']/tbody/tr[2]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//table[@id='zk_c_183-box']/tbody/tr[2]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_909-cave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_5162-cave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_5165-cave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=td.z-button-cm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_5170-cave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_6058-a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_5175-cave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=zk_c_3591-real</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//table[@id='zk_c_1114-box']/tbody/tr[2]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//table[@id='zk_c_1307-box']/tbody/tr[2]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//table[@id='zk_c_1307-box']/tbody/tr[2]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//table[@id='zk_c_1683-box']/tbody/tr[2]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//table[@id='zk_c_1683-box']/tbody/tr[2]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//table[@id='zk_c_811-box']/tbody/tr[2]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_5179-cave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=zk_c_1125</td>
+	<td>dgarcia</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//table[@id='zk_c_2296-box']/tbody/tr[2]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_565-cave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_2248-cave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_3683-a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=zk_c_341</td>
+	<td>scorder</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//table[@id='zk_c_461-box']/tbody/tr[2]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_5233</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_4293-cave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_4290-cave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_5258</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

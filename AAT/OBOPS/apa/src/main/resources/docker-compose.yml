@@ -1,0 +1,48 @@
+    selenium-hub:
+      image: selenium/hub
+      ports:
+        - 4444:4444
+
+    node-chrome:
+#      image: selenium/node-chrome
+      image: selenium/node-chrome-debug
+      ports:
+        - 5900
+      links:
+        - selenium-hub:hub
+      environment:
+#            SCREEN_WIDTH: 2880
+#            SCREEN_HEIGHT: 1800
+        - DBUS_SESSION_BUS_ADDRESS=/dev/null
+
+#        - REMOTE_HOST=http://134.171.18.13:5555 #VM - aqua2
+#        - HUB_PORT_4444_TCP_ADDR=134.171.18.8 #VM - aqua1
+#        - HUB_PORT_4444_TCP_PORT=4444
+#        - HUB_PORT_4444_TCP_ADDR=hub
+#        - HUB_PORT_4444_TCP_PORT=4444
+      volumes:
+        - /dev/shm:/dev/shm
+#        - ./integration-data:/integration-data
+      shm_size: 1G
+#      tmpfs: /dev/shm:rw,nosuid,nodev,noexec,relatime,size=1G
+
+    node-firefox:
+#      image: selenium/node-firefox
+      image: selenium/node-firefox-debug
+      ports:
+        - 5900
+      links:
+        - selenium-hub:hub
+      environment:
+            SCREEN_WIDTH: 3000
+            SCREEN_HEIGHT: 1800
+#        - DBUS_SESSION_BUS_ADDRESS=/dev/null
+
+#        - REMOTE_HOST=http://134.171.18.22:5555 #VM - aqua3
+#        - HUB_PORT_4444_TCP_ADDR=134.171.18.8 #VM - aqua1
+#        - HUB_PORT_4444_TCP_PORT=4444
+#        - HUB_PORT_4444_TCP_ADDR=hub
+#        - HUB_PORT_4444_TCP_PORT=4444
+      volumes:
+        - ./integration-data:/integration-data
+

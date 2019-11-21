@@ -1,0 +1,28 @@
+<project name="OT" default="all"
+    xmlns:ivy="antlib:org.apache.ivy.ant">
+    <target name="all" depends="resolve,compile,test"/>
+    <target name="resolve" description="resolve dependencies with ivy">
+        <ivy:resolve />
+        <ivy:cachepath pathid="default.classpath"/>
+    </target>
+    <target name="compile" 
+        depends="resolve" 
+        description="Compile the artifacts">
+        <mkdir dir="test/bin" />
+        <javac srcdir="test/src" 
+            destdir="test/bin">
+            <classpath refid="default.classpath" />
+        </javac>
+    </target>
+    <target name="test"
+        depends="compile"
+        description="Run tests">
+        <java classname="org.testng.TestNG" fork="true">
+            <arg line="test/config/testng.xml -d test/testreports -parallel tests -threadcount 5"/>
+            <classpath>
+                <path refid="default.classpath" />
+                <path path="test/bin" />
+            </classpath>
+        </java>
+    </target>
+</project>

@@ -1,0 +1,50 @@
+*Precondition*
+
+Open AQUA http://hermione.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0   (Latest version)
+Using Google Chrome 35.0.1916  (Latest version)
+
+*Test Case #1: Showing "Times", "Atmosphere", "Focus", "Pointing" and "Phase" sections with complete data*
+
+1. Go to Manual Search
+2. Interval: Other, From: 2014/01/01 12:00:00 AM To: 2014/01/31 12:00:00 AM and Search
+3. Select the row ExecBlock UID: uid://A002/X77dfee/X27
+4. Go to "Summary" tab
+5. Expected Result: The new tab should include the following completed sections: "Times", "Atmosphere", "Focus", "Pointing" and "Phase"
+6. Passed: OK (testcase01.png ICT-2732-TestCase01.html).
+
+*Test Case #2: Showing list all different scan intents in "Times" section
+
+1. Go to Manual Search
+2. Interval: Other, From: 2014/01/01 00:00:00 AM To: 2014/06/24 00:00:00 AM and Search
+3. Select the row ExecBlock UID: uid://A002/X77dfee/X27
+4. Go to "Summary" tab
+5. Expected Result:
+   The "Times" section should list all different scan intents that appeared throughout the observation, listing the sources that participated on each intent, and the total execution time that was spent on each intent. 
+   The first intent to appear, if it exists, should be OBSERVE_TARGET, followed by an empty line. The rest should follow sorted alphabetically.
+   Numbers should be aligned in a column on the right side
+6. Passed: OK (testcase02.png ICT-2732-TestCase02.html).
+
+*Test Case #3: Showing small statistics for the QA0 sumaries in the rest of the sections*
+
+1. Go to Manual Search
+2. Interval: Other, From: 2014/01/01 00:00:00 AM To: 2014/06/24 00:00:00 AM and Search
+3. Select the row ExecBlock UID: uid://A002/X78a4a4/Xe6
+4. Go to "Summary" tab
+5. Expected Result:
+   The rest of the sections should show some small statistics for the QA0 summaries as described by Stéphane in the 4th comment of this ticket.
+     No empty sections should appear
+      The Atmosphere and Pointing sections should show the number of errors and warnings that come in their respective calibration summary documents. If a document doesn't exist, then no number of alarms is shown.
+      All (decimal) numbers should use 2 decimal places.
+6. Passed: OK (testcase03.png ICT-2732-TestCase03.html).
+
+*Test Case #4: Search ExecBlock in FAIL status
+
+1. Go to Manual Search
+2. Interval: Other, From: 2014/01/01 00:00:00 AM To: 2014/06/24 00:00:00 AM and Search
+3. Select the QA0 status: Fail
+4. Go to "Summary" tab
+5. Expected Result: The "Times" section should list all different scan intents that appeared throughout the observation, listing the sources that participated on each intent, and the total execution time that was spent on each intent. 
+6. Passed: OK (testcase04.png ICT-2732-TestCase04.html).
+

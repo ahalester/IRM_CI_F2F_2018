@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://urda.sco.alma.cl:8080/" />
+<title>ICT-3492-TestCase02</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ICT-3492-TestCase02</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/webaqua/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_38-cnt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_74-cnt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_86-btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#zk_c_329 &gt; td.z-comboitem-text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_89-btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=_z_0-tm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=_z_0-m0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//tr[@id='_z_0-w0']/td[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_205-box']/tbody/tr[2]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//*[@id='zk_c_206-chdex']/td[1]/div[1]/div[3]/table[1]/tbody[2]/tr[2]/td[1]/div/span[2]</td>
+	<td>uid://A002/X77da97/X1cc0</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_206-chdex']/td[1]/div[1]/div[3]/table[1]/tbody[2]/tr[2]/td[1]/div/span[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//*[@id='zk_c_266-cave']/div/div[5]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/span</td>
+	<td>Summary</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_266-cave']/div/div[5]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[contains(text(),'Outliers')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_266-cave']/div/div[5]/div[2]/div[3]/div/div/table/tbody/tr/td/table/tbody/tr[27]/td/table/tbody/tr/td/table/tbody/tr[3]/td/table/tbody/tr/td/table/tbody/tr/td[1]/span</td>
+	<td>Receiver temperatures [°K]</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_266-cave']/div/div[5]/div[2]/div[3]/div/div/table/tbody/tr/td/table/tbody/tr[27]/td/table/tbody/tr/td/table/tbody/tr[3]/td/table/tbody/tr/td/table/tbody/tr/td[3]/span</td>
+	<td>DV10 (159.55169.41182.302.46187.80), PM01 (165.57199.56157.85153.37181.40173.41166.26164.73151.88)</td>
+</tr>
+</tbody></table>
+</body>
+</html>

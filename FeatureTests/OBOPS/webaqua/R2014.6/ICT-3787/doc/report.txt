@@ -1,0 +1,22 @@
+*Precondition*
+
+Open AQUA http://svea.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Looking Atmosphere, Focus, Pointing and Phase sections*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014/01/01
+5. In To select the current date
+6. In ExecBlock UID field input uid://A002/X77dfee/X27
+7. Click in Search button
+8. Select the first result
+9. Go to Summary tab and check Atmosphere, Focus, Pointing and Phase sections
+10. Expected Result: 
+    - In the Summary tab, the following sections should always be present: Atmosphere, Focus, Pointing, Phase
+    - The section should either show some statistics, and possibly some number of warnings and errors, or a message saying that there is no information available.
+11. Passed: OK (testcaste01.png ICT-3787-TestCase01.html).

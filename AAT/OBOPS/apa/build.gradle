@@ -1,0 +1,141 @@
+group 'apa'
+version '1.0-SNAPSHOT'
+
+//buildscript {
+//    apply from: "buildSrc/buildscript-dependencies.gradle"
+////    dependencies extDependencies
+//}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+//apply plugin: 'eclipse'
+//apply plugin: 'checkstyle'
+//apply from: "buildSrc/analyze.gradle"
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+jar {
+    baseName = 'apa'
+    version = version
+}
+
+configurations {
+    cucumberRuntime {
+        extendsFrom testRuntime
+    }
+}
+
+//task checkstyle {
+//    configFile = rootProject.file('buildSrc/checkstyle/eso_checks.xml')
+//
+//    source 'src/main/java'
+//    include '**/*.java'
+//    exclude '**/gen/**'
+//
+//    classpath = files()
+//}
+
+task cucumber() {
+    dependsOn assemble, compileTestJava
+    doLast {
+        javaexec {
+            main = "cucumber.api.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+
+            args = ['--plugin', 'html:target/cucumber-html-report',
+                    '--plugin', 'json:target/cucumber-report.json',
+                    '--plugin', 'junit:target/junit-report.xml',
+                    '--plugin', 'pretty',
+                    '--tags', "${suiteTag}",
+                    '--glue', 'cl.apa.web.browser', 'src/test/resources/features',
+                    '--glue', 'cl.apa.database', 'src/test/resources/features']
+            systemProperties = System.getProperties()
+        }
+    }
+}
+//task listJars << {
+//    configurations.compile.each { File file -> println file.name }
+//}
+
+test {
+    forkEvery = 1
+    maxParallelForks = 3
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    // Selenium 3.6.0
+    if ("3" == "${seleniumVersion}") {
+        compile group: "joda-time", name: "joda-time", version: "2.9.9"
+        compile group: "javax.ws.rs", name: "javax.ws.rs-api", version: "2.1-m09"
+        compile group: "com.sun.jersey", name: "jersey-bundle", version: "1.19.4"
+        compile group: "commons-io", name: "commons-io", version: "2.5"
+        compile group: 'org.apache.commons', name: 'commons-io', version: '1.3.2'
+        compile group: "org.apache.commons", name: "commons-lang3", version: "3.6"
+        compile group: "info.cukes", name: "cucumber-junit", version: "1.2.5"
+        compile group: "info.cukes", name: "cucumber-java", version: "1.2.5"
+        compile group: "info.cukes", name: "cucumber-core", version: "1.2.5"
+        compile group: "info.cukes", name: "cucumber-picocontainer", version: "1.2.5"
+        compile group: "info.cukes", name: "gherkin", version: "2.12.2"
+        compile group: "io.cucumber", name: "gherkin3", version: "3.1.2"
+        compile group: "org.slf4j", name: "slf4j-api", version: "1.7.25"
+        compile group: "ch.qos.logback", name: "logback-classic", version: "1.2.3"
+        compile group: "ch.qos.logback", name: "logback-core", version: "1.2.3"
+        compile group: "org.testcontainers", name: "selenium", version: "1.4.1"
+        compile group: "org.testcontainers", name: "testcontainers", version: "1.4.1"
+        compile group: "com.spotify", name: "docker-client", version: "8.8.1"
+        compile group: "com.github.docker-java", name: "docker-java", version: "3.0.12"
+        compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.6.0'
+        compile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '3.6.0'
+        compile group: 'org.seleniumhq.selenium', name: 'selenium-firefox-driver', version: '3.6.0'
+        compile group: 'com.puppycrawl.tools', name: 'checkstyle', version: '8.1'
+        compile group: 'net.objecthunter', name: 'exp4j', version: '0.4.8'
+        compile group: 'org.flywaydb', name: 'flyway-core', version: '5.0.7'
+        compile group: 'junit', name: 'junit', version: '4.12'
+        if (org.gradle.internal.os.OperatingSystem.current().isWindows()) {
+            compile files('lib/ojdbc8.jar')
+        } else {
+            compile files('/var/lib/jenkins/selenium_docker/Oracle/ojdbc8.jar')
+        }
+
+    }
+    // Selenium 2.53.1
+    else {
+//        compile group: "joda-time", name: "joda-time", version: "2.2"
+//        compile group: "javax.ws.rs", name: "javax.ws.rs-api", version: "2.0.1"
+//        compile group: "com.sun.jersey", name: "jersey-bundle", version: "1.19.1"
+//        compile group: "commons-io", name: "commons-io", version: "2.5"
+//        compile group: "org.apache.commons", name: "commons-lang3", version: "3.4"
+//        compile group: "org.seleniumhq.selenium", name: "selenium-java", version: "2.53.1"
+//        compile group: "info.cukes", name: "cucumber-junit", version: "1.2.4"
+//        compile group: "info.cukes", name: "cucumber-java", version: "1.2.4"
+//        compile group: "info.cukes", name: "cucumber-core", version: "1.2.4"
+//        compile group: "info.cukes", name: "cucumber-picocontainer", version: "1.2.4"
+//        compile group: "info.cukes", name: "gherkin", version: "2.12.2"
+//        compile group: "io.cucumber", name: "gherkin3", version: "3.1.2"
+//        compile group: "org.slf4j", name: "slf4j-api", version: "1.7.21"
+//        compile group: "ch.qos.logback", name: "logback-classic", version: "1.1.7"
+//        compile group: "ch.qos.logback", name: "logback-core", version: "1.1.7"
+//        compile group: "org.testcontainers", name: "selenium", version: "1.0.4"
+//        compile group: "org.testcontainers", name: "testcontainers", version: "1.0.4"
+//        compile group: "com.spotify", name: "docker-client", version: "4.0.6"
+//        compile group: "com.github.docker-java", name: "docker-java", version: "3.0.0-RC5"
+//        compile group: "org.seleniumhq.selenium", name: "selenium-java", version: "2.53.1"
+//        compile group: "org.seleniumhq.selenium", name: "selenium-chrome-driver", version: "2.53.1"
+//        compile group: 'com.puppycrawl.tools', name: 'checkstyle', version: '8.1'
+//        compile group: 'net.objecthunter', name: 'exp4j', version: '0.4.8'
+//        testCompile "junit:junit:4.12"
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "4.0.1"
+}
+
+
+

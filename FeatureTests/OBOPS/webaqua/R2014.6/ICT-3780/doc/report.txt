@@ -1,0 +1,20 @@
+*Precondition*
+
+Open AQUA http://svea.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Automatically change an ObsUnitSet to Verified*
+
+1. Go to Manual Search tab
+2. Go to Search OUSs (QA2) tab
+3. In OUS Status select QA2InProgress
+4. Click in Search button
+5. Select the first result
+6. Click 'Set QA2 Status'
+7. Select QA2 Status: SemiPass QA2 SemiPass Reason: Some option, type a comment and Click in 'Set QA2 Status'.
+8. Expected Result:
+   - The OUS should automatically transition to "Verified", independently of the SemiPass Reason.
+   - A popup should inform the user that the automatic transition took place.
+9. Passed: OK (testcaste01-aqua.png testcaste01-protrack.png ICT-3780-TestCase01.html).

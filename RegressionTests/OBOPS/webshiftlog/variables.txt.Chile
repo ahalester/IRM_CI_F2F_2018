@@ -1,0 +1,64 @@
+# Variables.txt.Chile
+# This file is read by "SetupVariables.sh"
+#
+#  
+#-----
+# Test url and cas logout url
+#
+testUrl=https://2018may.asa-test.alma.cl/webshiftlog/
+casLogout=https://2018may.asa-test.alma.cl/osfcas/logout
+#
+#-----
+# Test user name and password, who has a valid role
+#
+testUser="knaka"
+testUserPW="Ky0k0"
+#
+#-----
+# Test user name and password, who doesn't have a valid role
+#
+noauthUser="wslttest"
+noauthUserPW="ws1tTest" 
+#
+#-----
+# Test interval
+#
+otherBegin="2017-07-01 00:00:00"
+otherEnd="2017-07-05 00:00:00" 
+actBegin="2017-07-01 00:00:00"
+actEnd="2017-07-05 00:00:00" 
+indefBegin="2018-04-01 00:00:00" 
+#
+#-----
+# Test parameter in general
+#
+genAuthor="almaop"
+genSubject="test" 
+genLocation="APE"
+genComment="test"
+#
+#-----
+# Test parameter in Execution Information
+#
+execProCode="2016.1"
+execProName="galaxy"
+execProPI="ph"
+execProVer="0"
+execSBName="j1"
+execSBUid="X11"
+execEBUid="X1"
+execArrayName="Array007"
+execAntName="CM01"
+execPRef="PhotonicReference3"
+execExecutive="CL"
+#
+#-----
+# Test parameter for Report
+#
+repBegin="2017-03-01 00:00:00"
+repEnd="2017-03-06 23:59:59"
+repPrjCode="2016.2.00025.S"
+repSite="Other"
+repLocation="SCO-ACSE"
+#
+# End of file

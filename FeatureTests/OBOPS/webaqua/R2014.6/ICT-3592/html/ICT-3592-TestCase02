@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://svea.sco.alma.cl:8080/" />
+<title>ICT-3592-TestCase02</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ICT-3592-TestCase02</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/webaqua/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_38-cnt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_74-cnt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_86-btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#zk_c_330 &gt; td.z-comboitem-text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_89-btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=_z_0-tm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=_z_0-m0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//*[@id='zk_c_98']</td>
+	<td>uid://A002/X785e52/X698</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_206-box']/tbody/tr[2]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//*[@id='zk_c_207-chdex']/td[1]/div[1]/div[3]/table[1]/tbody[2]/tr[1]/td[1]/div/span[2]</td>
+	<td>uid://A002/X785e52/X698</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_207-chdex']/td[1]/div[1]/div[3]/table[1]/tbody[2]/tr[1]/td[1]/div/span[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//*[@id='zk_c_267-cave']/div/div[5]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/span</td>
+	<td>Calibration Summaries</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_267-cave']/div/div[5]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_267-cave']/div/div[5]/div[2]/div[2]/div/div/div[1]/div[3]/ul/li[1]/div/div/div/span</td>
+	<td>Atmosphere</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_267-cave']/div/div[5]/div[2]/div[2]/div/div/div[1]/div[3]/ul/li[1]/div/div/div/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_267-cave']/div/div[5]/div[2]/div[2]/div/div/div[2]/div/div/div/div/div/table/tbody/tr/td/table/tbody/tr[7]/td/table/tbody/tr/td/table/tbody/tr[3]/td/div/div[3]/div/div[3]/table/tbody[2]/tr/td[2]/div</td>
+	<td>Undefined</td>
+</tr>
+</tbody></table>
+</body>
+</html>

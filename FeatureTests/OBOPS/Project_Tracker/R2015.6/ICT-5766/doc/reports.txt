@@ -1,0 +1,11 @@
+*Precondition*
+- Open DRM tool of Protrack https://2015-06-docker.asa-test.alma.cl/protrack/admin/drmTool.zul with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1:* Having a Progress bar
+1. Upload transitions file with DRM Tool.
+2. You will see progress bar with statuses
+3. Expected result: A progress bar instead of a busy sign: with the busy sign one never knows if the service has hung up. The best would be a progress indicator which says what it is doing at the moment.
+4. Passed: OK (testcase01.png).

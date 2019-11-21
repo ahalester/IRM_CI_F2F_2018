@@ -1,0 +1,29 @@
+*Precondition*
+
+Open AQUA http://lucina.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+Test Case #1: Link to Protrack for long OUS Name.
+
+1. Go to Manual Search tab
+2. Go to Search OUSs (QA2) tab
+3. Input in ObsUnitSet Name: SG OUS (Band 9 compact continuum mapping of SMMJ2135 (z=2.326))
+4. Input in ObsUnitSet UID: uid://A001/Xa0/X1b0e
+5. Click in Search button
+6. Select the result's row
+7. Expected Result: The 'In Protrack' link should always be visible next to the ObsUnitSet UID.
+8. Passed: OK (testcaste01.png ICT-3159-TestCase01.html).
+
+Test Case #2: Link to Protrack for short OUS Name.
+
+1. Go to Manual Search tab
+2. Go to Search OUSs (QA2) tab
+3. Input in ObsUnitSet Name: Group OUS
+4. Input in ObsUnitSet UID: uid://A001/Xa0/X1b0e
+5. Click in Search button
+6. Select the first one row
+7. Expected Result: The 'In Protrack' link should always be visible next to the ObsUnitSet UID.
+8. Passed: OK (testcaste02.png ICT-3159-TestCase02.html).
+

@@ -1,0 +1,10 @@
+*Precondition*
+- Open DRM tool https://2015-08.asa-test.alma.cl/protrack/admin/drmTool.zul with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1:* Changing a MOUS from ManualProcessing to QA2InProgress
+1. Upload file with different wrong data.
+2. Expected result:  You will see the list of validation errors with line numbers and description.
+3. Passed: OK (testcase01.png).

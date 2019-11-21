@@ -1,0 +1,32 @@
+*Precondition*
+- Open DRM tool https://2015-08.asa-test.alma.cl/protrack/admin/drmTool.zul with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1:* Try to upload file with a single mOUS transition and empty timestamp.
+1. For ObsUnitSet Status UID: uid://A002/X391d0b/X2aa we would like to upload transition with empty timestamp.
+{noformat}
+uid://A002/X391d0b/X2a6,QA3InProgress,,"Example of comment"
+{noformat}
+2. Expected result: System will set current date and time.
+3. Passed: OK (testcase01-a.png testcase01-b.png testcase01-c.png).
+
+*Test Case #2:* Try to upload file with empty timestamp for the last mOUS transition.
+1. For OUS Status ID: uid://A002/X391d0b/X2aa we would like to upload transitions with empty timestamps.
+{noformat}
+uid://A002/X391d0b/X2a6,Delivered,2015-01-20 04:40:00,"Example of comment 1"
+uid://A002/X391d0b/X2a6,QA3InProgress,,"Example of comment 2"
+{noformat}
+2. Expected result: System will set current date and time for this transition.
+3. Passed: OK (testcase02-a.png testcase02-b.png testcase02-c.png).
+
+*Test Case #3:* Try to upload file with empty timestamp for mOUS transition in the middle of the list.
+1. For OUS Status ID: uid://A002/X391d0b/X2aa we would like to upload transitions with empty timestamps for mOUS transition in the middle of the list.
+{noformat}
+uid://A002/X391d0b/X2a6,Delivered,2015-01-20 04:40:00,"Example of comment 1"
+uid://A002/X391d0b/X2a6,QA3InProgress,,"Example of comment 2"
+uid://A002/X391d0b/X2a6,ManualProcessing,2015-01-20 05:40:00,"Example of comment 3"
+{noformat}
+2. Expected result: System will show error message.
+3. Passed: OK (testcase03.png).

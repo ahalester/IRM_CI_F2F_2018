@@ -1,0 +1,75 @@
+ DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" 
+<suite name="Your Suite name" verbose="2" thread-count="4"
+	parallel="tests">
+	<tests>
+		<test name="Windows +IE">
+			<parameters>
+				<parameter name="platform" value="Windows" />
+				<parameter name="browser" value="Internet Explorer" />
+				<parameter name="url" value="http://your.url/cas" />
+				<parameter name="username" value="your_username" />
+				<parameter name="password" value="your_password" />
+			</parameters>
+			<classes>
+				<class name="your.class.name" />
+			</classes>
+		</test>
+
+
+		<test name="Mac+Firefox Test">
+			<parameters>
+				<parameter name="platform" value="Mac" />
+				<parameter name="browser" value="Firefox" />
+				<parameter name="url" value="http://your.url/cas" />
+				<parameter name="username" value="your_username" />
+				<parameter name="password" value="your_password" />
+			</parameters>
+			<classes>
+				<class name="your.class.name" />
+			</classes>
+		</test>
+
+		<test name="Windows+firefox">
+			<parameters>
+				<parameter name="platform" value="Windows" />
+				<parameter name="browser" value="Firefox" />
+				<parameter name="url" value="http://your.url/cas" />
+				<parameter name="username" value="your_username" />
+				<parameter name="password" value="your_password" />
+			</parameters>
+			<classes>
+				<class name="your.class.name" />
+			</classes>
+		</test>
+
+
+		<test name="Linux+Firefox Test">
+			<parameters>
+				<parameter name="platform" value="Linux" />
+				<parameter name="browser" value="Firefox" />
+				<parameter name="url" value="http://your.url/cas" />
+				<parameter name="username" value="your_username" />
+				<parameter name="password" value="your_password" />
+			</parameters>
+			<classes>
+				<class name="your.class.name" />
+			</classes>
+		</test>
+
+		<test name="Mac+Chrome Test">
+			<parameters>
+				<parameter name="platform" value="Mac" />
+				<parameter name="browser" value="Chrome" />
+				<parameter name="url" value="http://your.url/cas" />
+				<parameter name="username" value="your_username" />
+				<parameter name="password" value="your_password" />
+			</parameters>
+			<classes>
+				<class name="your.class.name" />
+			</classes>
+		</test>
+
+	</tests>
+
+</suite>
+

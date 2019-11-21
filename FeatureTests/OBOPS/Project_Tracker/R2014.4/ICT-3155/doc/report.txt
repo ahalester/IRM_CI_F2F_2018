@@ -1,0 +1,19 @@
+*Precondition*
+
+Open Protrack http://concordia.sco.alma.cl:8080/protrack/ with CASA account
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Displaying Execution fraction of each EB in Exec status list*
+
+1. Click in SB button
+2. Input uid://A002/X77da97/X3ca in ExecBlock UID
+3. Click in Search Button
+4. Click in the first result
+5. Go to the Exec Status List grid
+6. Expected Result:
+   All executions should list on the third column the execution fraction that they got assigned when the QA0 Pass status was set in AQUA.
+   The sum of all the execution fractions should be the total number of current executions reported by the SB.
+7. Passed: OK (testcaste01-protrack.png testcase01-aqua.png ICT-3155-TestCase01.html).
+

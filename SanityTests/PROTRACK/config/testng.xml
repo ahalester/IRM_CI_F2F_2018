@@ -1,0 +1,63 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="protrack" verbose="2" thread-count="4"
+       parallel="tests">
+    <tests>
+        <!--<test name="Windows+IE Test">-->
+            <!--<parameters>-->
+                <!--<parameter name="platform" value="Windows" />-->
+                <!--<parameter name="browser" value="Internet Explorer" />-->
+                <!--<parameter name="url" value="https://asa.alma.cl/protrack/" />-->
+            <!--</parameters>-->
+            <!--<classes>-->
+                <!--<class name="alma.irm.protrack.SimpleTest" />-->
+            <!--</classes>-->
+        <!--</test>-->
+
+        <!--<test name="Windows+firefox">-->
+            <!--<parameters>-->
+                <!--<parameter name="platform" value="Windows" />-->
+                <!--<parameter name="browser" value="Firefox" />-->
+                <!--<parameter name="url" value="https://asa.alma.cl/protrack/" />-->
+            <!--</parameters>-->
+            <!--<classes>-->
+                <!--<class name="alma.irm.protrack.SimpleTest" />-->
+            <!--</classes>-->
+        <!--</test>-->
+        <!--<test name="Windows+Chrome Test">-->
+            <!--<parameters>-->
+                <!--<parameter name="platform" value="Windows" />-->
+                <!--<parameter name="browser" value="Chrome" />-->
+                <!--<parameter name="url" value="https://asa.alma.cl/protrack/" />-->
+            <!--</parameters>-->
+            <!--<classes>-->
+                <!--<class name="alma.irm.protrack.SimpleTest" />-->
+            <!--</classes>-->
+        <!--</test>-->
+        <test name="Linux+Firefox Test">
+            <parameters>
+                <parameter name="platform" value="Linux" />
+                <parameter name="browser" value="Firefox" />
+                <parameter name="urltest" value="https://jun2017.asa-test.alma.cl/protrack" />
+                <parameter name="url" value="https://asa.alma.cl/protrack/" />
+            </parameters>
+            <classes>
+                <class name="alma.irm.protrack.SimpleTest" />
+            </classes>
+        </test>
+
+        <test name="Linux+Chrome Test">
+            <parameters>
+                <parameter name="platform" value="Linux" />
+                <parameter name="browser" value="Chrome" />
+                <parameter name="urltest" value="https://jun2017.asa-test.alma.cl/protrack" />
+                <parameter name="url" value="https://asa.alma.cl/protrack/" />
+            </parameters>
+            <classes>
+                <class name="alma.irm.protrack.SimpleTest" />
+            </classes>
+        </test>
+
+    </tests>
+
+</suite>
+

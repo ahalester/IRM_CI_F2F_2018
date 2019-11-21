@@ -1,0 +1,11 @@
+*Precondition*
+- Open SnooPI Front-end https://2015-08.asa-test.alma.cl/public-protrack with CASA account (user: kkohno, pass: aaa)
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1:* Start the application
+1. Start SnooPI.
+2. Check console.
+3. Expected result: There should be no Javascript errors. 
+4. Passed: OK (testcase01.png).

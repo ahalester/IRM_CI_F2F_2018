@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://2016-03.asa-test.alma.cl/webaqua" />
+<title>ICT-6212-TestCase02</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ICT-6212-TestCase02</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/webaqua/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_57-real</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_65-real</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_76-cave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=i.z-combobox-icon.z-icon-caret-down</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_278</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=i.z-datebox-icon.z-icon-calendar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=_z_0-ty</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=_z_0-y2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=_z_0-m0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//tr[@id='_z_0-w0']/td[7]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#zk_c_91-btn &gt; i.z-datebox-icon.z-icon-calendar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//tr[@id='_z_2-w4']/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_60</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_224</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_303-cnt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=zk_c_104</td>
+	<td>uid://A002/Xb20a71/X3</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>class=errornumbers</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

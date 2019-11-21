@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://2016-04.asa-test.alma.cl/webaqua/" />
+<title>IRM-ALMA-2015_1</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">IRM-ALMA-2015_1</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/webaqua/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//*[@id='zk_c_40']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_42-cave']</td>
+	<td>Project</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_43-cave']</td>
+	<td>SB Name</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_44-cave']</td>
+	<td>Duration</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_45-cave']</td>
+	<td>Start Time</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_46-cave']</td>
+	<td>QA0 State</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_47-cave']</td>
+	<td>EB UID</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_50-cnt']</td>
+	<td>EB Search</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_51-cnt']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//*[@id='zk_c_99']</td>
+	<td>Example</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_106']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_99']</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

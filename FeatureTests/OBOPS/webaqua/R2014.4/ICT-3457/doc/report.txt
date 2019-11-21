@@ -1,0 +1,42 @@
+*Precondition*
+
+Open AQUA http://eulalia.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Automatic transition from QA2InProgress to Verified set to Pass.*
+
+1. Go to Manual Search tab
+2. Go to Search OUSs (QA2) tab
+3. In OUS Status select QA2InProgress
+4. Click in Search button
+5. Select the first result
+6. Click in Set QA2 status button
+7. In the combobox select the 'Pass' value and save with Set QA2 status button.
+8. Expected Result: A dialog should inform that the automatic transition took place to Verified.
+9. Passed: OK (testcaste01.png ICT-3457-TestCase01.html).
+
+*Test Case #2: Not transition from QA2InProgress to Verified when set to Fail.*
+
+1. Go to Manual Search tab
+2. Go to Search OUSs (QA2) tab
+3. In OUS Status select QA2InProgress
+4. Click in Search button
+5. Select the first result
+6. Click in Set QA2 status button
+7. In the combobox select the 'Fail' value and save with Set QA2 status button.
+8. Expected Result: The result should not be a transition to Verified state.
+9. Passed: OK (testcaste02.png ICT-3457-TestCase02.html).
+
+*Test Case #3: Not transition from QA2InProgress to Verified when set to SemiPass.*
+
+1. Go to Manual Search tab
+2. Go to Search OUSs (QA2) tab
+3. In OUS Status select QA2InProgress
+4. Click in Search button
+5. Select the first result
+6. Click in Set QA2 status button
+7. In the combobox select the 'SemiPass' value and save with Set QA2 status button.
+8. Expected Result: The result should not be a transition to Verified state.
+9. Passed: OK (testcaste03.png ICT-3457-TestCase03.html).

@@ -1,0 +1,17 @@
+*Precondition*
+
+- Open AQUA https://2016-04.asa-test.alma.cl/webaqua with user CASA account (pmerino)
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: AQUA GUI QA0: landing page improvements*
+1. Search Tabs: QA0, QA1, QA2
+2. Expected result:
+   - The QA0 tab is initially populated with the most recent QA0 unset ExecBlocks from which Running ExecBlocks are excluded.
+   - The ExecBlock list columns are: Project, SchedBlock, Duration, StartTime, QA0 State, EB UID.
+   - Below the ExecBlock list are quick filters for correlator, project type and QA0 status.
+   - After changing any filters the search button must be pressed, there is no more automatic periodic search.
+   - Clicking on the title "Advanced Search" will show additional search parameters (What used to be the manual search).
+   - Clicking Reset will revert to the initial search parameters (BL, Science, Unset) and perform a new search.
+3. Passed: OK (testcaste01-a.png testcaste01-b.png)

@@ -1,0 +1,11 @@
+*Precondition*
+
+- Open AQUA https://2016-04.asa-test.alma.cl/webaqua with user CASA account (pmerino)
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Display the information of flagged antenna in Summary (QA0)*
+1. Open QA0 summary.
+2. Expected Result: After some time, "Antenna flags" button will be enable. Press the button. Wait up to minute. The window with table should open.
+3. Passed: OK (testcaste01.png)

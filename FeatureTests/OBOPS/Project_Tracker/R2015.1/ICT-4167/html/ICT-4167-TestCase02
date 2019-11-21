@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://laetitia.sco.alma.cl:8080/" />
+<title>ICT-4167-TestCase02</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ICT-4167-TestCase02</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://laetitia.sco.alma.cl:8080/protrack</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=zk_c_55</td>
+	<td>sagawa</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_94-box']/tbody/tr[2]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//*[@id='zk_c_31-real']/div/div/table/tbody/tr/td/table/tbody/tr/td/div/div[3]/table/tbody[2]/tr[2]/td[1]/div</td>
+	<td>2012.1.01123.S</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_31-real']/div/div/table/tbody/tr/td/table/tbody/tr/td/div/div[3]/table/tbody[2]/tr[2]/td[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_34']/div/div[2]/div[1]/div/div/div[1]/table/tbody[2]/tr/th[1]/div[1]</td>
+	<td>Entity</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_34']/div/div[2]/div[1]/div/div/div[3]/table/tbody[2]/tr[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//*[@id='zk_c_34']/div/div[3]/div/div/div/table/tbody/tr/td/table/tbody/tr[1]/td/table/tbody/tr/td/table/tbody/tr[1]/td/div/div[2]/div[1]/div[1]/div[1]/div[3]/table/tbody[2]/tr[3]/td[1]/div/span</td>
+	<td>Creation date</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_34']/div/div[2]/div[1]/div/div/div[3]/table/tbody[2]/tr[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//*[@id='zk_c_30']/div[2]/div/div/div/div/div[3]/div/div/div/div/div[3]/div/div[3]/table/tbody[2]/tr[1]/td[1]/div/span</td>
+	<td>PI</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_34']/div/div[2]/div[1]/div/div/div[3]/table/tbody[2]/tr[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//*[@id='zk_c_34']/div/div[3]/div/div/div/table/tbody/tr/td/table/tbody/tr[1]/td/div/div[2]/div/div/div/table/tbody/tr/td[1]</td>
+	<td>ObsUnitSet</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_34']/div/div[2]/div[1]/div/div/div[3]/table/tbody[2]/tr[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//*[@id='zk_c_34']/div/div[3]/div/div/div/table/tbody/tr/td/table/tbody/tr[1]/td/div/div[2]/div/div/div/table/tbody/tr/td[1]</td>
+	<td>ObsUnitSet: SG OUS (Venus ClO HCl)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_34']/div/div[2]/div[1]/div/div/div[3]/table/tbody[2]/tr[5]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//*[@id='zk_c_34']/div/div[3]/div/div/div/table/tbody/tr/td/table/tbody/tr[1]/td/div/div[2]/div/div/div/table/tbody/tr/td[1]</td>
+	<td>ObsUnitSet: Group OUS</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_34']/div/div[2]/div[1]/div/div/div[3]/table/tbody[2]/tr[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//*[@id='zk_c_34']/div/div[3]/div/div/div/table/tbody/tr/td/table/tbody/tr[1]/td/div/div[2]/div/div/div/table/tbody/tr/td[1]</td>
+	<td>ObsUnitSet: Member OUS (Venus)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_34']/div/div[2]/div[1]/div/div/div[3]/table/tbody[2]/tr[7]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//*[@id='zk_c_34']/div/div[3]/div/div/div/table/tbody/tr/td/table/tbody/tr[1]/td/div/div[2]/div/div/div/table/tbody/tr/td[1]</td>
+	<td>SchedBlock: Venus</td>
+</tr>
+</tbody></table>
+</body>
+</html>

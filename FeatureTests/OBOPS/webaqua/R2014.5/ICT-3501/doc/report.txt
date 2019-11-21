@@ -1,0 +1,53 @@
+*Precondition*
+
+Open AQUA http://urda.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Adding a new comment*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014//01/01
+5. In To select the current date
+6. In ExecBlock UID input uid://A002/X77da97/Xba7
+7. Click in Search button
+8. Select the first result
+9. Click the ExecBlock tab
+10. Expected Result: The comment should be shown in the table.
+                     Hover the mouse over different comments (your own and other users') and try out the icons that appear over them.
+12. Passed: OK (testcaste01.png ICT-3501-TestCase01.html).
+
+*Test Case #2: Modify a comment*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014//01/01
+5. In To select the current date
+6. In ExecBlock UID input uid://A002/X77da97/Xba7
+7. Click in Search button
+8. Select the first result
+9. Click the ExecBlock tab
+10. Click in the Edit comment icon, modify the text and save
+11. Expected Result: The edited comment should be shown in the table.
+                     When the user clicks on the first icon, the user should be able to modify the comment and save the changes.
+12. Passed: OK (testcaste02.png ICT-3501-TestCase02.html).
+
+*Test Case #3: Delete a comment*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014//01/01
+5. In To select the current date
+6. In ExecBlock UID input uid://A002/X77da97/Xba7
+7. Click in Search button
+8. Select the first result
+9. Click the ExecBlock tab
+10. Click in the Delete comment icon and confirm the operation
+11. Expected Result: The edited comment should be shown in the table.
+                     When the user clicks on the second icon, the comment should be removed after user confirmation.
+12. Passed: OK (testcaste03.png ICT-3501-TestCase03.html).

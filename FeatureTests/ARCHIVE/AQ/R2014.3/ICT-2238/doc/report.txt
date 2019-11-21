@@ -1,0 +1,20 @@
+*Precondition*
+
+Open AQ http://gallia.sco.alma.cl:8080/aq/
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+Test Case #1: Bookmarking search results by default.
+
+1. Click in Search button
+2. Click in Results Bookmark
+3. Expected Result:
+   A bookmark should be showed by the exact state of the query and query results page, and be able to share this results page via a link.
+   Verify that the URLs generated reproduce exactly the state of the results grid when it was bookmarked.
+4. Passed: NOK (testcaste01-result.png testcase01-bookmark.png ICT-2238-TestCase01.html).
+   We noted that for some default search the result is sorted by Release date ascendent (testcaste01-result.png) and the URL bookmarked is sorted by Release date descendent (testcase01-bookmark.png).
+
+Other test cases are pending, because the behaviour was the same.
+
+

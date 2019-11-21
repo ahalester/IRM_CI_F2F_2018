@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://edna.sco.alma.cl:8080/" />
+<title>ICT-5932-TestCase01</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ICT-5932-TestCase01</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/protrack/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_12-cnt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=zk_c_85</td>
+	<td>uid://A001/X147/X126</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_157-cm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=zk_c_98</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//*[@id='zk_c_33']/div/div/div/div/div[3]/div/div/div/table/tbody/tr/td/table/tbody/tr[1]/td/div/div[2]/div/div[3]/table/tbody[1]/tr[3]/td[1]/div/span</td>
+	<td>QA2 status</td>
+</tr>
+</tbody></table>
+</body>
+</html>

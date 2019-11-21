@@ -1,0 +1,15 @@
+*Precondition*
+
+Open Reports of Protrack http://concordia.sco.alma.cl:8080/protrack/reports/dso.zul with CASA account
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: The KPI Delivered data report should include a sheet including the meaning of each column*
+
+1. In the Reports panel
+2. Select the cycle: 2013.1
+3. Choose the KPI: Delivery Data
+4. Click in the General Delivery Data
+5. Expected Result: In the KPI Delivered data report, the first sheet is called "Columns" and that it contains a simple explanation of the columns show on the second sheet.
+6. Passed: OK (testcaste01.png ICT-3326-TestCase01.html).

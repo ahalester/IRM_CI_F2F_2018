@@ -1,0 +1,53 @@
+Testing of Project Tracker
+==========================
+
+*Precondition*
+
+- Add in /etc/tomcat7/tomcat7.conf and restart Tomcat
+  export OBOPS_ZK_PERFORMANCE_MONITORING=1
+- Open DRM tool of Protrack http://laetitia.sco.alma.cl:8080/protrack with CAS account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Generating ZK performance logging in Protrack*
+
+1. Start the Project Tracker, log in, and interact a bit with it, clicking buttons, scrolling lists, opening/closing windows, etc.
+2. Continue like this for 5 or 10 minutes. Repeat with all web applications if you want to double check, although one might be enough.
+3. Expected Result:
+   - After 5 minutes a "performance.log" file should be present under the tomcat's webapps/protrack directory.
+   - The file should files where the content is separated by commas, and should contain:
+        - Date/time
+        - Request ID
+        - Username
+        - Client-side IP
+        - Four time mesasuraments, expressed simply as numbers
+        - Events information, if there is any
+4. Passed: OK (performance_protrack.log ICT-4343-TestCase01.html).
+
+Testing of Web Shiftlog
+=======================
+
+*Precondition*
+
+- Add in /etc/tomcat7/tomcat7.conf and restart Tomcat
+  export OBOPS_ZK_PERFORMANCE_MONITORING=1
+- Open Reports of Protrack http://pales.sco.alma.cl:8080/webshiftlog with CAS account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Generating ZK performance logging in WebShiftlog*
+
+1. Start the Web Shiftlog, log in, and interact a bit with it, clicking buttons, scrolling lists, opening/closing windows, etc.
+2. Continue like this for 5 or 10 minutes. Repeat with all web applications if you want to double check, although one might be enough.
+3. Expected Result:
+   - After 5 minutes a "performance.log" file should be present under the tomcat's webapps/webshiftlog directory.
+   - The file should files where the content is separated by commas, and should contain:
+        - Date/time
+        - Request ID
+        - Username
+        - Client-side IP
+        - Four time mesasuraments, expressed simply as numbers
+        - Events information, if there is any
+4. Passed: OK (performance_webshiftlog.log ICT-4343-TestCase01.html).

@@ -1,0 +1,57 @@
+*Precondition*
+
+Open AQUA http://urda.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Checking the contents of the tooltips of Plots - Pointing*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014/01/01
+5. In To select the current date
+6. In ExecBlock UID field input uid://A002/X77dfee/X27
+7. Click in Search button
+8. Select the first result
+9. Go to Plots > Pointing
+10. In the Source select 0 - J2258-2758@ALMA_RB_03
+11. Expected Result: A graph should be shown with the following characteristics:
+ - All tooltips displaying numerical values should use three decimals at the most to display numbers.
+
+12. Passed: OK (testcaste01.png ICT-3503-TestCase01.html).
+
+*Test Case #2: Checking the contents of the tooltips of Plots - Coverage*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014/01/01
+5. In To select the current date
+6. In ExecBlock UID field input uid://A002/X77dfee/X27
+7. Click in Search button
+8. Select the first result
+9. Go to Plots > Coverage
+10. In the Source select J2258-279
+11. Expected Result: A graph should be shown with the following characteristics:
+ - All tooltips displaying numerical values should use three decimals at the most to display numbers.
+
+12. Passed: OK (testcaste02.png ICT-3503-TestCase02.html).
+
+*Test Case #2: Checking the contents of the tooltips of Plots - Phase*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014/01/01
+5. In To select the current date
+6. In ExecBlock UID field input uid://A002/X77dfee/X27
+7. Click in Search button
+8. Select the first result
+9. Go to Plots > Phase
+10. In the Source select J2258-2758: ALMA_RB_03 (BB_1 @ 85.99 [GHz])
+11. Expected Result: A graph should be shown with the following characteristics:
+ - All tooltips displaying numerical values should use three decimals at the most to display numbers.
+
+12. Passed: OK (testcaste03.png ICT-3503-TestCase03.html).

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://2016-04.asa-test.alma.cl/protrack" />
+<title>ICT-7282-TestCase03</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ICT-7282-TestCase03</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>https://2016-04.asa-test.alma.cl/protrack/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_410-inp</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#zk_c_410-sel &gt; div.z-chosenbox-option</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_460</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_2911-cave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.z-treecell-text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_1100']</td>
+	<td>Priority Grade</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_1101']</td>
+	<td>A</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_1102']</td>
+	<td>Rank</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_1103']</td>
+	<td>1</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

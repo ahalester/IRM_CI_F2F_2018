@@ -1,0 +1,19 @@
+# 2016-02-24 Data file for testCase124: searchWithAndOr()
+# Kyoko Nakamura
+#
+item=Author
+test=alma AND proc exp=almaproc
+test=alma OR proc exp=alma|proc
+test=ALMA AND PROC exp=almaproc
+test=ALMA OR PROC exp=alma|proc
+test=almaANDproc exp=none
+test=almaORproc exp=none
+test=alma and proc exp=none
+test=alma or proc exp=none
+test=a AND l AND m AND p AND r AND o AND c exp=almaproc
+item=Location
+test=tst AND ACA4 exp=TST-ACA4
+test=tst OR aca4 exp=tst|aca4
+item=Subject
+# expectation is "no entry"
+test=request AND for AND no AND entry exp=none

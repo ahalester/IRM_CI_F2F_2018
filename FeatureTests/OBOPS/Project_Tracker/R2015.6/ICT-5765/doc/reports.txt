@@ -1,0 +1,11 @@
+*Precondition*
+- Open DRM tool of Protrack https://2015-06-docker.asa-test.alma.cl/protrack/admin/drmTool.zul with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1:* Having a scroll bar in the results window
+1. Apply transitions
+2. Check if the scrollbar is there.
+3. Expected result: Having a scroll bar in the results window is essential since otherwise, if the list of results is long, the end of the list cannot be seen.
+4. Passed: OK (testcase01.png).

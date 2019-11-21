@@ -1,0 +1,16 @@
+target
+buildSrc
+*.iml
+*.jar
+!libs/
+.gradle
+/local.properties
+/gradle-local.properties
+/build
+/.idea
+plugins/
+.DS_Store
+.project
+.log
+/log
+/out

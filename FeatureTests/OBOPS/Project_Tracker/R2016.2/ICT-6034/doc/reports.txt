@@ -1,0 +1,13 @@
+*Precondition*
+
+- Test using CASA account
+- Test using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Test using Mozilla Firefox v.43.0 (Latest version)
+- Test using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Access to Report of Age Limits from Web Page: 4 new columns in the end of the strings*
+1) Go to https://asa.alma.cl/reporting/
+2) Click in 'Generate State Age Limits Report' button
+3) Expected result: A PDF report of ALMA MOUS and SB State Age Limit should be generated.
+   4 new columns: "Expected executions","Pass executions", "SemiPass executions" and "PI executive" in the end of each string.
+4) Passed: OK (state-age-limits-report_2016-01-04.pdf)

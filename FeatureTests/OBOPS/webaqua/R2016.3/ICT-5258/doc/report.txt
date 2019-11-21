@@ -1,0 +1,12 @@
+*Precondition*
+
+- Open AQUA https://2016-03.asa-test.alma.cl/webaqua with user CASA account (pmerino)
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Add plot of the BL histogram in the "Antenna Positions" Tab*
+
+1. Open Antenna positions plot in AQUA (For example: ExecBlock uid://A002/X9aca45/X190e).
+2. Expected Result: There is baseline distribution histogram and RMS label below.
+3. Passed: OK (testcaste01.png).

@@ -1,0 +1,10 @@
+*Precondition*
+- Open SnooPI Front-end https://2016-02.asa-test.alma.cl/snoopi with CASA account (user: akawamura, pass: aaa)
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1:* SnooPI to show non-aproved projects
+1. Open SnooPI project list. 
+2. Expected result: There will be displayed all projects
+3. Passed: OK (testcase01.png)

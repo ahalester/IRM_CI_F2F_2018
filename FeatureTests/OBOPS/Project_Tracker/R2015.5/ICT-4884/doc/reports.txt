@@ -1,0 +1,33 @@
+*Precondition*
+- Open Reports of Protrack https://2015-05-64b.asa-test.alma.cl/protrack with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1:* Search Projects by Project cycles
+1. Click in Project button
+2. Choose at least two Project cycles. For example: 2010.2 and 2010.3
+3. Click in Search button
+4. Expected result: The results should be related with the filter of search
+5. Passed: OK (testcase01-a.png testcase01-b.png ICT-4884-TestCase01.html)
+
+*Test Case #2:* Search Projects by Project type
+1. Click in Project button
+2. Choose at least one Project type. For example: Target of Oportunity
+3. Click in Search button
+4. Expected result: The results should be related with the filter of search
+5. Passed: OK (testcase02-a.png testcase02-b.png ICT-4884-TestCase02.html)
+
+*Test Case #3:* Search Projects by Ph1m Priority Flag
+1. Click in Project button
+2. Choose at least six Ph1m Priority Flag. For example: A B C I O U
+3. Click in Search button
+4. Expected result: The results should be related with the filter of search
+5. Passed: OK (testcase03-a.png testcase03-b.png ICT-4884-TestCase03.html)
+
+*Test Case #4:* Search SBs by Project cycles and Project type
+1. Click in SB button
+2. Choose at least two Project cycles. For example: 2010.2
+3. Choose at least one Project type. For example: Target of Oportunity
+4. Expected result: The results should be related with the filter of search and the SB search dialog after any search you can see additional column "Exp.Exec." which shows the number of expected executions for current SB.
+5. Passed: OK (testcase04-a.png testcase04-b.png ICT-4884-TestCase04.html)

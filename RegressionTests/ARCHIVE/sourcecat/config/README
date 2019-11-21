@@ -1,0 +1,21 @@
+Summary:
+1.How to edit properties (integration tests configuration values like URL, UserName, etc)
+2.How to add a new property to locators.properties file
+
+Description:
+1. a.open config\locators.properties file -> here you can find a list with properties 
+     used for the test in the following format: <key>=<value>
+   b.choose a property and change the <value>
+   c.save the file
+   
+2. a.open config\locators.properties file and on a new line add a new property
+     in the following format: <key>=<value> 
+     (eg. of properties: URL=http://google.com ; Username=almatest; etc)
+   b.save the file
+   c.create a method in order to extract the property from file:
+     c.1. open the class: eso\sourcecat\integrationtests\util\LoadPropFile.java
+     c.2. create a method in the following format:
+          public String get<SomeKey>() {
+		    return getProperties().getProperty("<SomeKey>");
+	      }
+	 c.3. save changes

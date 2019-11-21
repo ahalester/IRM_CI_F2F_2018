@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://hermione.sco.alma.cl:8080/" />
+<title>ICT-2738-TestCase01</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ICT-2738-TestCase01</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/webaqua/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_38-cnt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_76-cnt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=zk_c_177</td>
+	<td>uid://X02/X63b6d/Xa</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=zk_c_177</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForTable</td>
+	<td>id=zk_c_215-cave.1.0</td>
+	<td>exact:uid://X02/X63b6d/Xa-X14685679</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_215-rows']/tr[1]/td[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@class='z-caption-l' and contains(text(),'Attachments')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@class='z-button-os' and contains(text(),'Full QA2/QA1/QA0 Report (ZIP)')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPopUp</td>
+	<td>_blank</td>
+	<td>30000</td>
+</tr>
+</tbody></table>
+</body>
+</html>

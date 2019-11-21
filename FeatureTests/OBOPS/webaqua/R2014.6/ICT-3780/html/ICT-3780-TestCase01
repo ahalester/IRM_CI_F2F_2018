@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://svea.sco.alma.cl:8080/" />
+<title>ICT-3780-TestCase01</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ICT-3780-TestCase01</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/webaqua/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_38-cnt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_76-cnt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_253-cm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_380</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_206-box']/tbody/tr[2]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//*[@id='zk_c_71-real']/tbody/tr[9]/td/div/div[1]/table/tbody[2]/tr/th[1]/div</td>
+	<td>ObsUnitSet UID/PartID</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_71-real']/tbody/tr[9]/td/div/div[3]/table/tbody[2]/tr[1]/td[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//*[@id='zk_c_860-real']/div/div/div/div/div[1]/div[3]/table/tbody[2]/tr[1]/td[1]/div/span</td>
+	<td>ObsUnitSet Name</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[contains(., 'Set QA2 Status')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_727-btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#zk_c_714 &gt; td.z-comboitem-text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_730-btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#zk_c_715 &gt; td.z-comboitem-text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//*[@id='zk_c_747-cave']/div/div/table/tbody/tr[3]/td[2]/div/textarea</td>
+	<td>Example of comment</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_747-cave']/div/div/table/tbody/tr[4]/td/div/table/tbody/tr/td/table/tbody/tr/td/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[contains(., 'Yes')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[contains(., 'OK')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//*[@id='zk_c_860-real']/div/div/div/div/div[1]/div[3]/table/tbody[2]/tr[13]/td[2]/div/table/tbody/tr/td/table/tbody/tr/td[3]/span</td>
+	<td>SemiPass</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[contains(., 'In Protrack')]</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://2016-03.asa-test.alma.cl/webaqua" />
+<title>ICT-6357-TestCase01</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ICT-6357-TestCase01</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/webaqua/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_317</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//*[@id='zk_c_301']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//*[@id='zk_c_303']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//*[@id='zk_c_311']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//*[@id='zk_c_315']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//*[@id='zk_c_629']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_631']</td>
+	<td>ExecBlock Status</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_635']</td>
+	<td>Antennas:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_638']</td>
+	<td>Array:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_641']</td>
+	<td>Correlator:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_644']</td>
+	<td>Representative frequency</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_649']</td>
+	<td>QA0 Status</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_654']</td>
+	<td>Execution fraction</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_657']</td>
+	<td>Final QA0 Comment</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_700-cave']</td>
+	<td>Times on Sources</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_670-cave']</td>
+	<td>Comments</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_677-cave']</td>
+	<td>Attachments</td>
+</tr>
+</tbody></table>
+</body>
+</html>

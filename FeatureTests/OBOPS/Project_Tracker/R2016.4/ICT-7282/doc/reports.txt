@@ -1,0 +1,24 @@
+*Precondition*
+
+- Open https://2016-04.asa-test.alma.cl/protrack with CASA account (Username: pmerino)
+- Test using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Test using Mozilla Firefox v.43.0 (Latest version)
+- Test using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: PT should not retrieve grade and score from the ObsProject xml - Project search*
+1) Open Protrack and test the Project search by Priority Grade.
+2) Select individual projects
+3) Expected result: Priority Grade & Rank are visible for projects which are not Phase2Submitted.
+4) Passed: OK (testcase01.png)
+
+*Test Case #2: PT should not retrieve grade and score from the ObsProject xml - SB search*
+1) Open Protrack and test the SB search by Priority Grade.
+2) Select individual projects
+3) Expected result: Priority Grade & Rank are visible for projects which are not Phase2Submitted.
+4) Passed: OK (testcase02.png)
+
+*Test Case #3: PT should not retrieve grade and score from the ObsProject xml - OUS search*
+1) Open Protrack and test the OUS search by Priority Grade.
+2) Select individual projects
+3) Expected result: Priority Grade & Rank are visible for projects which are not Phase2Submitted.
+4) Passed: OK (testcase03.png)

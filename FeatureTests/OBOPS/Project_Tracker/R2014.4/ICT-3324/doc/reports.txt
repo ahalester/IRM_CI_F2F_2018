@@ -1,0 +1,15 @@
+*Precondition*
+
+Open Reports of Protrack http://concordia.sco.alma.cl:8080/protrack/reports/dso.zul with CASA account
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Generating Delivery Efficiency with Statistics on DDT projects*
+
+1. In the Reports panel
+2. Select the cycle: 2012.1
+3. Choose the KPI: Delivery Efficiency
+4. Click in the General Delivery Effiency
+5. Expected Result: KPI Delivery Efficiency report should include DDT projects, typically with projects codes 2012.A or 2013.A, in the same way that for HP and Filler projects, i.e. Mean Time for OUS state changes in days, and QA2 failure rates
+6. Passed: OK (testcaste01.png ICT-3324-TestCase01.html).

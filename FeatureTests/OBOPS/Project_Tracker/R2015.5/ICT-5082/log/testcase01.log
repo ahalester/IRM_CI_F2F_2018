@@ -1,0 +1,17 @@
+2015-08-13T21:43:53.830 INFO [pmerino@http-apr-8080-exec-10] [a.o.m.MailSenderImpl#sendMail] Connecting to amchavan@smtp.sco.alma.cl with connecttimeout=45000 and timeout=15000
+2015-08-13T21:43:53.948 FINEST [pmerino@http-apr-8080-exec-10] [a.o.m.MailSenderImpl#sendMail] Sending email 'ALMA project 2010.2.99001.CSV SB execution (AOS-MSB8.1.0)' TO: Ruben Soto  <jantogni@alma.cl>Email body follows:
+
+Dear Ruben Soto,
+
+This is a notification for project 2010.2.99001.CSV.
+
+The SB AOS-MSB8.1.0 has been executed for the first time. You will receive another notification when this SB has been fully observed.
+
+You can access the SB in Project Tracker using this link: 
+http://asa.alma.cl/protrack?schedBlockUid=uid://A002/X36123d/X3
+
+
+To stop receiving these emails please use this link:
+http://asa.alma.cl/UserRegistration/secure/email-notification/unsubscribe
+
+2015-08-13T21:44:04.494 INFO [pmerino@http-apr-8080-exec-10] [a.o.a.c.q.q.ExecBlockQA0FlaggingWindowComposer#persistChanges] The email was sent for schedBlockUID uid://A002/X36123d/X3 and QA0Status PASS.

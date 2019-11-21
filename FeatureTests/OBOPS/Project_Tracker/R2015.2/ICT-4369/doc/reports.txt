@@ -1,0 +1,36 @@
+*Precondition*
+
+Open Reports of Protrack http://vibilia.sco.alma.cl:8080/protrack/ with CASA account
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Remove history timeline from Project search*
+
+1. Select "Project" button
+2. In PI UserId input rsoto
+3. Click in "Search" button
+4. Click the first result
+5. Click in Comments and Attachments
+6. Expected Result: The timeline component (which was composed of three different bands that scrolled horizontally) should never appear.
+7. Passed: OK (testcaste01.png ICT-4369-TestCase01.html).
+
+*Test Case #2: Remove history timeline from SB search*
+
+1. Select "SB" button
+2. In PI UserId input rsoto
+3. Click in "Search" button
+4. Click the first result
+5. Click in Comments and Attachments
+6. Expected Result: The timeline component (which was composed of three different bands that scrolled horizontally) should never appear.
+7. Passed: OK (testcaste02.png ICT-4369-TestCase02.html).
+
+*Test Case #3: Remove history timeline from OUS search*
+
+1. Select "OUS" button
+2. In PI UserId input rsoto
+3. Click in "Search" button
+4. Click the first result
+5. Click in Comments and Attachments
+6. Expected Result: The timeline component (which was composed of three different bands that scrolled horizontally) should never appear.
+7. Passed: OK (testcaste03.png ICT-4369-TestCase03.html).

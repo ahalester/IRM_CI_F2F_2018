@@ -1,0 +1,21 @@
+2015-08-06T15:54:25.768 INFO [pmerino@http-apr-8080-exec-2] [a.l.s.StateEngineImpl#logWithDetail] StateEngineImpl.changeState() for SBStatusEntityT: uid://A001/X12b/X210
+  Called with params [targetState:Suspended][subsystem: obops][userId: pmerino][flags: null][info: Testing of ICT-5082][timestamp: 2015-08-06T15:54:25]
+2015-08-06T15:54:25.848 INFO [pmerino@http-apr-8080-exec-2] [a.l.s.StateEngineImpl#logWithDetail] StateEngineImpl.changeOusStateAsEffect() for OUSStatusEntityT: uid://A001/X12b/X20f
+  Called with params [targetState:PartiallyObserved][subsystem: stateengine][userId: pmerino][flags: null][info: null][timestamp: 2015-08-06T15:54:25]
+2015-08-06T15:54:25.871 INFO [pmerino@http-apr-8080-exec-2] [a.l.s.StateEngineImpl#logWithDetail] StateEngineImpl.changeOusStateAsEffect() for OUSStatusEntityT: uid://A001/X12b/X20e
+  Called with params [targetState:PartiallyObserved][subsystem: stateengine][userId: pmerino][flags: null][info: null][timestamp: 2015-08-06T15:54:25]
+2015-08-06T15:54:25.880 INFO [pmerino@http-apr-8080-exec-2] [a.l.s.StateEngineImpl#logWithDetail] StateEngineImpl.changeOusStateAsEffect() for OUSStatusEntityT: uid://A001/X12b/X20d
+  Called with params [targetState:PartiallyObserved][subsystem: stateengine][userId: pmerino][flags: null][info: null][timestamp: 2015-08-06T15:54:25]
+2015-08-06T15:54:25.888 INFO [pmerino@http-apr-8080-exec-2] [a.l.s.StateEngineImpl#logWithDetail] StateEngineImpl.changeOusStateAsEffect() for OUSStatusEntityT: uid://A001/X110/X28e
+  Called with params [targetState:PartiallyObserved][subsystem: stateengine][userId: pmerino][flags: null][info: null][timestamp: 2015-08-06T15:54:25]
+2015-08-06T15:54:25.894 INFO [pmerino@http-apr-8080-exec-2] [a.l.s.StateEngineImpl#logWithDetail] StateEngineImpl.changeState() for SBStatusEntityT: uid://A001/X12b/X210
+  Transitions completed, attempting transactionManager.commit...
+2015-08-06T15:54:25.894 INFO [pmerino@http-apr-8080-exec-2] [a.l.s.StateEngineImpl#logWithDetail] StateEngineImpl.changeState() for SBStatusEntityT: uid://A001/X12b/X210
+  Transaction committed!
+2015-08-06T15:54:25.894 INFO [pmerino@http-apr-8080-exec-2] [a.l.s.StateEngineImpl#logWithDetail] StateEngineImpl.executeActionCommands() for SBStatusEntityT: uid://A001/X12b/X210
+  Number of postTransitionActions to execute: 1
+2015-08-06T15:54:25.901 INFO [pmerino@http-apr-8080-exec-2] [a.l.s.StateEngineImpl#executeActionCommands] Executing postTransitionAction alma.lifecycle.stateengine.action.PIAndDelegeesMousEmailAction on a new Thread.
+2015-08-06T15:54:25.965 WARNING [noauth@Thread-11] [a.l.s.a.PIAndDelegeesEmailAction#execute] Using an ObopsconfigMailMerger instance that should have been injected instead of hardcoded. Please check the application's spring context and make sure it declares a valid mailMerger bean
+2015-08-06T15:54:26.033 INFO [noauth@Thread-11] [a.o.m.MailSenderImpl#sendMail] Connecting to amchavan@smtp.sco.alma.cl with connecttimeout=45000 and timeout=15000
+2015-08-06T15:54:26.046 FINE [noauth@Thread-11] [a.o.m.MailSenderImpl#sendMail] Sending email 'ALMA project 2013.1.01057.S OUS needs more executions' TO: Toshiki Saito  <toshiki.saito@nao.ac.jp>
+

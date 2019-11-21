@@ -1,0 +1,25 @@
+*Precondition*
+
+Open AQUA http://svea.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Plots/Phase outliers (antenna) for the Phase RMS*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014/01/01
+5. In To select the current date
+6. In ExecBlock UID field input uid://A002/X877e41/X187c
+7. Click in Search button
+8. Select the first result
+9. Go to Plots tab > Phase
+10. Select a source
+11. Use the mouse over the outlier points to see the antennas that compose the baseline for those measurements. See if there is/are any antenna/s that is/are present in most of them
+12. Go to the "Summary" tab and check the contents of the "Outliers" section
+13. Expected Result:
+    - Antennas that participate in more than 30% of the baselines that are considered outliers should be listed in the "Outliers" section, under the "Antenna/Phase RMS" label.
+
+12. Passed: OK (testcaste01-phase.png testcaste01-summary.png ICT-3593-TestCase01.html).

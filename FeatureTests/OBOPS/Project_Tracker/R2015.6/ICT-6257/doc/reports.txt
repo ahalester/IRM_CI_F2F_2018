@@ -1,0 +1,25 @@
+*Precondition*
+- Open Protrack https://2015-06.asa-test.alma.cl/protrack/ with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1:* Check the PDF Project Report
+1. Click in "Project" button
+2. Select 2015.1 in Project Cycles
+3. Select End of period (90% completed) in Predefined state queries
+4. Click in "Search" button
+5. Click the first result of the table
+6. Select the PDF radio button and click in "Project Report" button
+5. Expected result: A PDF with the Project state changes should be opened in a new tab
+4. Passed: OK (testcase01.png testcase01.pdf).
+
+*Test Case #2:* Check the HTML Project Report
+1. Click in "Project" button
+2. Select 2015.1 in Project Cycles
+3. Select End of period (90% completed) in Predefined state queries
+4. Click in "Search" button
+5. Click the first result of the table
+6. Select the HTML radio button and click in "Project Report" button
+5. Expected result: A HTML with the Project state changes should be opened in a new tab
+4. Passed: OK (testcase02.png testcase02.html).

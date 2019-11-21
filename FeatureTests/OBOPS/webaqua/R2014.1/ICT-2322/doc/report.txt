@@ -1,0 +1,61 @@
+Precondition:
+
+* Open AQUA http://sophrosyne.sco.alma.cl:8080/webaqua/ with user CASA account
+* Using Mozilla Firefox v.13.0.1 (crc-01 of AOS)
+* The migration scripts for the 10.8 release have been successfully executed
+
+Test Case #1: Setting the QA2 status to Fail.
+
+1. Go to 'Manual Search" tab > Search OUSs (QA2) and Search click.
+2. Select a ExecBlock on AQUA and click the 'Set SQ2 Status' button.
+3. Select the Fail option, click the 'Set QA2 Status' button and Confirm the operation (testcase01-3.png).
+4. Expected Result: The QA2 Status of the ExecBlock is Fail (testcase01-4.png).
+5. Passed: OK.
+
+Test Case #2: Setting the QA2 status to Pass.
+
+1. Go to 'Manual Search" tab > Search OUSs (QA2) and Search click.
+2. Select a ExecBlock on AQUA and click the 'Set SQ2 Status' button.
+3. Select the Pass option, click the 'Set QA2 Status' button and Confirm the operation (testcase02-3.png).
+4. Expected Result: The QA2 Status of the ExecBlock is Fail (testcase02-4.png).
+5. Passed: OK.
+
+Test Case #3: Setting the QA2 status to SemiPass > QA2 SemiPass reason TimeOut.
+
+1. Go to 'Manual Search" tab > Search OUSs (QA2) and Search click.
+2. Select a ExecBlock on AQUA and click the 'Set SQ2 Status' button.
+3. Select the SemiPass option, Select the Timeout option, click the 'Set QA2 Status' button and Confirm the operation (testcase03-3.png).
+4. Expected Result: The QA2 Status of the ExecBlock is SemiPass (Timeout) (testcase03-4.png).
+5. Passed: OK.
+
+Test Case #4: Setting the QA2 status to SemiPass > QA2 SemiPass reason NoCarryOver.
+
+1. Go to 'Manual Search" tab > Search OUSs (QA2) and Search click.
+2. Select a ExecBlock on AQUA and click the 'Set SQ2 Status' button.
+3. Select the SemiPass option, Select the NoCarryOver option, click the 'Set QA2 Status' button and Confirm the operation (testcase04-3.png).
+4. Expected Result: The QA2 Status of the ExecBlock is SemiPass (NoCarryOver) (testcase04-4.png).
+5. Passed: OK.
+
+Test Case #5: Setting the QA2 status to SemiPass > QA2 SemiPass reason ScienceDone.
+
+1. Go to 'Manual Search" tab > Search OUSs (QA2) and Search click.
+2. Select a ExecBlock on AQUA and click the 'Set SQ2 Status' button.
+3. Select the SemiPass option, Select the ScienceDone option, click the 'Set QA2 Status' button and Confirm the operation (testcase05-3.png).
+4. Expected Result: The QA2 Status of the ExecBlock is SemiPass (ScienceDone) (testcase05-4.png).
+5. Passed: OK.
+
+Test Case #6: Setting the QA2 status to SemiPass > QA2 SemiPass reason PIRequest.
+
+1. Go to 'Manual Search" tab > Search OUSs (QA2) and Search click.
+2. Select a ExecBlock on AQUA and click the 'Set SQ2 Status' button.
+3. Select the SemiPass option, Select the PIRequest option, click the 'Set QA2 Status' button and Confirm the operation (testcase06-3.png).
+4. Expected Result: The QA2 Status of the ExecBlock is SemiPass (ScienceDone) (testcase06-4.png).
+5. Passed: OK.
+
+Test Case #7: QA2 Report.
+
+1. Go to 'Manual Search" tab > Search OUSs (QA2) and Search click.
+2. Select a ExecBlock on AQUA with 'Set SQ2 Status'.
+3. Click 'QA2 Report (PDF)' (testcase07-3.png).
+4. Expected Result: A new window with the information of ObsUnitSet (testcase07-4.png).
+5. Passed: OK.

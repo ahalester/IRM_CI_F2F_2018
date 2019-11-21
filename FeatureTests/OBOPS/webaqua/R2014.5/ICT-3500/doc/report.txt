@@ -1,0 +1,45 @@
+*Precondition*
+
+Open AQUA http://urda.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: QA0 edit the final comment*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014//01/01
+5. In To select the current date
+6. Click in Search button
+7. Select the first result
+8. Click the Edit icon of Final QA0 Comment
+9. Input some Text and Save
+10. Expected Result: The Final QA0 comment should be showed in the panel
+11. Passed: OK (testcaste01.png ICT-3500-TestCase01.html).
+
+*Test Case #2: QA1 edit the final comment*
+
+1. Go to Manual Search tab
+2. Go to Search Sessions (QA1) tab
+3. In Interval select Other
+4. In From select some date of 2014//01/01
+5. In To select the current date
+6. Click in Search button
+7. Select the first result
+8. Click the Edit icon of Final QA1 Comment
+9. Input some Text and Save
+10. Expected Result: The Final QA1 comment should be showed in the panel
+11. Passed: OK (testcaste02.png ICT-3500-TestCase02.html).
+
+*Test Case #2: QA2 edit the final comment*
+
+1. Go to Manual Search tab
+2. Go to Search OUSs (QA2) tab
+3. Click in Search button
+4. Select the first result
+5. Click the Edit icon of Final QA2 Comment
+6. Input some Text and Save
+7. Expected Result: The Final QA2 comment should be showed in the panel
+8. Passed: OK (testcaste03.png ICT-3500-TestCase03.html).

@@ -1,0 +1,32 @@
+*Precondition*
+
+- Open Reports of Protrack https://2015-05-64b.asa-test.alma.cl/protrack with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+- Webaqua & ProTrack must be redeployed.
+- stateSystemEmailTemplates.xml & stateSystemPostTransitionActions.xml must be copied from ICD/OBOPS/StateSystem/ACSDATA/config/ to the /ACSDATA/config/ folder on the servers.
+- In the 4 email templates in stateSystemEmailTemplates.xml change the server asa.alma.cl to the test server.
+- Ensure that the email addresses of the PI & Delegees you use for the test are safe.
+
+*Test Case #1:* Sending email for emailTemplateFirstSbExecution
+1. In webaqua change an ExecBlock to QA0 pass (it must be the first QA0 pass for the SB).
+2. Expected result: This will result in email 1 (emailTemplateFirstSbExecution)
+3. Passed: NOK (testcase01-a.png testcase01-b.png testcase01_exceptions.log ICT-5082-TestCase01.html)
+
+*Test Case #2:* Sending email for emailTemplateSbFullyObserved
+1. In webaqua, or ProjectTracker, change an SB to FullyObserved.
+2. Expected result: This will result in email 2 (emailTemplateSbFullyObserved)
+3. Passed: OK (testcase02.png testcase02.log ICT-5082-TestCase02.html)
+
+*Test Case #3:* Sending email for emailTemplateMousVerified
+1. In ProTrack change an MOUS from QA2InProgress to Verified.
+2. Expected result: This will result in email 3 (emailTemplateMousVerified)
+3. Passed: OK (testcase03.png testcase03.log ICT-5082-TestCase03.html)
+
+*Test Case #4:* Sending email for emailMousQA2InProgressToPartiallyObserved
+1. In ProTrack setup an MOUS as QA2InProgress, inside that MOUS change an SB from FullyObserved to Suspended.
+2. Expected result: That will result in email 4 (emailMousQA2InProgressToPartiallyObserved)
+3. Passed: OK (testcase04.png testcase04.log ICT-5082-TestCase04.html)
+
+By logs we noted that all tests were passed OK, but we need to find the way to subscribe to the list of emails of target, in order to receive the emails and perform a full test.

@@ -1,0 +1,22 @@
+*Precondition*
+- Open DRM tool https://2016-02.asa-test.alma.cl/protrack with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1:* Displaying fields for data reducer and assigned data reducer ARC of a Member OUS
+1. Go to https://2016-02.asa-test.alma.cl/protrack
+2. Click the "OUS" option
+3. Expected result: In the form for search, we have two new fields
+   - Data reducer UserId
+   - Data reducer ARC
+4. Passed: OK (testcase01.png).
+
+*Test Case #1:* Display the name of the assigned data reducer and assigned data reducer ARC of a Member OUS
+1. Go to https://2016-02.asa-test.alma.cl/protrack
+2. Click the "OUS" option
+3. In PI UserId input rsoto
+4. Click the second row  9999.4.99034.CSV - SV IRAS 16293-2422
+5. In the detail panel should appear the "Data Reducer" button, click this, input keflavich and save.
+6. Expected result: The name Adam Ginsburg EU should be assigned to Data Reducer
+7. Passed: OK (testcase01.png).

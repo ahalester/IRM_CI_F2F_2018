@@ -1,0 +1,28 @@
+<ivysettings>
+	<settings defaultResolver="local-chain" />
+	<properties environment="env" />
+	<resolvers>
+		<ibiblio name="ibiblio-maven2" m2compatible="true" />
+		<ibiblio name="java-net-maven2" root="http://download.java.net/maven/2/" m2compatible="true" />
+		<ibiblio name="maven" root="http://mvnrepository.com/artifact/" m2compatible="true" />
+		<ibiblio name="jxgrabkey" root="https://labs.consol.de/maven/repository/" m2compatible="true" />
+		<ibiblio name="sikuli" root="https://oss.sonatype.org/content/groups/public/" m2compatible="true" />
+		
+		<chain name="local-chain">
+			<resolver ref="maven" />
+			<resolver ref="ibiblio-maven2" />
+			<resolver ref="java-net-maven2" />
+			<resolver ref="jxgrabkey" />
+			<resolver ref="sikuli" />
+			<!-- resolver ref="local" /-->
+		</chain>
+	</resolvers>
+	<modules>
+		<module organisation="jxgrabkey" resolver="jxgrabkey" />
+		<module organisation="com.sikulix" resolver="sikuli" />
+	</modules>
+	<caches>
+		<cache name="avoid-cache" useOrigin="true" defaultTTL="1s"
+			basedir="/tmp/ivy" artifactPattern="[module]/[artifact].[ext]" />
+	</caches>
+</ivysettings>

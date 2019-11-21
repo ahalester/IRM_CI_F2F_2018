@@ -1,0 +1,15 @@
+*Precondition:*
+
+- Open AQUA http://nemesis.sco.alma.cl:8080/webaqua/ with user CASA account
+- Use Mozilla Firefox v.27 (crc-01 of AOS)
+- Chose Project Code: 2011.0.00985.S Status: InProgress whit three ObsUnitSet in PartiallyObserved (screenshot-1.png)
+  Sched Block id: uid://A002/X5b51b3/X3 State: Suspended
+  Sched Block id: uid://A002/X5b51b3/X4 State: Suspended
+  Sched Block id: uid://A002/X5b51b3/X5 State: Suspended
+
+*Test Case: Show the "Unflagged ObsUnitSets" table.*
+
+1. Go to 'Manual Search" tab.
+2. Input '2011.0.00985.S' into the Project Code field and Search.
+2. Expected Result: The "Unflagged ObsUnitSets" table is showed, and the "Unflagged EBs/Sessions/OUSs" has only one project (testcase01.png)
+3. Passed: OK

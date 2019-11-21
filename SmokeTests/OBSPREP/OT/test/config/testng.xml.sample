@@ -1,0 +1,70 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="OT tests" verbose="2" thread-count="10" parallel="false">
+	<tests>
+		<test name="Mac+OT test: create new proposal">
+			<groups>
+				<run>
+					<include name="createNewProposal"></include>
+				</run>
+			</groups>
+			<parameters>
+				<parameter name="platform" value="Mac" />
+				<parameter name="url"
+					value="http://yourhost/almaot/2015.3/webstart.html" />
+			</parameters>
+			<classes>
+				<class name="alma.irm.ot" />
+			</classes>
+		</test>
+
+		<test name="Mac+OT test: get proposal from archive">
+			<groups>
+				<run>
+					<include name="getProposalFromArchive"></include>
+				</run>
+			</groups>
+			<parameters>
+				<parameter name="platform" value="Mac" />
+				<parameter name="url"
+					value="http://yourhost/almaot/2015.3/webstart.html" />
+				<parameter name="username" value="yourusername" />
+				<parameter name="password" value="yourpassword" />
+				<parameter name="wrongpassword" value="." />
+			</parameters>
+			<classes>
+				<class name="alma.irm.ot" />
+			</classes>
+		</test>
+
+		<test name="Windows+OT test">
+			<parameters>
+				<parameter name="platform" value="Windows" />
+				<parameter name="url"
+					value="http://yourhost/almaot/201503-off/webstart.html" />
+				<parameter name="username" value="yourusername" />
+				<parameter name="password" value="yourpassword" />
+				<parameter name="wrongpassword" value="." />
+			</parameters>
+			<classes>
+				<class name="alma.irm.ot" />
+			</classes>
+		</test>
+		<test name="Linux+OT 
+			Test">
+			<parameters>
+				<parameter name="platform" value="Linux" />
+				<parameter name="url"
+					value="http://yourhost/almaot/201503-off/webstart.html" />
+				<parameter name="username" value="yourusername" />
+				<parameter name="password" value="yourpassword" />
+				<parameter name="wrongpassword" value="." />
+			</parameters>
+			<classes>
+				<class name="alma.irm.ot" />
+			</classes>
+		</test>
+
+	</tests>
+
+</suite>
+

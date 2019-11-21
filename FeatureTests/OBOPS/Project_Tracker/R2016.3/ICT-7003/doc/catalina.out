@@ -1,0 +1,3 @@
+2016-05-09T14:19:45.915 FINE [noauth@Thread-7] [a.o.m.MailSenderImpl#sendMail] Sending email 'SB is Waiting for P2G (Io_a_06_TE)' TO: lead and deputy P2Gs  <p2g_lead@alma.cl>
+...
+2016-05-09T14:19:46.402 FINE [noauth@Thread-7] [a.o.m.MailSenderImpl#sendMail] Sending email 'SB is Waiting for P2G (Io_a_06_TE)' TO: Akiko Kawamura  <soledad.fuica@alma.cl>

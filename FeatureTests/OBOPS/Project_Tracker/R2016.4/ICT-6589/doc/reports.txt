@@ -1,0 +1,13 @@
+*Precondition*
+
+- Open https://2016-04.asa-test.alma.cl/protrack with CASA account (Username: pmerino)
+- Test using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Test using Mozilla Firefox v.43.0 (Latest version)
+- Test using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: PI notification if there was no observation of a project at the end of an configuration during a Cycle*
+1) Make transition for GOUS from PartiallyObserved to ObservingTimedOut.
+2) Expected result: There are several emails will be sent.
+3) Passed: OK (testcase01.png testcase01-logs.png)
+From the ALMA-RELEASE-B, we noted that the template was created as expected:
+https://sg-cvs-serv.sco.alma.cl/p2/branches/ALMA-RELEASE-B/ICD/OBOPS/StateSystem/src/config/stateSystemEmailTemplates.xml

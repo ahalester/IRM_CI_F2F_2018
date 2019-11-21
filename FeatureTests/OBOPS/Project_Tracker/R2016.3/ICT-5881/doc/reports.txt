@@ -1,0 +1,11 @@
+*Precondition*
+
+- Open Reports of Protrack https://2016-03.asa-test.alma.cl/protrack with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Add array configuration information to all the SBs*
+1. In PT open SB which has the field nominalConfiguration in the SchedulingConstraints of APDM SchedBlock xml table.
+3. Expected result: In the SchedBlock summary section there will be "Nominal configuration" value.
+4. Passed: OK (testcase01.png)

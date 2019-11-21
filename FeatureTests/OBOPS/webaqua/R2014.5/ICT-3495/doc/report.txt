@@ -1,0 +1,38 @@
+*Precondition*
+
+Open AQUA http://urda.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: QA0 Phase RMS plot lower than 90*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014/01/01
+5. In To select the current date
+6. In ExecBlock UID field input uid://A002/X77e1ed/X1
+7. Click in Search button
+8. Select the first result
+9. Go to Plots > Phase
+10. In the Source select 0522-364: ALMA_RB_03 (BB_1 @ 85.28 [GHz])
+11. Expected Result: A graph should be shown with the following characteristics:
+    - For plots where all Y values are lower than 90 the Y scale should be fixed in the range [0,90].
+12. Passed: OK (testcaste01.png ICT-3495-TestCase01.html).
+
+*Test Case #1: QA0 Phase RMS plot higher than 90*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014/01/01
+5. In To select the current date
+6. In ExecBlock UID field input uid://A002/X77e2f0/X1
+7. Click in Search button
+8. Select the first result
+9. Go to Plots > Phase
+10. In the Source select 0538-440: ALMA_RB_03 (BB_1 @ 85.28 [GHz])
+11. Expected Result: A graph should be shown with the following characteristics:
+    - For plots where at least one value is higher than 90 the Y scale should autoadjust itself as it did before.
+12. Passed: OK (testcaste02.png ICT-3495-TestCase02.html).

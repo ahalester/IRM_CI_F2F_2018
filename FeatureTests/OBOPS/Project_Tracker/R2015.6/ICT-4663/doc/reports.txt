@@ -1,0 +1,29 @@
+*Precondition*
+- Open Reports of Protrack https://2015-06-docker.asa-test.alma.cl/protrack with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1:* Searching Projects by "Only polarization" 
+1. Open Projects query dialogs.
+2. Check "Only polarization" checkbox below and start search.
+3. Open detail view below and select sched. block.
+4. In the spectral windows table there is column with polarization product visible.
+5. Expected result: There are should be rows with "XX,YY,XY,YX".
+6. Passed: OK (testcase01.png).
+
+*Test Case #2:* Searching SB by "Only polarization" 
+1. Open Sched Blocks query dialogs.
+2. Check "Only polarization" checkbox below and start search.
+3. Open detail view below and select sched. block.
+4. In the spectral windows table there is column with polarization product visible.
+5. Expected result: There are should be rows with "XX,YY,XY,YX".
+6. Passed: OK (testcase02.png).
+
+*Test Case #3:* Searching OUS by "Only polarization" 
+1. Open Observation Unit Sets query dialogs.
+2. Check "Only polarization" checkbox below and start search.
+3. Open detail view below and select sched. block.
+4. In the spectral windows table there is column with polarization product visible.
+5. Expected result: There are should be rows with "XX,YY,XY,YX".
+6. Passed: OK (testcase03.png).

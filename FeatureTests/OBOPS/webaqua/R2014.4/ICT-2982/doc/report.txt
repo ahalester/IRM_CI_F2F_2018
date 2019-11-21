@@ -1,0 +1,18 @@
+Note: Run an observation in the Testing Environment (eulalia.sco.alma.cl) is not possible because this is an offline environment, however this improvement will be tested like a set to Pass state in manual mode.
+
+*Precondition*
+
+Open AQUA http://eulalia.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Setting QA1 status to Pass*
+
+1. Go to Manual Search tab.
+2. Go to Search OUSs (QA2) tab.
+3. In OUSStatus UIDs input uid://X02/X63202/X28 (In upper case).
+4. Click in Search button.
+5. Select the first result.
+6. Expected Result: The 'OUS Status UID' label should appear in the details panel.
+7. Passed: OK (testcaste01.png ICT-2982-TestCase01.html).

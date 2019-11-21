@@ -1,0 +1,64 @@
+*Precondition*
+
+- Open AQUA https://2016-03.asa-test.alma.cl/webaqua with user CASA account (pmerino)
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: AQUA GUI QA0: Tab layout improvements: Execblock Summary*
+1. Go to WebAqua
+2. Expected Result:
+   - Execblock Summary
+    header (project code, SB name, EB UID, links to WSLT, PT)
+    vital EB info (EB status, no. antennas, Array, Correlator, representative frequency (sky reference frame) )
+    editable do QA0 box (QA0 Status, EC, final QA0 comment)
+    from current summary tab: times on sources, Show scans box, warnings, sources
+    comments
+    attachments
+3. Passed: OK (testcase01.png).
+
+*Test Case #2: AQUA GUI QA0: Tab layout improvements: Atmosphere*
+1. Go to WebAqua
+2. Expected Result:
+   - Atmosphere
+   Trec/Tsys plots with limits indicated (ICT-6180)
+   from current Summary tab: info under Atmosphere
+3. Passed: OK (testcase02.png).
+
+*Test Case #3: AQUA GUI QA0: Tab layout improvements: Phase*
+1. Go to WebAqua
+2. Expected Result:
+   - Phase
+    phase plots
+    from current Summary tab: info under Phase
+    central frequency (reference frame)
+3. Passed: OK (testcase03.png).
+
+*Test Case #4: AQUA GUI QA0: Tab layout improvements: Source Coverage*
+1. Go to WebAqua
+2. Expected Result:
+   - Source Coverage
+    coverage plot (formerly coverage)
+3. Passed: OK (testcase04.png).
+
+*Test Case #5: AQUA GUI QA0: Tab layout improvements: Focus*
+1. Go to WebAqua
+2. Expected Result:
+   - Focus
+    I guess we keep this, although I've never seen anything displayed here. Presumably we'll get some focus information when we read the ASDMs?
+    from current Summary tab: info under Focus
+3. Passed: OK (testcase05.png).
+
+*Test Case #6: AQUA GUI QA0: Tab layout improvements: Pointing*
+1. Go to WebAqua
+2. Expected Result:
+   - Pointing
+    plot
+    from current Summary tab: info under Pointing
+3. Passed: OK (testcase06.png).
+
+*Test Case #7: AQUA GUI QA0: Tab layout improvements: Baseline coverage*
+1. Go to WebAqua
+2. Expected Result:
+   - Baseline coverage (formerly Antennas)
+3. Passed: OK (testcase07.png).

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<testdoc-summary basedir="" sourcedir="">
+  <summary testcases="111" testsets="14"/>
+  <test-suite basedir="" hfile="ALMA-OT_Test_Suite_testdoc.html" qftest-version="3.5.3" sourcefile="ALMA-OT_Test_Suite.qft" type="qftest" xfile="ALMA-OT_Test_Suite_testdoc.xml">
+    <summary testcases="111" testsets="14"/>
+    <comment>Test suite for the ALMA-OT GUI (automated with QF-Test).</comment>
+    <author>Peter Kratzer</author>
+    <testset name="Basic Windows, Panels And Components" nodeid="TestSetBasicOpsAndSettings" qname="Basic Windows, Panels And Components" ref="N10256">
+      <summary testcases="18" testsets="0"/>
+      <comment>
+        <p>The existence of all major components (windows, menus, input fields etc.) is verified to determine GUI changes as well as component recognition issues at an early stage.
+Basic operations and settings of the OT are validated.</p>
+        <p>Supported telescope configurations: all.</p>
+      </comment>
+      <author>Peter Kratzer</author>
+    </testset>
+    <testset name="Advanced Settings" nodeid="TestSetBasicAdvancedSettings" qname="Advanced Settings" ref="N1A5AD">
+      <summary testcases="2" testsets="0"/>
+      <comment>
+        <p>Enabling and disabling the advanced features and the depending component are checked.</p>
+        <p>Supported telescope configurations: all.</p>
+      </comment>
+      <author>Peter Kratzer</author>
+    </testset>
+    <testset name="Persistent Settings" nodeid="TestSetPersistentSettings" qname="Persistent Settings" ref="N1B50E">
+      <summary testcases="1" testsets="0"/>
+      <comment>
+        <p>Persistent programme settings are verified.</p>
+        <p>This test set is executed only if the global variable &lt;code&gt;BasicTestOnly&lt;/code&gt; is set to &lt;code&gt;false&lt;/code&gt;.</p>
+        <p>Supported telescope configurations: all.</p>
+      </comment>
+      <author>Peter Kratzer</author>
+    </testset>
+    <testset name="Specific Dialogs And Functionality (Common)" nodeid="TestSetSpecificDialogsFunctionalityCommon" qname="Specific Dialogs And Functionality (Common)" ref="N1B5FF">
+      <summary testcases="10" testsets="0"/>
+      <comment>
+        <p>Checks for common dialogs and/or functionalities (not project-dependent).</p>
+        <p>Supported telescope configuration: all.</p>
+      </comment>
+      <author>Peter Kratzer</author>
+    </testset>
+    <testset name="Specific Dialogs And Functionality (Phase I Projects)" nodeid="TestSetSpecificDialogsFunctionalityPhase1Projects" qname="Specific Dialogs And Functionality (Phase I Projects)" ref="N1E2BA">
+      <summary testcases="50" testsets="4"/>
+      <comment>
+        <p>Checks for very specific dialogs and/or functionalities for phase 1 projects (proposals).</p>
+        <p>Supported telescope configuration: all.</p>
+      </comment>
+      <author>Peter Kratzer</author>
+      <testset name="Positive Test For Science Goal - Field Setup - Source Coordinates Input" nodeid="TestSetLegalCoords" qname="Specific Dialogs And Functionality (Phase I Projects).Positive Test For Science Goal - Field Setup - Source Coordinates Input" ref="N2D66E">
+        <summary testcases="1" testsets="1"/>
+        <comment>
+          <p>Permitted values for field source coordinates are checked.</p>
+          <p>This test is structured as a test-set containing another test-set containing the final test-case due to restrictions of QF-Test regarding data driver handling.</p>
+          <p>This test set is executed only if the global variable &lt;code&gt;BasicTestOnly&lt;/code&gt; is set to &lt;code&gt;false&lt;/code&gt;.</p>
+          <p>Supported telescope configuration: all.</p>
+        </comment>
+        <author>Peter Kratzer</author>
+        <testset name="Loop Over All Positive Values" nodeid="TestSetShellLoopLegalValues" qname="Specific Dialogs And Functionality (Phase I Projects).Positive Test For Science Goal - Field Setup - Source Coordinates Input.Loop Over All Positive Values" ref="N2D6E5">
+          <summary testcases="1" testsets="0"/>
+          <comment>
+            <p>This test-set exists only for structural reasons imposed by QF-Test. It permits separating the loop over all positive values provided by the data driver while executing the setup (creation of a basic test project) only once at the beginning of the test.</p>
+            <p>&lt;strong&gt;Known issues:&lt;/strong&gt;&lt;br&gt;
+* &lt;a target="_new" href="http://jira.alma.cl/browse/COMP-7508"&gt;COMP-7508&lt;/a&gt; ALMA-OT: Setting RA = 23:59:59.999 confuses display&lt;br&gt;</p>
+          </comment>
+        </testset>
+      </testset>
+      <testset name="Negative Test For Science Goal - Field Setup - Source Coordinates Input" nodeid="TestSetShellIllegalCoords" qname="Specific Dialogs And Functionality (Phase I Projects).Negative Test For Science Goal - Field Setup - Source Coordinates Input" ref="N2D8EA">
+        <summary testcases="1" testsets="1"/>
+        <comment>
+          <p>Illegal values for field source coordinates are checked.</p>
+          <p>This test is structured as a test-set containing another test-set containing the final test-case due to restrictions of QF-Test regarding data driver handling.</p>
+          <p>This test set is executed only if the global variable &lt;code&gt;BasicTestOnly&lt;/code&gt; is set to &lt;code&gt;false&lt;/code&gt;.</p>
+          <p>Supported telescope configuration: all.</p>
+        </comment>
+        <author>Peter Kratzer</author>
+        <testset name="Loop Over All Negative Values" nodeid="TestSetShellLoopIllegalValues" qname="Specific Dialogs And Functionality (Phase I Projects).Negative Test For Science Goal - Field Setup - Source Coordinates Input.Loop Over All Negative Values" ref="N2D952">
+          <summary testcases="1" testsets="0"/>
+          <comment>This test-set exists only for structural reasons imposed by QF-Test. It permits separating the loop over all negative values provided by the data driver while executing the setup (creation of a basic test project) only once at the beginning of the test.</comment>
+        </testset>
+      </testset>
+    </testset>
+    <testset name="Proposal Editing And Handling (Phase I Projects)" nodeid="TestSetProposalEditingPhase1" qname="Proposal Editing And Handling (Phase I Projects)" ref="N2DB5A">
+      <summary testcases="10" testsets="0"/>
+      <comment>
+        <p>Proposal (phase I project) creation, editing, validation, submission and other proposal-related operations are exercised.</p>
+        <p>Supported telescope configuration: all.</p>
+      </comment>
+      <author>Peter Kratzer</author>
+    </testset>
+    <testset name="Specific Dialogs And Functionality (Phase II Projects)" nodeid="TestSetSpecificDialogsFunctionalityPhase2Projects" qname="Specific Dialogs And Functionality (Phase II Projects)" ref="N343CE">
+      <summary testcases="14" testsets="0"/>
+      <comment>
+        <p>Checks for very specific dialogs and/or functionalities for phase 2 projects (programs).</p>
+        <p>Supported telescope configuration: all.</p>
+      </comment>
+      <author>Peter Kratzer</author>
+    </testset>
+    <testset name="Program Editing &amp; Handling (Phase II Projects)" nodeid="TestSetProgramEditingPhase2" qname="Program Editing &amp; Handling (Phase II Projects)" ref="N37418">
+      <summary testcases="4" testsets="0"/>
+      <comment>
+        <p>Program (phase II project) creation, editing, validation, submission and other program-related operations are exercised.</p>
+        <p>Supported telescope configuration: all.</p>
+      </comment>
+      <author>Peter Kratzer</author>
+    </testset>
+    <testset name="Large Numbers Of Projects" nodeid="TestSetLargeNumProjects" qname="Large Numbers Of Projects" ref="N38B3E">
+      <summary testcases="1" testsets="1"/>
+      <comment>
+        <p>Large numbers of projects are created here, for example load tests or star catalogs.</p>
+        <p>This test set is executed only if the global variable &lt;code&gt;LargeNumberProjects&lt;/code&gt; is set to &lt;code&gt;true&lt;/code&gt; and &lt;code&gt;RegressionTest&lt;/code&gt; is set to &lt;code&gt;false&lt;/code&gt;.</p>
+        <p>Supported telescope configuration: &lt;code&gt;CSVALMA&lt;/code&gt;.</p>
+      </comment>
+      <author>Peter Kratzer</author>
+      <testset name="Shell Test Set For Star Catalog" nodeid="TestSetShellStarCatalog" qname="Large Numbers Of Projects.Shell Test Set For Star Catalog" ref="N38B6C">
+        <summary testcases="1" testsets="0"/>
+        <comment>
+          <p>This test-set exists only for structural reasons imposed by QF-Test as container for the data driver loop.</p>
+          <p>Supported telescope configuration: &lt;code&gt;CSVALMA&lt;/code&gt;.</p>
+        </comment>
+        <author>Peter Kratzer</author>
+      </testset>
+    </testset>
+  </test-suite>
+</testdoc-summary>

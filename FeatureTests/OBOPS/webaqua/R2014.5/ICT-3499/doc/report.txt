@@ -1,0 +1,16 @@
+*Precondition*
+
+Open AQUA http://urda.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Measure of Search fields*
+
+1. Go to Manual Search tab
+2. Measure the length of the following search fields:
+ - Search ExecBlocks (QA0): SchedBlock Name, ExecBlock UID
+ - Search Sessions (QA1): SchedBlock Name, Session UID
+ - Search OUSs (QA2): ObsUnitSet Name, OUS Status UID, ObsUnitSet UID
+3. Expected Result: All the aforementioned fields should be 250 pixels wide.
+4. Passed: OK (testcaste01.png ICT-3499-TestCase01.html).

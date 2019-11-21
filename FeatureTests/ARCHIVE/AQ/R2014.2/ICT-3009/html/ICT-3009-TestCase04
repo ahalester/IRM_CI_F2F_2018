@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://hermione.sco.alma.cl:8080/" />
+<title>ICT-3009-TestCase04</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ICT-3009-TestCase04</td></tr>
+</thead><tbody>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_38-cnt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_86-btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#zk_c_323 &gt; td.z-comboitem-text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_89-btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@class='z-calendar-title']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@_dt='0']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@class='z-calendar-calday']/tbody[1]/tr[2]/td[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=zk_c_98</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_115-btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#zk_c_272 &gt; td.z-comboitem-text</td>
+	<td>Fail</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=zk_c_98</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForTable</td>
+	<td>id=zk_c_200-cave.1.0</td>
+	<td>exact:uid://A002/X77e4f6/X23e</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_200-rows']/tr[1]/td[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[contains(text(),'Summary')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[contains(text(),'Summary')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@class='z-label' and contains(text(), 'Atmosphere')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//*[@class='z-label' and contains(text(), 'OBSERVE_TARGET')]</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

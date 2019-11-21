@@ -1,0 +1,26 @@
+*Precondition*
+
+Open AQUA http://svea.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Plots/Atmosphere features*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014/01/01
+5. In To select the current date
+6. In ExecBlock UID field input uid://A002/X785e52/X698
+7. Click in Search button
+8. Select the first result
+9. Go to Plots tab > Atmosphere
+10. Select a source
+11. Expected Result:
+    - Six series should be available on each plot: X, Y and Average for the System and Receiver temperatures.
+    - All system temperature series should have the same color; all receiver temperature series should have the same color too
+    - Points belonging to X series should be shown with a circle; Y series points should be squares, and Average points should be diamonds
+    - When hovering the mouse over the points the tooltip should read correctly the series to which they belong
+
+12. Passed: OK (testcaste01.png ICT-3490-TestCase01.html).

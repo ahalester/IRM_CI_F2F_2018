@@ -1,0 +1,13 @@
+*Precondition*
+- Open Reports of Protrack https://2015-08.asa-test.alma.cl/protrack/ with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.43.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1:* Send an email notification to P2G and CS when SB is changed to "Waiting for P2G" state*
+1. Open SchedBlock search.
+2. In SB Name input TW_Hya_a_04_TE.
+3. Click in Search button.
+4. Change SB state to Waiting with flag P2G.
+5. Expected result: Email message will be sent.
+6. Passed: OK (testcase01.png). See catalina.out in order to check the action of email.

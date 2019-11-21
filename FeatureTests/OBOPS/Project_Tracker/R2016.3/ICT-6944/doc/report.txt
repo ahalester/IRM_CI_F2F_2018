@@ -1,0 +1,18 @@
+*Precondition*
+
+Open DRM tool of Protrack https://2016-03.asa-test.alma.cl/protrack/ with CAS account
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Enable easy batch assignment of P2G/Contact Scientist*
+1. Create csv file with format
+{noformat}
+   header: prjUid,p2guserId,csuserId
+   data string: projectUid,P2GuserId,CSuserId
+   or: projectUid,P2GuserId
+   or: projectUid,,CSuserId
+{noformat}
+2. In PT interface press Import P2G and CS.
+3. Expected Result: Check uploading result for corresponding projects.
+4. Passed: OK (testcase02-before-change.png testcase02-transition-change.png testcase02-after-change.png ICT-3814-TestCase02.html).

@@ -1,0 +1,21 @@
+*Precondition*
+
+- Open Protrack http://2015-04.asa-test.alma.cl/protrack with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: First SB to Canceled and the second SB to FullyObserved*
+1. Search Project Code 2013.1.00032.S
+2. Select a ObsUnitSet with at least 2 MOUSes and 2 SBs in each MOUS.
+3. In the first MOUS change the first SB to Canceled, and the second SB to FullyObserved. 
+4. Expected result: The MOUS should be changed to FullyObserved.
+5. Passed: OK (testcase01.png)
+
+*Test Case #1: First SB to FullyObserved and the second SB to Canceled.*
+1. Search Project Code 2013.1.00032.S
+2. Select a ObsUnitSet with at least 2 MOUSes and 2 SBs in each MOUS.
+3. In the second MOUS change the first SB to FullyObserved, and the second SB to Canceled.
+4. Expected result: The MOUS should be changed to FullyObserved.
+5. Passed: OK
+

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://hermione.sco.alma.cl:8080/" />
+<title>ICT-3024-TestCase01</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ICT-3024-TestCase01</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/webaqua/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_38-cnt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_86-btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_86-btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#zk_c_326 &gt; td.z-comboitem-text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_89-btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=_z_0-tm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=_z_0-m0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//tr[@id='_z_0-w0']/td[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=zk_c_98</td>
+	<td>uid://A002/X77dfee/X1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_202-box']/tbody/tr[2]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//*[@id='zk_c_203-chdex']/td[1]/div[1]/div[3]/table[1]/tbody[2]/tr[5]/td[1]</td>
+	<td>uid://A002/X77dfee/X1f</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_203-chdex']/td[1]/div[1]/div[3]/table[1]/tbody[2]/tr[5]/td[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//*[@id='zk_c_263-cave']/div/div[5]/div[2]/div/div/div/div/div/div/div[3]/table/tbody[2]/tr[4]/td[1]/div/span</td>
+	<td>SchedBlock Name</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_263-cave']/div/div[5]/div[2]/div/div/div/div/div/div/div[3]/table/tbody[2]/tr[4]/td[2]/div/span</td>
+	<td>AOS-MSB8.1.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_263-cave']/div/div[5]/div[2]/div/div/div/div/div/div/div[3]/table/tbody[2]/tr[5]/td[1]/div/span</td>
+	<td>Start Time</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_263-cave']/div/div[5]/div[2]/div/div/div/div/div/div/div[3]/table/tbody[2]/tr[5]/td[2]/div/span</td>
+	<td>2014-01-01T18:33:05</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_263-cave']/div/div[5]/div[2]/div/div/div/div/div/div/div[3]/table/tbody[2]/tr[6]/td[1]/div/span</td>
+	<td>End Time</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_263-cave']/div/div[5]/div[2]/div/div/div/div/div/div/div[3]/table/tbody[2]/tr[6]/td[2]/div/span</td>
+	<td>2014-01-01T18:33:05 (Duration: 0s)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_263-cave']/div/div[5]/div[2]/div/div/div/div/div/div/div[3]/table/tbody[2]/tr[7]/td[1]/div/span</td>
+	<td># Antennas</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_263-cave']/div/div[5]/div[2]/div/div/div/div/div/div/div[3]/table/tbody[2]/tr[7]/td[2]/div/span</td>
+	<td>22</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_263-cave']/div/div[5]/div[2]/div/div/div/div/div/div/div[3]/table/tbody[2]/tr[8]/td[1]/div/span</td>
+	<td>Array Type</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_263-cave']/div/div[5]/div[2]/div/div/div/div/div/div/div[3]/table/tbody[2]/tr[8]/td[2]/div/span</td>
+	<td>12 [m]</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_263-cave']/div/div[5]/div[2]/div/div/div/div/div/div/div[3]/table/tbody[2]/tr[9]/td[1]/div/span</td>
+	<td>Location</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_263-cave']/div/div[5]/div[2]/div/div/div/div/div/div/div[3]/table/tbody[2]/tr[9]/td[2]/div/span</td>
+	<td>OSF-AOS</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_263-cave']/div/div[5]/div[2]/div/div/div/div/div/div/div[3]/table/tbody[2]/tr[10]/td[1]/div/span</td>
+	<td>Correlator Type</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_263-cave']/div/div[5]/div[2]/div/div/div/div/div/div/div[3]/table/tbody[2]/tr[10]/td[2]/div/span</td>
+	<td>BL</td>
+</tr>
+</tbody></table>
+</body>
+</html>

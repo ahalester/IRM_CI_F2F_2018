@@ -1,0 +1,40 @@
+*Precondition*
+
+Open AQUA http://svea.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: QA0 report with QA0 comment*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014/01/01
+5. In To select the current date
+6. Click in Search button
+7. Select the first result
+8. Go to ExecBlock tab
+9. Click in Produce QA0 Report (HTML) and Produce QA0 Report (PDF)
+10. Expected Result:
+    - Final QA0 Comment should be shown in the panel
+    - ExecBlocks that have a final QA0 comment set should show the same comment in the QA0 report, under the "Frequency" information
+    - If no QA0 final comment has been set, or if it's empty, it should not appear on the report
+    - The HTML version of the report might have a glitch, as the final comment's text might be vertically unaligned with respect to the "Final QA0 comment" label. This is due to a technical problem on the library we use to generate the reports, and something we will have to live with for the time being.
+11. Passed: OK (testcaste01-aqua.png testcaste01_html-report.png testcaste01_pdf-report.png ICT-3776-TestCase01.html).
+
+*Test Case #2: QA0 report without A0 comment*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014/01/01
+5. In To select the current date
+6. Click in Search button
+7. Select the second result
+8. Go to ExecBlock tab
+9. Click in Produce QA0 Report (HTML) and Produce QA0 Report (PDF)
+10. Expected Result:
+    - ExecBlock without final QA0 Comment in the panel
+    - If no QA0 final comment has been set, or if it's empty, it should not appear on the report
+11. Passed: OK (testcaste02-aqua.png testcaste02_html-report.png testcaste02_pdf-report.png ICT-3776-TestCase02.html).

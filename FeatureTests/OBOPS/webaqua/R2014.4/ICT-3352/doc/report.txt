@@ -1,0 +1,21 @@
+*Precondition*
+
+Open AQUA http://eulalia.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Reading ExecBlock information from the shiftlog database*
+
+1. Go to Manual Search tab
+2. Go to Search ExecBlocks (QA0) tab
+3. Interval Other, From 2014/01/01 03:51:09 PM to 2014/10/01 05:51:09 PM
+4. In ExecBlock UID input uid://A002/X77dfee/X1
+5. Click in Search button
+6. Select the row in RUNNING Status
+7. Expected Result: The runtime information (start, end, location, etc), APDM information (SB name, project code, etc.) and array information (array name, correlator type, etc.) should be showed.
+8. Passed: OK (testcaste01.png testcaste02.png ICT-3352-TestCase01.html).
+
+{color:red}
+Note 1: The array information is not in the detail's panel of AQUA.
+{color}

@@ -1,0 +1,34 @@
+*Precondition*
+
+- Open AQUA https://2016-03.asa-test.alma.cl/webaqua with user CASA account (pmerino)
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Atmosphere*
+1. In Aqua open Atmosphere ExecBlock: uid://A002/Xb204f6/X14f6
+2. Expected Result:
+   - They should show data, which now goes from ASDM directly.
+   - approximate time to open execblock summary now about 1 min!.
+3. Passed: OK (testcaste01.png).
+
+*Test Case #2: Phase*
+1. In Aqua open Phase ExecBlock: uid://A002/Xb20a71/X3
+2. Expected Result:
+   - They should show data, which now goes from ASDM directly.
+   - approximate time to open execblock summary now about 1 min!.
+3. Passed: OK (testcaste02.png). However, an error is showed in the page:
+{noformat}
+2 Errors
+Failed to process
+script
+No plot target specified (Error)
+Failed to process script plotDiv is null (TypeError)
+{noformat}
+
+*Test Case #3: Pointing*
+1. In Aqua open Phase ExecBlock: uid://A002/Xb20949/X17d
+2. Expected Result:
+   - They should show data, which now goes from ASDM directly.
+   - approximate time to open execblock summary now about 1 min!.
+3. Passed: OK (testcaste03.png).

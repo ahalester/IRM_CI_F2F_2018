@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://hungaria.sco.alma.cl" />
+<title>ICT-5352-TestCase01</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ICT-5352-TestCase01</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/webaqua/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_38-cnt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_86-btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_330</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=i.z-datebox-icon.z-icon-calendar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=_z_0-tm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#_z_0-left &gt; i.z-icon-caret-left</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=_z_0-m0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//tr[@id='_z_0-w0']/td[5]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=zk_c_102</td>
+	<td>2013.1.00725.S</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_246-cave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_206</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>fbMainContainer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=fbCloseButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_365</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_470-cnt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>fbMainContainer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=fbInspectButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=zk_c_2257</td>
+	<td>8.87min (parallactic range: 0.05863 deg)</td>
+</tr>
+</tbody></table>
+</body>
+</html>

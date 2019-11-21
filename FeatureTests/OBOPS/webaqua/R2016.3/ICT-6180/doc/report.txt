@@ -1,0 +1,11 @@
+*Precondition*
+
+- Open AQUA https://2016-03.asa-test.alma.cl/webaqua with user CASA account (pmerino)
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Display the expected Tsys/Trec in the Temperature plots*
+1. Open Atmpsphere plot tab in AQUA.
+2. Expected Result: There are two horizontal lines: for Tsys and Trec.
+3. Passed: OK (testcaste01.png).

@@ -1,0 +1,50 @@
+*Precondition*
+
+Open AQUA http://hermione.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0   (Latest version)
+Using Google Chrome 35.0.1916  (Latest version)
+
+*Test Case #1: Showing Date/Time in the QA0/QA1/QA2 Search List for EBs (QA0)*
+
+1. Go to Manual Search
+2. Interval: Other, From: 2014/01/01 12:00:00 AM To: 2014/01/31 12:00:00 AM and Search
+3. Select the row ExecBlock UID: uid://A002/X77dfee/X27
+4. Go to "ExecBlock" tab
+5. Expected Result:
+   The EB result lists now show a 'Start time' column.
+   The 'Start Time' label in the ExecBlock tab should show the 'Start time' information.
+6. Passed: OK (testcase01.png ICT-2732-TestCase01.html).
+
+Note: The start time format of the result lists is YYYYMMDD-HH:MM (For example: 20140101-19:18) and in the 'Start time' label of ExecBlock is different YYYY-MM-DDTHH:MM:SS (For example: 2014-01-01T19:18:01).
+
+*Test Case #2: Showing Date/Time in the QA0/QA1/QA2 Search List for Sessions (QA01)*
+
+1. Select Manual Search
+2. Click Sessions (QA1) tab
+3. Interval: Other, From: 2014/01/01 12:00:00 AM To: 2014/01/31 12:00:00 AM
+4. Input Session UID: uid://A002/X5ca255/Xb
+5. Click in Search
+6. Select the row Session UID: uid://A002/X5ca255/Xb-X000015e1
+7. Go to "Session" tab
+8. Expected Result:
+   The Session result lists now show a 'Start time' column.
+   The 'Start Time' label in the Session tab should show the 'Start time' information.
+9. Passed: OK (testcase02.png ICT-2738-TestCase02.html).
+
+*Test Case #3: Showing Date/Time in the QA0/QA1/QA2 Search List for OUSs (QA02)*
+
+1. Select Manual Search
+2. Click Search OUS (QA2) tab
+3. Interval: Other, From: 2014/01/01 12:00:00 AM To: 2014/01/31 12:00:00 AM
+4. Input Session UID: uid://X02/X63b6d/Xa
+5. Click in Search
+6. Select the row Session UID: uid://X02/X63b6d/Xa-X14685679
+7. Go to "Session" tab
+8. Expected Result:
+   The Session result lists now show a 'Start time' column.
+   The 'Start Time' label in the Session tab should show the 'Start time' information.
+9. Passed: OK (testcase03.png ICT-2738-TestCase03.html).
+
+Note: In the testing environment, by default we noted that all QA2 status were UNSET.
+

@@ -1,0 +1,15 @@
+*Precondition*
+
+- Open Reports of Protrack https://2016-03.asa-test.alma.cl/protrack with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Notification email to assigned P2G, CS, and P2G leads when a new comments is add*
+1. Add to obopsConfig.properties string
+{noformat}
+obops.protrack.newcommentemail = some_email
+{noformat}
+2. Add to any project new comment or new attachment.
+3. Expected result: Emails will be sent.
+4. Passed: OK (testcase01-a.png testcase01-b.png)

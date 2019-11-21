@@ -1,0 +1,30 @@
+*Precondition*
+
+Open AQUA http://lucina.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+Test Case #1: Uploading txt file in the QA0 batch tool
+
+1. Click in 'Go to Open the Bulk AQ0 status update tool'
+2. Click in 'Upload a file'
+3. Chose some .txt file
+4. Expected Result: After the upload operation, the QA0 Status should be applied to the ExecBlock UIDs.
+5. Passed: OK (testcaste01-bulk_update.txt testcase01.png ICT-3138-TestCase01.html).
+
+Test Case #2: Uploading xls file in the QA0 batch tool
+
+1. Click in 'Go to Open the Bulk AQ0 status update tool'
+2. Click in 'Upload a file'
+3. Chose some .xls file
+4. Expected Result: After the upload operation, the QA0 Status should be applied to the ExecBlock UIDs.
+5. Passed: OK (testcaste02-bulk_update.xls testcase02.png ICT-3138-TestCase03.html).
+
+Test Case #3: Uploading doc file in the QA0 batch tool
+
+1. Click in 'Go to Open the Bulk AQ0 status update tool'
+2. Click in 'Upload a file'
+3. Chose some .doc file
+4. Expected Result: After the upload operation, the QA0 Status should be applied to the ExecBlock UIDs.
+5. Passed: OK (testcaste03-bulk_update.doc testcase03.png ICT-3138-TestCase03.html).

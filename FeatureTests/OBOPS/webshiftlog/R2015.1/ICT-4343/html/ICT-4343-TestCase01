@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://laetitia.sco.alma.cl:8080/" />
+<title>ICT-4343-TestCase01</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ICT-4343-TestCase01</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/webshiftlog/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=zk_c_96</td>
+	<td>label=Last month</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_252</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_2087-cave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.z-paging-next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.z-paging-next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.z-paging-last</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.z-paging-first</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.z-paging-next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.z-paging-next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_3468-cave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_4034-real</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_4007-real</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=td.z-comboitem-text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=zk_c_3864</td>
+	<td>2011</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_3598-cave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_3940</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPopUp</td>
+	<td>selenium_blank23304</td>
+	<td>30000</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#zk_c_29 &gt; div.z-toolbarbutton-body &gt; div.z-toolbarbutton-cnt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPopUp</td>
+	<td>selenium_blank50362</td>
+	<td>30000</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=zk_c_3661</td>
+	<td>label=Other</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_3645-btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=_z_12-tm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=_z_12-ty</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=_z_12-y0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=_z_12-m0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=td.z-calendar-wkday.z-calendar-over</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=zk_c_3688</td>
+	<td>OSF-TFINT</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_3792</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_1091-cave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_991-cave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_863</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a[title=&quot;Create a HTML report for this project&quot;] &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_1171-cave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_39-cnt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_5249-cave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_5234-cave</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

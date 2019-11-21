@@ -1,0 +1,33 @@
+*Precondition*
+
+Open AQUA http://hermione.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0   (Latest version)
+Using Google Chrome 35.0.1916  (Latest version)
+
+*Test Case #1: Showing a normal scrollbar in Phase tab*
+
+1. Go to Manual Search
+2. Interval: Other, From: 2014/01/01 12:00:00 AM To: 2014/01/31 12:00:00 AM and Search
+3. Select the row ExecBlock UID: uid://A002/X77dfee/X79
+4. Go to "Calibration Summaries" tab
+5. Go to Phase tab and look at the baseline lengths tables
+6. Expected Result:
+   The table should have a title that reads "Baseline Lengths [m]".
+   The table should be scrollable, if it takes more than the remaining available space of the page.
+   If it's scrollable, the scrollbars should be fixed with respect to the page
+7. Passed: OK (testcase01.png ICT-2733-TestCase01.html).
+
+*Test Case #2: Showing a large scrollbar in Phase tab*
+
+1. Go to Manual Search
+2. Interval: Other, From: 2014/01/01 12:00:00 AM To: 2014/01/31 12:00:00 AM and Search
+3. Select the row ExecBlock UID: uid://A002/X77dfee/X27
+4. Go to "Calibration Summaries" tab
+5. Go to Phase tab and look at the baseline lengths tables
+6. Expected Result:
+   The table should have a title that reads "Baseline Lengths [m]".
+   The table should be scrollable, if it takes more than the remaining available space of the page.
+   If it's scrollable, the scrollbars should be fixed with respect to the page.
+   If the number of baseline is too large it is not possible to check all the matrix of BL. A slider should be added to allow the full visualization.
+7. Passed: OK (testcase02.png ICT-2733-TestCase02.html).

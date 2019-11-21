@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Default suite" verbose="1" thread-count="4" parallel="tests">
+<tests>
+    <test verbose="1" name="Windows+Firefox Test">
+    		<parameters>
+ 					<parameter name="platform" value="Windows" />
+ 					<parameter name="browser" value="Firefox" />
+ 			</parameters>
+      		<packages>
+      				<package name="simplesearch" />
+      				<package name="advancedsearch" />
+					<!-- package name="poweruser" /-->
+      		</packages>
+    </test>
+    <test verbose="1" name="Windows+Chrome Test">
+    		<parameters>
+ 					<parameter name="platform" value="Windows" />
+ 					<parameter name="browser" value="Chrome" />
+ 			</parameters>
+ 	 	 	<packages>
+					<package name="simplesearch" />
+      				<package name="advancedsearch" />
+      				<!-- package name="poweruser" /-->
+      		</packages>
+    </test>
+    <!-- test verbose="1" name="Windows+IE Test">
+    		<parameters>
+ 					<parameter name="platform" value="Windows" />
+ 					<parameter name="browser" value="Internet Explorer" />
+ 					<parameter name="version" value="" />
+ 			</parameters>
+ 	  		<packages>
+					<package name="simplesearch" />
+      				<package name="advancedsearch" />
+					<package name="poweruser" />
+      		</packages>
+    </test-->
+    <test verbose="1" name="Linux+Firefox Test">
+    		<parameters>
+ 					<parameter name="platform" value="Linux" />
+ 					<parameter name="browser" value="Firefox" />
+ 			</parameters>
+ 	  		<packages>
+					<package name="simplesearch" />
+      				<package name="advancedsearch" />
+					<!-- package name="poweruser" /-->
+      		</packages>
+    </test>
+    <!--test verbose="1" name="Mac+Firefox Test">
+    		<parameters>
+ 					<parameter name="platform" value="Mac" />
+ 					<parameter name="browser" value="Firefox" />
+ 					<parameter name="version" value="" />
+ 			</parameters>
+ 	  		<packages>
+					<package name="simplesearch" />
+      				<package name="advancedsearch" />
+					<package name="poweruser" />
+      		</packages>
+   	</test>
+   	<test verbose="1" name="Mac+Chrome Test">
+    		<parameters>
+ 					<parameter name="platform" value="Mac" />
+ 					<parameter name="browser" value="Chrome" />
+ 					<parameter name="version" value="" />
+ 			</parameters>
+ 	  		<packages>
+					<package name="simplesearch" />
+      				<package name="advancedsearch" />
+					<package name="poweruser" />
+      		</packages>
+    </test-->
+  </tests> 
+</suite> 

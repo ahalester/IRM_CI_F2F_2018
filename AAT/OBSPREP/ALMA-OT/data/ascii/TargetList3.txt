@@ -1,0 +1,5 @@
+Source Name, RA(sexagesimal) , Dec(sexagesimal), PMRA (mas/yr), PMDec(mas/yr), Velocity (km/s), velocity reference frame, peak continuum flux density (mJy), peak line flux density (mJy), expected cont. polarization (%), expected line polarization (%), expected linewidth (kHz)
+--   This signals end of the header
+Algol,  03:08:10.1325,  40:57:20.328, 2.99, -1.66, 4.0, hel, OPTICAL, 0.0, 0.0, 0.0, 0.0, 0.0
+Mirfak,  03:24:19.3701,  49:51:40.245, 23.75, -26.23, -2.4, hel, RELATIVISTIC, 0.0, 0.0, 0.0, 0.0, 0.0
+Menkib,  03:04:47.7907,  53:30:23.169, 0.51, -5.92, 2.5, hel, RADIO, 0.0, 0.0, 0.0, 0.0, 0.0

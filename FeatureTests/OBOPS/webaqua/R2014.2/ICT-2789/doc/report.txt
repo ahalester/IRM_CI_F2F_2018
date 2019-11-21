@@ -1,0 +1,32 @@
+*Precondition*
+
+Open AQUA http://hermione.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0   (Latest version)
+Using Google Chrome 35.0.1916  (Latest version)
+
+*Test Case #1: Checking the Status of ExecBlock UID in Manual Search*
+
+1. Go to Manual Search
+2. Interval: Other, From: 2014/01/01 12:00:00 AM To: 2014/06/29 12:00:00 AM and Search
+3. Select the row ExecBlock UID: uid://A002/X77e09f/X2
+4. Click in Search button
+5. Expected Result:
+   The ExecBlock lists should contain a new "Status" column.
+   The column's contents should be the execution status of each ExecBlock, as recorded by the corresponding entry in the shiftlog tool.
+   Sorting the column should be possible by clicking on its header
+   When an ExecBlock is opened, the details panel should also show the execution status in a line reading "Status: <theStatus>", just above the "QA0 Status" line.
+   A change in the execution status of an ExecBlock in the shiftlog tool should be visible in AQUA
+6. Passed: OK (testcase01-aqua.png testcase01-shiftlog.png ICT-2788-TestCase01.html).
+
+*Test Case #2: Checking the Status of ExecBlock UID in Unflagged EB/Sessions/OUSs*
+
+1. Go to Unflagged EB/Sessions/OUSs
+2. Select the row ExecBlock UID uid://A001/X1ba/X1
+3. Expected Result:
+   The ExecBlock lists should contain a new "Status" column.
+   The column's contents should be the execution status of each ExecBlock, as recorded by the corresponding entry in the shiftlog tool.
+   Sorting the column should be possible by clicking on its header
+   When an ExecBlock is opened, the details panel should also show the execution status in a line reading "Status: <theStatus>", just above the "QA0 Status" line.
+   A change in the execution status of an ExecBlock in the shiftlog tool should be visible in AQUA
+4. Passed: OK (testcase02-aqua.png testcase02-shiftlog.png ICT-2789-TestCase02.html).

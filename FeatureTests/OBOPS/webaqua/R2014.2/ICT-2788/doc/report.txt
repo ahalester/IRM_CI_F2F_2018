@@ -1,0 +1,24 @@
+*Precondition*
+
+Open AQUA http://hermione.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0   (Latest version)
+Using Google Chrome 35.0.1916  (Latest version)
+
+*Test Case #1: Check that the ExecBlock UID with RUNNING state is boldface*
+
+1. Go to Manual Search
+2. Interval: Other, From: 2014/01/01 12:00:00 AM To: 2014/01/31 12:00:00 AM and Search
+3. Select the row ExecBlock UID: uid://A002/X77e1db/X1
+4. Click in Search button
+5. Expected Result: ExecBlocks in RUNNING state should appear in boldface in the ExecBlocks results table.
+6. Passed: OK (testcase01.png ICT-2788-TestCase01.html).
+
+*Test Case #2: Check that the ExecBlock UID with SUCCESS state is not boldface*
+
+1. Go to Manual Search
+2. Interval: Other, From: 2014/01/01 12:00:00 AM To: 2014/01/31 12:00:00 AM and Search
+3. Select the row ExecBlock UID: uid://A002/X77dfee/X23
+4. Click in Search button
+5. Expected Result: ExecBlocks in SUCCESS state should not appear in boldface in the ExecBlocks results table.
+6. Passed: OK (testcase02.png ICT-2788-TestCase02.html).

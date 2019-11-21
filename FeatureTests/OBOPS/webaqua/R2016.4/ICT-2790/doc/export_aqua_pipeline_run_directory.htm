@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='UTF8'>
+  
+  <title>Responsive Table</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <style>
+  * { 
+    margin: 0; 
+    padding: 0; 
+  }
+  body { 
+    font: 14px/1.4 Georgia, Serif; 
+  }
+  
+  /* 
+  Generic Styling, for Desktops/Laptops 
+  */
+  table { 
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  /* Zebra striping */
+  tr:nth-of-type(odd) { 
+    background: #eee; 
+  }
+  th { 
+    background: #333; 
+    color: white; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px; 
+    border: 1px solid #9B9B9B; 
+    text-align: left; 
+  }
+  @media 
+  only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px)  {
+    table, thead, tbody, th, td, tr { display: block; }
+    thead tr { position: absolute;top: -9999px;left: -9999px;}
+    tr { border: 1px solid #9B9B9B; }
+    td { border: none;border-bottom: 1px solid #9B9B9B; position: relative;padding-left: 50%; }
+    
+    td:before { position: absolute;top: 6px;left: 6px;width: 45%; padding-right: 10px; white-space: nowrap;}
+    
+    /*
+    Label the data
+    */
+td:nth-of-type(0):before { content: "ID"; }
+td:nth-of-type(1):before { content: "REMARK"; }
+td:nth-of-type(2):before { content: "LAST_OP_TIMESTAMP"; }
+td:nth-of-type(3):before { content: "PATHNAME"; }
+td:nth-of-type(4):before { content: "PROJECT_CODE"; }
+td:nth-of-type(5):before { content: "STATUS"; }
+td:nth-of-type(6):before { content: "TIMESTAMP"; }
+td:nth-of-type(7):before { content: "VERSION"; }
+td:nth-of-type(8):before { content: "LAST_OP_ACCOUNT"; }
+  }
+  
+  /* Smartphones (portrait and landscape) ----------- */
+  @media only screen
+  and (min-device-width : 320px)
+  and (max-device-width : 480px) {
+    body { 
+      padding: 0; 
+      margin: 0; 
+      width: 320px; }
+    }
+  
+  /* iPads (portrait and landscape) ----------- */
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    body { 
+      width: 495px; 
+    }
+  }
+  
+  </style>
+  <!--<![endif]-->
+<script type="text/javascript">
+
+lsearch = function(){
+  //this.term = document.getElementById('S').value.toUpperCase();
+  var s = document.getElementById('search').value.toLowerCase();
+  rows = document.getElementById('data').getElementsByTagName('TR');
+  for(var i=0;i<rows.length;i++){
+    if (s =="" ){
+      rows[i].style.display ='';
+    } else if ( rows[i].innerText.toLowerCase().indexOf(s) != -1 ) {
+      rows[i].style.display ='';
+    } else {
+      rows[i].style.display ='none';
+    }
+  }
+  this.time = false;
+}
+
+</script>
+</head>
+
+<body>
+<div><input type="text" size="30" maxlength="1000" value="" id="search" onkeyup="lsearch();" /><input type="button" value="Go" onclick="lsearch();"/> </div>
+<table><thead><tr>	<th>ID</th>
+	<th>REMARK</th>
+	<th>LAST_OP_TIMESTAMP</th>
+	<th>PATHNAME</th>
+	<th>PROJECT_CODE</th>
+	<th>STATUS</th>
+	<th>TIMESTAMP</th>
+	<th>VERSION</th>
+	<th>LAST_OP_ACCOUNT</th>
+</tr></thead>
+<tbody id="data">
+
+	<tr>
+<td align="right">5000017727</td>
+<td>Directory 'products' of /root/pipeline-staging-area/2015.1.00001.S_2016_03_26T05_00_00.000 not found</td>
+<td>2016-06-18 16:12:20</td>
+<td>2015.1.00001.S_2016_03_26T05_00_00.000</td>
+<td>2015.1.00001.S</td>
+<td>ERROR</td>
+<td>2016-03-26T05:00:00</td>
+<td align="right">1</td>
+<td>&nbsp;</td>
+	</tr>
+	<tr>
+<td align="right">5000017728</td>
+<td>&nbsp;</td>
+<td>2016-06-18 16:13:40</td>
+<td>2015.1.00002.S_2016_04_07T11_05_00.000</td>
+<td>2015.1.00002.S</td>
+<td>PROCESSED</td>
+<td>2016-04-07T11:05:00</td>
+<td align="right">1</td>
+<td>&nbsp;</td>
+	</tr>
+	<tr>
+<td align="right">5000017731</td>
+<td>&nbsp;</td>
+<td>2016-06-18 16:17:00</td>
+<td>2015.1.00002.S_2016_04_08T11_35_00.000</td>
+<td>2015.1.00002.S</td>
+<td>PROCESSED</td>
+<td>2016-04-08T11:35:00</td>
+<td align="right">1</td>
+<td>&nbsp;</td>
+	</tr>
+	<tr>
+<td align="right">5000017726</td>
+<td>Directory 'products' of /root/pipeline-staging-area/2015.1.00001.S_2016_03_26T03_17_48.355 not found</td>
+<td>2016-06-18 16:11:20</td>
+<td>2015.1.00001.S_2016_03_26T03_17_48.355</td>
+<td>2015.1.00001.S</td>
+<td>ERROR</td>
+<td>2016-03-26T03:17:48</td>
+<td align="right">1</td>
+<td>&nbsp;</td>
+	</tr>
+</tbody></table><!-- SQL:
+select * from AQUA_PIPELINE_RUN_DIRECTORY--></body></html>

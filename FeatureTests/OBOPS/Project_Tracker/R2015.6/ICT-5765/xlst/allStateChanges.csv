@@ -1,0 +1,12 @@
+uid://A001/X122/X2b1,ReadyForProcessing,2015-01-20 04:40:00,"Trying out the bulk updater, first step"
+2013.1.01358.S,ACT-CL_J_a_06_TE,PipelineProcessing,2015-01-21 04:44:00,"Trying out the bulk updater, third step"
+2013.1.01358.S,ACT-CL_J_a_06_TE,Processed,,"Trying out the bulk updater, final step, no timestamp so it should be now"
+uid://A001/X122/X2b2,ReadyForProcessing,2015-01-20 04:40:00,"Trying out the bulk updater, first step"
+uid://A001/X122/X2b2,PipelineProcessing,2015-01-20 04:44:00,"Trying out the bulk updater, third step"
+uid://A001/X122/X2b2,Processed,2015-01-22 13:56:16,"Trying out the bulk updater, final step, no timestamp so it should be now"
+2013.1.01365.S,W43-MM1_a_06_TE,FullyObserved,2015-01-20 03:40:00,Trying out the bulk updater
+uid://A001/X12f/X99,ReadyForProcessing,2015-01-20 04:40:00,"Trying out the bulk updater, second step"
+2013.1.01365.S,W43-MM1_a_06_TE,PipelineProcessing,2015-01-20 04:44:00,"Trying out the bulk updater, third step"
+2013.1.01365.S,W43-MM1_a_06_TE,Processed,,"Trying out the bulk updater, final step, no timestamp so it should be now"
+uid://A001/X146/X49,ReadyForProcessing,2015-01-20 04:43:00,"Trying out the bulk updater, final step, no timestamp so it should be now"
+uid://A001/X146/X49,PipelineProcessing,2015-01-20 04:44:00,"Trying out the bulk updater, third step"

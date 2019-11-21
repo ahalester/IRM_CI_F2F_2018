@@ -1,0 +1,49 @@
+*Precondition*
+
+Open AQUA http://svea.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Search by Science project only*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014/01/01
+5. In To select the current date
+6. Make sure that 'Science project only' option is enabled
+7. Click in Search button
+8. Select the first result
+9. Expected Result:
+    - When initially loaded, the EB search form should have the "Science projects only" checkbox checked.
+    - When "science projects only" is checked, results will be constrained to projects whose project code ends either with S, T or L, and that start with "20".
+10. Passed: OK (testcaste01.png ICT-3618-TestCase01.html).
+
+*Test Case #2: Search without Science project only*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014/01/01
+5. In To select the current date
+6. Un-select the 'Science project only' option
+7. Click in Search button
+8. Select the first result
+9. Expected Result:
+    - When initially loaded, the EB search form should have the "Science projects only" checkbox checked.
+    - When "science projects only" is un-checked, results will not be constrained to projects whose project code ends either with S, T or L, and that start with "20".
+10. Passed: OK (testcaste02.png ICT-3618-TestCase02.html).
+
+*Test Case #3: Search by Project code and Science project only*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014/01/01
+5. In To select the current date
+6. In Project code input 2010.2.00002.CSV
+7. Make sure that 'Science project only' option is enabled
+8. Click in Search button
+9. Expected Result: Without results, because The "science projects only" and "Project Code" fields should be AND-ed together.
+10. Passed: OK (testcaste03.png ICT-3618-TestCase03.html).

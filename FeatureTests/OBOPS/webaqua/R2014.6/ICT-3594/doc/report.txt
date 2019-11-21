@@ -1,0 +1,21 @@
+*Precondition*
+
+Open AQUA http://svea.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Checking the value of the stimated duration for one EB*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014/01/01
+5. In To select the current date
+6. In ExecBlock UID field input uid://A002/X785e52/X698
+7. Click in Search button
+8. Select the first result
+9. Go to ExecBlock tab and click "In Protrack" link
+10. Go to Summary tab and check the values of "Total Duration" and "EB Fractional Duration".
+11. Expected Result: The percentage shown under "EB Fractional Duration" in AQUA should correspond to the ratio between the duration of the ExecBlock and the total estimated execution time of the SchedBlock.
+12. Passed: OK (testcase01-aqua.png testcase01-protrack.png ICT-3594-TestCase01.html).

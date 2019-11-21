@@ -1,0 +1,87 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Parallel Tests" verbose="2" thread-count="4"
+	parallel="tests">
+	<tests>
+		<test name="Windows+IE Test">
+			<parameters>
+				<parameter name="platform" value="Windows" />
+				<parameter name="browser" value="Internet Explorer" />
+				<parameter name="url" value="http://www.google.com" />
+			</parameters>
+			<classes>
+				<class name="alma.irm.SimpleTest" />
+			</classes>
+		</test>
+
+                <test name="Windows+firefox">
+                        <parameters>
+                                <parameter name="platform" value="Windows" />
+                                <parameter name="browser" value="Firefox" />
+                                <parameter name="url" value="http://www.google.com" />
+                        </parameters>
+                        <classes>
+                                <class name="alma.irm.SimpleTest" />
+                        </classes>
+                </test>
+                <test name="Windows+Chrome Test">
+                        <parameters>
+                                <parameter name="platform" value="Windows" />
+                                <parameter name="browser" value="Chrome" />
+                                <parameter name="url" value="http://www.google.com" />
+                        </parameters>
+                        <classes>
+                                <class name="alma.irm.SimpleTest" />
+                        </classes>
+                </test>
+
+
+
+<!--
+		<test name="Mac+Firefox Test">
+			<parameters>
+				<parameter name="platform" value="Mac" />
+				<parameter name="browser" value="Firefox" />
+				<parameter name="url" value="http://www.google.com" />
+			</parameters>
+			<classes>
+				<class name="alma.irm.SimpleTest" />
+			</classes>
+		</test>
+                <test name="Mac+Chrome Test">
+                        <parameters>
+                                <parameter name="platform" value="Mac" />
+                                <parameter name="browser" value="Chrome" />
+                                <parameter name="url" value="http://www.google.com" />
+                        </parameters>
+                        <classes>
+                                <class name="alma.irm.SimpleTest" />
+                        </classes>
+                </test>
+-->
+
+		<test name="Linux+Firefox Test">
+			<parameters>
+				<parameter name="platform" value="Linux" />
+				<parameter name="browser" value="Firefox" />
+				<parameter name="url" value="http://www.google.com" />
+			</parameters>
+			<classes>
+				<class name="alma.irm.SimpleTest" />
+			</classes>
+		</test>
+
+                <test name="Linux+Chrome Test">
+                        <parameters>
+                                <parameter name="platform" value="Linux" />
+                                <parameter name="browser" value="Chrome" />
+                                <parameter name="url" value="http://www.google.com" />
+                        </parameters>
+                        <classes>
+                                <class name="alma.irm.SimpleTest" />
+                        </classes>
+                </test>
+
+	</tests>
+
+</suite>
+

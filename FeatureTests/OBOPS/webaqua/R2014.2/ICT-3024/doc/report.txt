@@ -1,0 +1,53 @@
+*Precondition*
+
+Open AQUA http://hermione.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0   (Latest version)
+Using Google Chrome 35.0.1916  (Latest version)
+
+*Test Case #1: Plotting antenna name in Atmosphere tab*
+
+1. Go to Manual Search
+2. Interval: Other, From: 2014/01/01 12:00:00 AM To: 2014/01/31 12:00:00 AM and Search
+3. Select the row ExecBlock UID: uid://A002/X77dfee/X79
+4. Go to "Plots" tab
+5. Go to Atmosphere tab, Select some Source
+5. Expected Result:
+    Atmosphere plots should indicate in their tooltips the name of the antenna, in bold, that corresponds to the data point in the plot.
+    All plots' tooltips should also show the data that corresponds to the point being highlighted.
+6. Passed: OK (testcase01.png ICT-3024-TestCase01.html).
+
+*Test Case #2: Plotting antenna name in Pointing tab*
+
+1. Go to Manual Search
+2. Interval: Other, From: 2014/01/01 12:00:00 AM To: 2014/01/31 12:00:00 AM and Search
+3. Select the row ExecBlock UID: uid://A002/X77dfee/X79
+4. Go to "Plots" tab
+5. Go to Pointing tab, Select some Source
+5. Expected Result:
+    Pointing plots should indicate in their tooltips the name of the antenna, in bold, that corresponds to the data point in the plot.
+    All plots' tooltips should also show the data that corresponds to the point being highlighted.
+6. Passed: OK (testcase02.png ICT-3024-TestCase02.html).
+
+*Test Case #3: Plotting antenna name in Phase tab*
+
+1. Go to Manual Search
+2. Interval: Other, From: 2014/01/01 12:00:00 AM To: 2014/01/31 12:00:00 AM and Search
+3. Select the row ExecBlock UID: uid://A002/X77dfee/X79
+4. Go to "Plots" tab
+5. Go to Phase tab, Select some Source
+5. Expected Result:
+    Phase plots should indicate the two antennas that compose the baseline that corresponds to the data point in the plot.
+    All plots' tooltips should also show the data that corresponds to the point being highlighted.
+6. Passed: OK (testcase03.png ICT-3024-TestCase03.html).
+
+*Test Case #4: Plotting antenna name in Coverage tab*
+
+1. Go to Manual Search
+2. Interval: Other, From: 2014/01/01 12:00:00 AM To: 2014/01/31 12:00:00 AM and Search
+3. Select the row ExecBlock UID: uid://A002/X77dfee/X79
+4. Go to "Plots" tab
+5. Go to Coverage tab, Select some Source
+5. Expected Result:
+    All plots' tooltips should also show the data that corresponds to the point being highlighted.
+6. Passed: OK (testcase04.png ICT-3024-TestCase04.html).

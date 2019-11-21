@@ -1,0 +1,19 @@
+*Precondition*
+
+- Test using CASA account
+- Test using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Test using Mozilla Firefox v.43.0 (Latest version)
+- Test using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Improvements to Reporting System: schedBlock View*
+1) Go to https://2016-02.asa-test.alma.cl/protrack/reports/dso.zul
+2) Select a cycle (any)
+3) Click schedBlock status
+4) Click Generate SchedBlock Status
+5) Expected result:
+- Add a column for SB state
+- Add a column for parent mOUS state
+- Add column for mOUS uid
+- Column M (# originally needed) should be written out as a number rather than a text string.
+- If the proper RA is not available for ephemeris objects, then leave column P blank rather than 0:0.
+6) Passed: OK (testcase01.pdf 2015.1_schedBlockView.xls)

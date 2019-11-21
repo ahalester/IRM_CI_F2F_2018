@@ -1,0 +1,7 @@
+Source Name, RA(sexagesimal) , Dec(sexagesimal), PMRA (mas/yr), PMDec(mas/yr), Velocity (km/s), velocity reference frame, peak continuum flux density (mJy), peak line flux density (mJy), expected cont. polarization (%), expected line polarization (%), expected linewidth (kHz)
+--   This signals end of the header
+Asterope,  03:45:54.4769,  24:33:16.244, 20.180, -44.870, -0.100, bar, RADIO, 220.0, 190, 20, 15, 12
+Taygeta,  03:45:12.4958,  24:28:02.210, 21.24, -40.56, 5.50, lsrk, RADIO, 1120.0, 970.0, 10.0, 0, 50
+Maia,  03:45:49.6066,  24:22:03.886, 20.95, -45.98, 7.5, topo, RELATIVISTIC, 3.5, 2.3, 0.25, 80, 33.0
+Celaeno,  03:44:48.2152,  24:17:22.085, 20.38, -44.81, 2.90, hel, OPTICAL, 420, 360.0, 40.0, 20.0, 30
+Elektra,  03:44:52.5369,  24:06:48.0110, 20.84, -46.06, 12.400, lsr, RELATIVISTIC, 310, 180, 30.0, 33, 42

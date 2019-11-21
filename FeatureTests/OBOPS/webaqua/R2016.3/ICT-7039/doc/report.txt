@@ -1,0 +1,11 @@
+*Precondition*
+
+- Open AQUA https://2016-03.asa-test.alma.cl/webaqua with user CASA account (pmerino)
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: QA0: warning if science pointings have < 90% expected time on source*
+1. Open ExecBlocks summary for sources having pointings with execution time less then 90% from nominal (for example, uid://A002/Xaf7f20/X410).
+2. Expected Result: In the "Time on sources" panel there will be a warning.
+3. Passed: OK (testcaste01.png).

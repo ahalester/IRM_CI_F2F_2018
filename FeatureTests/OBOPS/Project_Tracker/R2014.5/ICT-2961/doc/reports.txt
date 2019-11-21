@@ -1,0 +1,43 @@
+*Precondition*
+
+Open Reports of Protrack http://rodhope.sco.alma.cl:8080/protrack/reports/dso.zul with CASA account
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Uploading some attached file*
+
+1. Select "Project" button
+2. In PI UserId input rsoto
+3. Click in "Search" button
+4. Click the first result
+5. Click in Comments and Attachments
+6. Click in the "+" icon
+7. Choose some file and accept
+8. Expected Result: The attached file should be showed in the table.
+9. Passed: OK (testcaste01.png ICT-2961-TestCase01.html).
+
+*Test Case #2: Retrieving some attached file*
+
+1. Select "Project" button
+2. In PI UserId input rsoto
+3. Click in "Search" button
+4. Click the first result
+5. Click in Comments and Attachments
+6. Click in the "attached01.txt" file link
+7. Save or Open the file
+8. Expected Result: The attached file should be retrieved from the table.
+9. Passed: OK (testcaste02.png ICT-2961-TestCase02.html).
+
+*Test Case #3: Removing some attached file*
+
+1. Select "Project" button
+2. In PI UserId input rsoto
+3. Click in "Search" button
+4. Click the first result
+5. Click in Comments and Attachments
+6. Click in the "X" icon of the file
+7. Confirm the operation
+8. Expected Result: The attached file should be removed from the table.
+9. Passed: OK (testcaste03.png ICT-2961-TestCase03.html).
+

@@ -1,0 +1,14 @@
+*Precondition*
+
+- Open Reports of Protrack https://2015-05-64b.asa-test.alma.cl/protrack with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: *
+1. Click in "Reports" button
+2. Expected result: The select report dropdown should have 3 items:
+- Observing time distribution report
+- Project status evolution
+- SchedBlock status evolution
+3. Passed: OK (testcase01.png ICT-4371-TestCase01.html)

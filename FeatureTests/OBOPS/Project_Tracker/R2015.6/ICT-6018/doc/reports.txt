@@ -1,0 +1,10 @@
+*Precondition*
+- Open Reports of Protrack https://2015-06-docker.asa-test.alma.cl/webaqua with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1:* Check the REST interface for AQUA
+1. Being authorized in AQUA web interface, try in browser https://2015-06-docker.asa-test.alma.cl/webaqua/rest/execblock/uid:||A002|X987623|X38e5
+2. Expected result: The response should provide access to the data of the ExecBlockUID
+3. Passed: OK (testcase01.png).

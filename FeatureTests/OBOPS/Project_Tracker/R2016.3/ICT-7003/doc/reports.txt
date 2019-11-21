@@ -1,0 +1,22 @@
+*Precondition*
+- Open Reports of Protrack https://2015-08.asa-test.alma.cl/protrack/ with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.43.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+- In IT-22443: we added two emails to the p2g_lead@alma.cl list:
+{noformat}
+* patricio.merino@alma.cl
+* testuser@alma.cl
+{noformat}
+- In /usr/local/tomcat/conf/logging.properties of natalie.sco.alma.cl we added the following documentation:
+{noformat}
+.level = ALL
+alma.obops.mailmerge.MailSenderImpl.level = ALL
+{noformat}
+
+*Test Case #1:* Create email for notifiying the P2G and CS when SB is changed to "Waiting for P2G" state*
+1. Make any transition which should send report emails to more than one recipient with wrong emails.
+2. Expected result:
+   - In the log you will see separate attempts to send email to each recipient
+   - Recipient which have correct emails will receive letters.
+3. Passed: OK (testcase01.png). See catalina.out and email.txt in order to check the action of email.

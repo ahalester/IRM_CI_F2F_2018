@@ -1,0 +1,28 @@
+*Precondition*
+- Open Reports of Protrack https://2015-05-64b.asa-test.alma.cl/protrack with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1:* Searching by "Minimal angular resolution"
+1. Open SchedBlock search (SB) in the Project Tracker tool.
+2. Put a decimal values either for "Minimal angular resolution". For example: 0.5
+3. Expected result: Press a "Search" button. As a result you will see all Sched blocks which angular resolution ranges overlap with your search criteria range (check the section "Preconditions and constraints" in the right bottom part of the screen for a current schedblock selected).
+For this case, we setted only minimal limit (Min), then the range of search is [Min,+infinity).
+4. Passed: OK (testcase01-a.png testcase01-b.png). Results have overlaps with the range of search [0.5,+infinity).
+
+*Test Case #2:* Searching by "Minimal angular resolution" and "Maximal angular resolution"
+1. Open SchedBlock search (SB) in the Project Tracker tool.
+2. Put a decimal values either for "Minimal angular resolution". For example: 0.5
+3. Put a decimal values either for "Maximal angular resolution". For example: 1.5
+4. Expected result: Press a "Search" button. As a result you will see all Sched blocks which angular resolution ranges overlap with your search criteria range (check the section "Preconditions and constraints" in the right bottom part of the screen for a current schedblock selected).
+For this case, we setted both limits, then the range of search is [Min,Max].
+5. Passed: OK (testcase02-a.png testcase02-b.png). Results have overlaps with the range of search [0.5,1.5].
+
+*Test Case #3:* Searching by "Maximal angular resolution"
+1. Open SchedBlock search (SB) in the Project Tracker tool.
+2. Put a decimal values either for "Maximal angular resolution". For example: 1.5
+3. Expected result: Press a "Search" button. As a result you will see all Sched blocks which angular resolution ranges overlap with your search criteria range (check the section "Preconditions and constraints" in the right bottom part of the screen for a current schedblock selected).
+For this case, we setted only maximal limit (Max), then the range of search is (-infinity,Max].
+4. Passed: OK (testcase03-a.png testcase03-b.png). Results have overlaps with the range of search (-infinity,1.5].
+

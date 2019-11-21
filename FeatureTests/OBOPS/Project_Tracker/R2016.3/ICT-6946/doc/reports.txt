@@ -1,0 +1,11 @@
+*Precondition*
+
+- Open Reports of Protrack https://2016-03.asa-test.alma.cl/protrack with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: PT should display the project notes from the OT*
+1. Open Protrack
+2. Expected result: The project details page now displays the staffProjectNote after the APRC Report, & TA comments (if there are any).
+4. Passed: OK (testcase01.png)

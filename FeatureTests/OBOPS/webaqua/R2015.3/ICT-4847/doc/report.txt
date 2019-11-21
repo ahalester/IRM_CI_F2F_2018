@@ -1,0 +1,91 @@
+*Precondition*
+
+- Open AQUA http://adeona.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Adding in the Summary the central frequency of the 4 basebands*
+
+1. Open the ExecBlock UID uid://A002/X822d50/X4dc in AQUA
+2. In the main "ExecBlock" tab click on the "In Protrack" to open a new tab with the SchedBlock details shown in protrack
+3. In AQUA go to the "Summary" tab and note down the baseband center frequencies (i.e., "BB_1 Center Freq." and similar)
+3. In Protrack, right-click on the corresponding SchedBlock on the left-hand side tree and click on "Show XML"
+4. Look the ScienceParameters element and note down its entityPartId attribute
+{noformat}
+<sbl:ScienceParameters entityPartId="X520694509" almatype="APDM::ObservingParameters">
+{noformat}
+5. Look for this attribute, it should be mentioned as the partId attribute of an ObservingParametersRef element.
+{noformat}
+<sbl:ObservingParametersRef entityId="uid://A001/X121/Xa5"
+            partId="X520694509" entityTypeName="SchedBlock" documentVersion="1"/>{noformat}
+6. The ObservingParametersRef element should have a sibling AbstractInstrumentSpecRef element. Note down its partId attribute.
+{noformat}
+        <sbl:AbstractInstrumentSpecRef entityId="uid://A001/X121/Xa5"
+            partId="X1249185186" entityTypeName="SchedBlock" documentVersion="1"/>
+{noformat}
+7. Look for this new part ID. It should lead to a SpectralSpec element.
+{noformat}
+<sbl:SpectralSpec entityPartId="X1249185186"
+        almatype="APDM::AbstractInstrumentSpec"
+        switchingType="NO_SWITCHING" receiverType="TSB">
+{noformat}
+
+8. Inside the SpectralSpec there should be a FrequencySetup element with BaseBandSpecification elements inside, each of which will have a baseBandName attribute and a centerFrequency element. Note down both values for each BaseBandSpecification element.
+{noformat}
+        <sbl:FrequencySetup receiverBand="ALMA_RB_03" dopplerReference="topo">
+            <sbl:restFrequency unit="GHz">90.494575</sbl:restFrequency>
+            <sbl:transitionName>SkyCont_97_5_GHz_</sbl:transitionName>
+            <sbl:lO1Frequency unit="GHz">97.453075</sbl:lO1Frequency>
+            <sbl:isUserSpecifiedLO1>false</sbl:isUserSpecifiedLO1>
+            <sbl:hasHardwareSetup>false</sbl:hasHardwareSetup>
+            <sbl:floog unit="GHz">0.0</sbl:floog>
+            <sbl:tuneHigh>false</sbl:tuneHigh>
+            <sbl:BaseBandSpecification entityPartId="X358898252"
+                almatype="APDM::BaseBandSpecification"
+                baseBandName="BB_1" sideBandPreference="NONE">
+                <sbl:centerFrequency unit="GHz">90.5000000001</sbl:centerFrequency>
+                <sbl:frequencySwitching>false</sbl:frequencySwitching>
+                <sbl:lO2Frequency unit="GHz">9.9585</sbl:lO2Frequency>
+                <sbl:weighting>100.0</sbl:weighting>
+                <sbl:useUSB>true</sbl:useUSB>
+                <sbl:use12GHzFilter>false</sbl:use12GHzFilter>
+                <sbl:imageCenterFrequency unit="GHz">0.0</sbl:imageCenterFrequency>
+            </sbl:BaseBandSpecification>
+            <sbl:BaseBandSpecification entityPartId="X1868840588"
+                almatype="APDM::BaseBandSpecification"
+                baseBandName="BB_2" sideBandPreference="NONE">
+                <sbl:centerFrequency unit="GHz">92.4999999999</sbl:centerFrequency>
+                <sbl:frequencySwitching>false</sbl:frequencySwitching>
+                <sbl:lO2Frequency unit="GHz">8.021</sbl:lO2Frequency>
+                <sbl:weighting>100.0</sbl:weighting>
+                <sbl:useUSB>true</sbl:useUSB>
+                <sbl:use12GHzFilter>false</sbl:use12GHzFilter>
+                <sbl:imageCenterFrequency unit="GHz">0.0</sbl:imageCenterFrequency>
+            </sbl:BaseBandSpecification>
+            <sbl:BaseBandSpecification entityPartId="X507941494"
+                almatype="APDM::BaseBandSpecification"
+                baseBandName="BB_3" sideBandPreference="NONE">
+                <sbl:centerFrequency unit="GHz">102.5000000001</sbl:centerFrequency>
+                <sbl:frequencySwitching>false</sbl:frequencySwitching>
+                <sbl:lO2Frequency unit="GHz">8.0415</sbl:lO2Frequency>
+                <sbl:weighting>100.0</sbl:weighting>
+                <sbl:useUSB>true</sbl:useUSB>
+                <sbl:use12GHzFilter>false</sbl:use12GHzFilter>
+                <sbl:imageCenterFrequency unit="GHz">0.0</sbl:imageCenterFrequency>
+            </sbl:BaseBandSpecification>
+            <sbl:BaseBandSpecification entityPartId="X725192833"
+                almatype="APDM::BaseBandSpecification"
+                baseBandName="BB_4" sideBandPreference="NONE">
+                <sbl:centerFrequency unit="GHz">104.4999999999</sbl:centerFrequency>
+                <sbl:frequencySwitching>false</sbl:frequencySwitching>
+                <sbl:lO2Frequency unit="GHz">10.0415</sbl:lO2Frequency>
+                <sbl:weighting>100.0</sbl:weighting>
+                <sbl:useUSB>true</sbl:useUSB>
+                <sbl:use12GHzFilter>false</sbl:use12GHzFilter>
+                <sbl:imageCenterFrequency unit="GHz">0.0</sbl:imageCenterFrequency>
+            </sbl:BaseBandSpecification>
+        </sbl:FrequencySetup>
+{noformat}
+9. Expected Result: The baseband center frequencies displayed in AQUA should correspond to those found in the XML following the above mentioned steps; that is, should be the center frequencies of the basebands used during the observation of the science target.
+10. Passed: (tescase01-a.png testcase01-b.png testcase01-c.png ICT-4257-TestCase01.html)

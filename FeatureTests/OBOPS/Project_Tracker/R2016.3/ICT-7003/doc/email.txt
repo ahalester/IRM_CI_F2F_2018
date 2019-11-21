@@ -1,0 +1,24 @@
+SB is Waiting for P2G (Io_a_06_TE)
+ph1m_noreply@alma.cl
+Mon 5/9/2016 11:20 AM
+To:
+lead and deputy P2Gs <p2g_lead@alma.cl>;
+Action Items
+
+Dear  lead and deputy P2Gs,
+
+The SB Io_a_06_TE from Project 2015.1.00995.S has just been set to the "Waiting for P2G" state.
+Please take action as soon as it is possible and set the SB back to READY.
+
+If you are not be available in the next days, please inform
+the lead or deputy P2Gs so that someone else can be assigned in the case of urgent changes.
+
+Regards,
+The Project Tracker.
+
+You can access the SB in Project Tracker using this link:
+http://asa.alma.cl/protrack?schedBlockUid=uid://A001/X5a4/X46
+
+
+To stop receiving these emails please use this link:
+http://asa.alma.cl/UserRegistration/secure/email-notification/unsubscribe

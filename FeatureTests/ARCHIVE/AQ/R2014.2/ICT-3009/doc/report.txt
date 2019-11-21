@@ -1,0 +1,26 @@
+*Precondition*
+
+Open AQUA http://hermione.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0   (Latest version)
+Using Google Chrome 35.0.1916  (Latest version)
+
+*Test Case #1: Showing more parameters in the Summary tab*
+
+1. Go to Manual Search
+2. Interval: Other, From: 2014/01/01 12:00:00 AM To: 2014/06/27 12:00:00 AM and Search
+3. Select the row ExecBlock UID: uid://A002/X78cd19/X58
+4. Go to "Summary" tab
+5. Check the first lines of text after the "General" label
+6. Expected Result: The name of the OUS and the representative frequency of the SB should be displayed
+7. Passed: OK (testcase01.png ICT-3009-TestCase01.html).
+
+*Test Case #2: Showing more parameters in the Summary tab of an ExecBlock with FAIL status*
+
+1. Go to Manual Search
+2. Interval: Other, From: 2014/01/01 12:00:00 AM To: 2014/06/27 12:00:00 AM and Search
+3. Select the row ExecBlock UID: uid://A002/X77e4f6/X23e
+4. Go to "Summary" tab
+5. Check the first lines of text after the "General" label
+6. Expected Result: The name of the OUS and the representative frequency of the SB should be displayed
+7. Passed: OK (testcase02.png ICT-3009-TestCase02.html).

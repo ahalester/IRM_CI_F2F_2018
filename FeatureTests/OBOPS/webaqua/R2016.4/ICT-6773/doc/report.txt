@@ -1,0 +1,11 @@
+*Precondition*
+
+- Open AQUA https://2016-04.asa-test.alma.cl/webaqua with user CASA account (pmerino)
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: AQUA QA0: Use WVR corrected values for phase rms*
+1. Open Phase plots tab in AQUA.
+2. Expected Result: There will be corrected series in the plot.
+3. Passed: OK (testcaste01.png)

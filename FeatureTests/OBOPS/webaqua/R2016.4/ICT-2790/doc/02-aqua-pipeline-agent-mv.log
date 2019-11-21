@@ -1,0 +1,5 @@
+[root@8d33a8196f6c pipeline-staging-area]# mv 2015.1.00001.S_2016_03_26T03_17_48.355.TMP 2015.1.00001.S_2016_03_26T03_17_48.355
+
+2016-06-18 11:29:00.184  INFO 1613 --- [pool-5-thread-1] a.o.p.service.StagingAreaProcessingTask  : Found Pipeline run directory: 2015.1.00001.S_2016_03_26T03_17_48.355
+2016-06-18 11:29:00.226 ERROR 1613 --- [pool-5-thread-1] a.o.p.service.StagingAreaProcessingTask  : RuntimeException: Directory 'products' of /root/pipeline-staging-area/2015.1.00001.S_2016_03_26T03_17_48.355 not found
+2016-06-18 11:29:00.233  INFO 1613 --- [pool-5-thread-1] a.o.p.service.StagingAreaProcessingTask  : Task: found 1 new dirs, processed 1 dirs, ingested 0 dirs, stored 0 weblogs, 233 msec

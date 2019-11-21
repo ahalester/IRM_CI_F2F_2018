@@ -1,0 +1,44 @@
+*Precondition*
+
+Open AQUA http://urda.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Coverage Plot, fix the X/Y scale when only one pointing*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014/01/01
+5. In To select the current date
+6. In ExecBlock UID field input uid://A002/X77dfee/X27
+7. Click in Search button
+8. Select the first result
+9. Go to Plots > Coverage
+10. In the Source select J2258-279
+11. Expected Result: A graph should be shown with the following characteristics:
+    - The coverage contains only one point, the plot should have a size of 00:01:00 x 00 01' 00''.
+12. Passed: OK (testcaste01.png ICT-3496-TestCase01.html).
+    We noted that in the X axis is: 00:01:00
+    22:57:35.96
+    22:57:41.96
+    22:57:47.96
+    22:57:53.96
+    22:57:59.96
+    22:58:05.96
+    22:58:11.96
+    22:58:17.96
+    22:58:23.96
+    22:58:29.96
+    22:58:35.96
+    And the Y axis is: 00 01' 00''
+    - 22:57:51.3
+    - 22:58:01.3
+    - 22:58:11.3
+    - 22:58:21.3
+    - 22:58:31.3
+    - 22:58:41.3
+    - 22:58:51.3
+
+{color:red}Note: I don't found cases for more than one point{color}

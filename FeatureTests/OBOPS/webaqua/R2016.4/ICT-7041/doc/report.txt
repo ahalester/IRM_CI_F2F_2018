@@ -1,0 +1,11 @@
+*Precondition*
+
+- Open AQUA https://2016-04.asa-test.alma.cl/webaqua with user CASA account (pmerino)
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: QA0: display source elevation in Atmosphere tab*
+1. Open QA0 Atmosphere tab for any execblock.
+2. Expected Result: Below every temperatures plot there will be values like "Average elevation: XX.XX°; Transit elevation: XX.XX°".
+3. Passed: OK (testcaste01.png)

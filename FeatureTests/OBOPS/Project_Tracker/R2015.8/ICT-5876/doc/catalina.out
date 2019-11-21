@@ -1,0 +1,12 @@
+2016-01-04T13:52:06.182 INFO [pmerino@http-apr-8080-exec-8] [a.l.s.StateEngineImpl#logWithDetail] StateEngineImpl.changeState() for SBStatusEntityT: uid://A002/Xad2d3f/X14
+  Called with params [targetState:Waiting][subsystem: obops][userId: obops][flags: ForP2G][info: ][timestamp: 2016-01-04T13:52:06]
+2016-01-04T13:52:06.581 INFO [pmerino@http-apr-8080-exec-8] [a.l.s.StateEngineImpl#logWithDetail] StateEngineImpl.executeActionCommands() for SBStatusEntityT: uid://A002/Xad2d3f/X14
+  Number of postTransitionActions to execute: 0
+2016-01-04T13:53:19.073 FINER [noauth@protrackScheduler-1] [a.o.p.u.AccountRetriever#retrieveAccounts] Found 6528 user accounts
+2016-01-04T13:54:55.096 INFO [pmerino@http-apr-8080-exec-2] [a.l.s.StateEngineImpl#logWithDetail] StateEngineImpl.changeState() for SBStatusEntityT: uid://A002/Xad2d3f/X14
+  Called with params [targetState:Waiting][subsystem: obops][userId: pmerino][flags: ForP2G][info: Testing ICT-5876][timestamp: 2016-01-04T13:54:55]
+2016-01-04T13:54:55.667 INFO [pmerino@http-apr-8080-exec-2] [a.l.s.StateEngineImpl#logWithDetail] StateEngineImpl.changeState() for SBStatusEntityT: uid://A002/Xad2d3f/X14
+  Session flushed to DB, but not yet committed
+2016-01-04T13:54:55.667 INFO [pmerino@http-apr-8080-exec-2] [a.l.s.StateEngineImpl#logWithDetail] StateEngineImpl.executeActionCommands() for SBStatusEntityT: uid://A002/Xad2d3f/X14
+  Number of postTransitionActions to execute: 1
+2016-01-04T13:54:55.675 INFO [pmerino@http-apr-8080-exec-2] [a.l.s.StateEngineImpl#executeActionCommands] Executing postTransitionAction alma.lifecycle.stateengine.action.P2GAndCSEmailAction on a new Thread.

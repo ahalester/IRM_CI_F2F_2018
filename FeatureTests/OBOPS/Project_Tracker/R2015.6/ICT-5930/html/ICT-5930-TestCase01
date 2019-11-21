@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://natalie.sco.alma.cl:8080/" />
+<title>ICT-5930-TestCase01</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ICT-5930-TestCase01</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/protrack/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_10-cnt']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_106']/div/table/tbody[1]/tr[1]/td/div/span[2]</td>
+	<td>Reviewed</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_106']/div/table/tbody[1]/tr[1]/td/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_71-inp</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='zk_c_71-sel']/div[7]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//*[@id='zk_c_100']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_30']/div/div/div/div/table/tbody/tr/td/table/tbody/tr[1]/td/div/div[3]/table/tbody[1]/tr[1]/td[6]/div</td>
+	<td>Reviewed</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_423-cave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_34']/div/div[3]/div/div/div/table/tbody/tr/td/table/tbody/tr[1]/td[1]/table/tbody/tr/td/table/tbody/tr[1]/td/div/div[2]/div[1]/div/div[3]/table/tbody[1]/tr[10]/td[2]/div/div/div[1]/span</td>
+	<td>Reviewed</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_382']/ul/li[1]/a/span</td>
+	<td>Reviewed → ObservingTimedOut</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_382']/ul/li[1]/a/span</td>
+	<td>Reviewed → Phase1Submitted</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_382']/ul/li[1]/a/span</td>
+	<td>Reviewed → Canceled</td>
+</tr>
+</tbody></table>
+</body>
+</html>

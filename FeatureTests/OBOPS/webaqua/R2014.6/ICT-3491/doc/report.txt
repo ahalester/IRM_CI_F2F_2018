@@ -1,0 +1,40 @@
+*Precondition*
+
+Open AQUA http://svea.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Warning in Times section if Amplitude Calibrator is a quasar and the last flux measurement is too old*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014/01/01
+5. In To select the current date
+6. In ExecBlock UID field input uid://A002/X920302/X1336
+7. Click in Search button
+8. Select the first result
+9. Go to Summary tab
+10. Check the list of per-intent times and look for CALIBRATE_AMPLI or CALIBRATE_FLUX scans. Note down their source names (inside the parenthesis). Ignore sources that are Solar System objects (Caliston, Titan, Mars, etc...).
+11. For the rest of the sources, go to the ALMA Source Catalogue and check that latest flux measurement that has been obtained for them before the observation. For example, if an observation has a scan with intent CALIBRATE_AMPLI on source "source1", and the observation took place on 2014-11-19 08:00, go to the ALMA Source Catalogue and search for flux measurements for source "source1" before "2014-11-19".
+12. Look for the latest measurement on the result list (if there is any) and compare it with the date of the execution
+13. Expected Result: If the latest measurement from the result list (if there is any) is older than the observation by more than 7 days, a warning should be displayed by AQUA in the Summary tab stating that the last flux measurement for that source is too old. For this case, the warning should be enabled.
+14. Passed: OK (testcaste01.png ICT-3491-TestCase01.html).
+
+*Test Case #2: No Warnings in Times section if Amplitude Calibrator is not a quasar or the last flux measurement is not too old*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014/01/01
+5. In To select the current date
+6. In ExecBlock UID field input uid://A002/X920302/X1285
+7. Click in Search button
+8. Select the first result
+9. Go to Summary tab
+10. Check the list of per-intent times and look for CALIBRATE_AMPLI or CALIBRATE_FLUX scans. Note down their source names (inside the parenthesis). Ignore sources that are Solar System objects (Caliston, Titan, Mars, etc...).
+11. For the rest of the sources, go to the ALMA Source Catalogue and check that latest flux measurement that has been obtained for them before the observation. For example, if an observation has a scan with intent CALIBRATE_AMPLI on source "source1", and the observation took place on 2014-11-19 08:00, go to the ALMA Source Catalogue and search for flux measurements for source "source1" before "2014-11-19".
+12. Look for the latest measurement on the result list (if there is any) and compare it with the date of the execution
+13. Expected Result: If the latest measurement from the result list (if there is any) is older than the observation by more than 7 days, a warning should be displayed by AQUA in the Summary tab stating that the last flux measurement for that source is too old. For this case, the warning should be disabled.
+14. Passed: OK (testcaste02.png ICT-3491-TestCase02.html).

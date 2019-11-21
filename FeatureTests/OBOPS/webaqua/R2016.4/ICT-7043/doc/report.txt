@@ -1,0 +1,15 @@
+*Precondition*
+
+- Open AQUA https://2016-04.asa-test.alma.cl/webaqua with user CASA account (pmerino)
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: QA0: display source elevation in Atmosphere tab*
+1. Test on the execblocks with nominal configuration field provided in corresponding schedblock (table bmmv_schedblock). For example: uid://A002/xb2b000/X84e4
+2. Expected Result:
+   - If there are no such schedblocks yet, fill manually the field for testing purposes with appropriate value like 'C40-3' etc.
+   - Open Baseline Coverage tab.
+   - Along with values of Angular Resolution and Maximum Recoverable Scale there will be Expected Angular Resolution and Expected Maximum Recoverable Scale (if nominal configuration was determined). If Achieved values more than 30% different from expected values in the ExecBlock Summary tab warnings will be visible.
+   - Below every temperatures plot there will be values like "Average elevation: XX.XX°; Transit elevation: XX.XX°".
+3. Passed: OK (testcaste01.png)

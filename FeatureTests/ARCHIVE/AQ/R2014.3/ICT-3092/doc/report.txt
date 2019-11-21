@@ -1,0 +1,22 @@
+*Precondition*
+
+Open AQ http://gallia.sco.alma.cl:8080/aq/
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Frequency support and Velocity resolution columns*
+
+1. Open a browser with URL: http://beta.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/aq/?#sortCol=Release%20date&sortDir=dsc&col_1=_checkbox_selector;;;&col_2=Project%20code;;;&col_3=Source%20name;;;&col_4=RA;;;&col_5=Dec;;;&col_6=Band;;;&col_7=Integration;;;&col_8=Release%20date
+2. Expected result: The result should not show Frequency support and Velocity resolution columns.
+3. Passed: OK (testcase01-firefox13.png testcase01-firefox30.png testcase01-chrome35.png ICT-3092-TestCase01.html). Frequency support and Velocity resolution columns are not showed.
+
+*Test Case #2: Adding and removing Frequency support column*
+
+1. Perform a default search
+2. Remove the frequency support column
+3. Paste the URL into another window and search
+4. Go back to the first window: re-add the frequency support column
+5. Paste the URL into the second window.
+6. Expected Result: The second window should show only one frequency support column.
+7. Passed: OK (testcase02-tab1.png testcase01-tab2.png testcase01-tab3.png ICT-3092-TestCase02.html).

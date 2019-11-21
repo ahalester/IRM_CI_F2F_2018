@@ -1,0 +1,12 @@
+*Precondition*
+- Open SnooPI Front-end https://2016-02.asa-test.alma.cl/snoopi with CASA account (user: akawamura, pass: aaa)
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1:* Access to Co-I and Co-PI projects
+1. Start SnooPI.
+2. There are Co-I widgets on the main page.
+3. Click the links of these widgets or the direct link fir projects list.
+4. Expected result: There will be tabs for PI and Co-I projects.
+5. Passed: OK (testcase01.png)

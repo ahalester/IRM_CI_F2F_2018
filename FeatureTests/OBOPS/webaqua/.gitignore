@@ -1,0 +1,13 @@
+target
+*.iml
+.gradle
+/local.properties
+/gradle-local.properties
+/build
+/.idea
+/bamboo
+plugins/
+.DS_Store
+.project
+.log
+/log

@@ -1,0 +1,14 @@
+*Precondition*
+- Open DRM tool https://2015-06-docker.asa-test.alma.cl/protrack/admin/drmTool.zul with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1:* Changing a MOUS from ManualProcessing to QA2InProgress
+1. For example, for OUS Status ID: uid://A001/X122/X2b6 is in ManualProcessing and we would like to put this to QA2InProgress, but with a previous wrong transition FullyObserved.
+{noformat}
+uid://A001/X122/X2b1,FullyObserved,2015-01-20 04:40:00,"Trying out the bulk updater, first step"
+uid://A001/X122/X2b1,QA2InProgress,2015-01-20 05:40:00,"Trying out the bulk updater, first step"
+{noformat}
+2. Expected result: DRM tool does not stop in such a case but simply skip the invalid transition (FullyObserved) and try the next one and so forth until the end of the input series of transitions (QA2InProgress).
+3. Passed: OK (testcase01-a.png testcase01-b.png testcase01-c.png).

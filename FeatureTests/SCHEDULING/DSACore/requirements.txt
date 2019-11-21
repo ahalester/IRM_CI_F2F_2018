@@ -1,0 +1,6 @@
+nose
+nose-testconfig
+coverage
+nose-cover3
+urllib3
+ephem

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://svea.sco.alma.cl:8080/" />
+<title>ICT-3594-TestCase01</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ICT-3594-TestCase01</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/webaqua/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_38-cnt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_74-cnt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_86-btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#zk_c_330 &gt; td.z-comboitem-text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_89-btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=_z_0-tm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=_z_0-m0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//*[@id='zk_c_98']</td>
+	<td>uid://A002/X785e52/X698</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//tr[@id='_z_0-w0']/td[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_206-box']/tbody/tr[2]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//*[@id='zk_c_207-chdex']/td[1]/div[1]/div[3]/table[1]/tbody[2]/tr[1]/td[1]/div/span[2]</td>
+	<td>uid://A002/X785e52/X698</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_207-chdex']/td[1]/div[1]/div[3]/table[1]/tbody[2]/tr[1]/td[1]/div/span[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//*[@id='zk_c_267-cave']/div/div[5]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/span</td>
+	<td>ExecBlock</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[contains(text(),'In Protrack')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//*[@id='zk_c_267-cave']/div/div[5]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/span</td>
+	<td>Summary</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_267-cave']/div/div[5]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//*[contains(text(),'Total duration')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//*[contains(text(),'EB Fractional Duration')]</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

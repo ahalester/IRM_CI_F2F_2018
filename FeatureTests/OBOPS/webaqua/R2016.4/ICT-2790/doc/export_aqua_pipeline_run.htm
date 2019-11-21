@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='UTF8'>
+  
+  <title>Responsive Table</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <style>
+  * { 
+    margin: 0; 
+    padding: 0; 
+  }
+  body { 
+    font: 14px/1.4 Georgia, Serif; 
+  }
+  
+  /* 
+  Generic Styling, for Desktops/Laptops 
+  */
+  table { 
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  /* Zebra striping */
+  tr:nth-of-type(odd) { 
+    background: #eee; 
+  }
+  th { 
+    background: #333; 
+    color: white; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px; 
+    border: 1px solid #9B9B9B; 
+    text-align: left; 
+  }
+  @media 
+  only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px)  {
+    table, thead, tbody, th, td, tr { display: block; }
+    thead tr { position: absolute;top: -9999px;left: -9999px;}
+    tr { border: 1px solid #9B9B9B; }
+    td { border: none;border-bottom: 1px solid #9B9B9B; position: relative;padding-left: 50%; }
+    
+    td:before { position: absolute;top: 6px;left: 6px;width: 45%; padding-right: 10px; white-space: nowrap;}
+    
+    /*
+    Label the data
+    */
+td:nth-of-type(0):before { content: "ID"; }
+td:nth-of-type(1):before { content: "GOUS_UID"; }
+td:nth-of-type(2):before { content: "MOUS_UID"; }
+td:nth-of-type(3):before { content: "REPORT"; }
+td:nth-of-type(4):before { content: "SOUS_UID"; }
+td:nth-of-type(5):before { content: "TIMESTAMP"; }
+td:nth-of-type(6):before { content: "VERSION"; }
+td:nth-of-type(7):before { content: "PIPELINE_RUN_DIR_ID"; }
+td:nth-of-type(8):before { content: "WEBLOG_ID"; }
+  }
+  
+  /* Smartphones (portrait and landscape) ----------- */
+  @media only screen
+  and (min-device-width : 320px)
+  and (max-device-width : 480px) {
+    body { 
+      padding: 0; 
+      margin: 0; 
+      width: 320px; }
+    }
+  
+  /* iPads (portrait and landscape) ----------- */
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    body { 
+      width: 495px; 
+    }
+  }
+  
+  </style>
+  <!--<![endif]-->
+<script type="text/javascript">
+
+lsearch = function(){
+  //this.term = document.getElementById('S').value.toUpperCase();
+  var s = document.getElementById('search').value.toLowerCase();
+  rows = document.getElementById('data').getElementsByTagName('TR');
+  for(var i=0;i<rows.length;i++){
+    if (s =="" ){
+      rows[i].style.display ='';
+    } else if ( rows[i].innerText.toLowerCase().indexOf(s) != -1 ) {
+      rows[i].style.display ='';
+    } else {
+      rows[i].style.display ='none';
+    }
+  }
+  this.time = false;
+}
+
+</script>
+</head>
+
+<body>
+<div><input type="text" size="30" maxlength="1000" value="" id="search" onkeyup="lsearch();" /><input type="button" value="Go" onclick="lsearch();"/> </div>
+<table><thead><tr>	<th>ID</th>
+	<th>GOUS_UID</th>
+	<th>MOUS_UID</th>
+	<th>REPORT</th>
+	<th>SOUS_UID</th>
+	<th>TIMESTAMP</th>
+	<th>VERSION</th>
+	<th>PIPELINE_RUN_DIR_ID</th>
+	<th>WEBLOG_ID</th>
+</tr></thead>
+<tbody id="data">
+
+	<tr>
+<td align="right">5000017730</td>
+<td>uid://A001/X2d6/X1ec</td>
+<td>uid://A001/X2d6/X1ed</td>
+<td>&lt;?xml version="1.0" ?&gt;
+&lt;PipelineAquaReport&gt;
+  &lt;ProjectStructure&gt;
+    &lt;ProposalCode&gt;2012.1.00524.S&lt;/ProposalCode&gt;
+    &lt;OusEntityId&gt;uid://A001/Xa0/Xbd0&lt;/OusEntityId&gt;
+    &lt;OusPartId&gt;X1970625258&lt;/OusPartId&gt;
+    &lt;OusStatusEntityId&gt;uid://A002/X684eb5/X2a6&lt;/OusStatusEntityId&gt;
+    &lt;ProcessingRequestEntityId&gt;Undefined&lt;/ProcessingRequestEntityId&gt;
+    &lt;ProcessingProcedure&gt;Undefined&lt;/ProcessingProcedure&gt;
+  &lt;/ProjectStructure&gt;
+  &lt;QaSummary&gt;
+    &lt;ReportDate&gt;2016-03-30 09:34:52&lt;/ReportDate&gt;
+    &lt;ProcessingTime&gt;0:44:18&lt;/ProcessingTime&gt;
+    &lt;CasaVersion&gt;4.5.2&lt;/CasaVersion&gt;
+    &lt;PipelineVersion&gt;36252 (Pipeline-Cycle3-R4-B)&lt;/PipelineVersion&gt;
+    &lt;FinalScore&gt;Undefined&lt;/FinalScore&gt;
+  &lt;/QaSummary&gt;
+  &lt;QaPerStage&gt;
+    &lt;Stage Name="hifa_importdata" Number="1" Score="1.000"&gt;
+      &lt;Metric Asdm="uid___A002_X6f4daf_Xf0" Name="MissingIntentsMark" Value="1.000"/&gt;
+    &lt;/Stage&gt;
+    &lt;Stage Name="hifa_flagdata" Number="2" Score="1.000"&gt;
+      &lt;Metric Asdm="uid___A002_X6f4daf_Xf0" Name="%OnlineShadowFlags" Value="0.004"/&gt;
+    &lt;/Stage&gt;
+    &lt;Stage Name="hifa_fluxcalflag" Number="3" Score="1.000"&gt;
+      &lt;Metric Asdm="uid___A002_X6f4daf_Xf0" Name="%FluxcalFlags" Value="0.000"/&gt;
+    &lt;/Stage&gt;
+    &lt;Stage Name="hif_rawflagchans" Number="4" Score="1.000"&gt;
+      &lt;Metric Asdm="uid___A002_X6f4daf_Xf0" Name="%RawBadchansFlags" Value="0.000"/&gt;
+    &lt;/Stage&gt;
+    &lt;Stage Name="hif_refant" Number="5" Score="1.000"/&gt;
+    &lt;Stage Name="hifa_tsyscal" Number="6" Score="1.000"/&gt;
+    &lt;Stage Name="hifa_tsysflag" Number="7" Score="0.929"&gt;
+      &lt;Metric Asdm="uid___A002_X6f4daf_Xf0" Name="%TsysCaltableFlags" Value="11.384"/&gt;
+    &lt;/Stage&gt;
+    &lt;Stage Name="hifa_antpos" Number="8" Score="1.000"/&gt;
+    &lt;Stage Name="hifa_wvrgcalflag" Number="9" Score="Undefined"&gt;
+      &lt;Metric Asdm="uid___A002_X6f4daf_Xf0" Name="PhaseRmsRatio" Value="Undefined"/&gt;
+    &lt;/Stage&gt;
+    &lt;Stage Name="hif_lowgainflag" Number="10" Score="1.000"&gt;
+      &lt;Metric Asdm="uid___A002_X6f4daf_Xf0" Name="%HighLowGainFlags" Value="0.000"/&gt;
+    &lt;/Stage&gt;
+    &lt;Stage Name="hif_gainflag" Number="11" Score="1.000"/&gt;
+    &lt;Stage Name="hif_setjy" Number="12" Score="1.000"/&gt;
+    &lt;Stage Name="hifa_bandpass" Number="13" Score="1.000"/&gt;
+    &lt;Stage Name="hifa_spwphaseup" Number="14" Score="1.000"/&gt;
+    &lt;Stage Name="hifa_gfluxscale" Number="15" Score="1.000"/&gt;
+    &lt;Stage Name="hifa_timegaincal" Number="16" Score="0.990"/&gt;
+    &lt;Stage Name="hif_applycal" Number="17" Score="0.906"&gt;
+      &lt;Metric Asdm="uid___A002_X6f4daf_Xf0" Name="%ApplycalFlags" Value="10.165"/&gt;
+    &lt;/Stage&gt;
+    &lt;Stage Name="hif_makeimlist" Number="18" Score="1.000"/&gt;
+    &lt;Stage Name="hif_makeimages" Number="19" Score="1.000"/&gt;
+  &lt;/QaPerStage&gt;
+&lt;/PipelineAquaReport&gt;
+</td>
+<td>uid://A001/X2d6/X1eb</td>
+<td>2016-04-07T11:05:00</td>
+<td align="right">0</td>
+<td align="right">5000017728</td>
+<td align="right">5000017729</td>
+	</tr>
+	<tr>
+<td align="right">5000017733</td>
+<td>uid://A001/X2d6/X1ec</td>
+<td>uid://A001/X2d6/X1ed</td>
+<td>&lt;?xml version="1.0" ?&gt;
+&lt;PipelineAquaReport&gt;
+  &lt;ProjectStructure&gt;
+    &lt;ProposalCode&gt;2012.1.00524.S&lt;/ProposalCode&gt;
+    &lt;OusEntityId&gt;uid://A001/Xa0/Xbd0&lt;/OusEntityId&gt;
+    &lt;OusPartId&gt;X1970625258&lt;/OusPartId&gt;
+    &lt;OusStatusEntityId&gt;uid://A002/X684eb5/X2a6&lt;/OusStatusEntityId&gt;
+    &lt;ProcessingRequestEntityId&gt;Undefined&lt;/ProcessingRequestEntityId&gt;
+    &lt;ProcessingProcedure&gt;Undefined&lt;/ProcessingProcedure&gt;
+  &lt;/ProjectStructure&gt;
+  &lt;QaSummary&gt;
+    &lt;ReportDate&gt;2016-03-30 09:34:52&lt;/ReportDate&gt;
+    &lt;ProcessingTime&gt;0:44:18&lt;/ProcessingTime&gt;
+    &lt;CasaVersion&gt;4.5.2&lt;/CasaVersion&gt;
+    &lt;PipelineVersion&gt;36252 (Pipeline-Cycle3-R4-B)&lt;/PipelineVersion&gt;
+    &lt;FinalScore&gt;Undefined&lt;/FinalScore&gt;
+  &lt;/QaSummary&gt;
+  &lt;QaPerStage&gt;
+    &lt;Stage Name="hifa_importdata" Number="1" Score="1.000"&gt;
+      &lt;Metric Asdm="uid___A002_X6f4daf_Xf0" Name="MissingIntentsMark" Value="1.000"/&gt;
+    &lt;/Stage&gt;
+    &lt;Stage Name="hifa_flagdata" Number="2" Score="1.000"&gt;
+      &lt;Metric Asdm="uid___A002_X6f4daf_Xf0" Name="%OnlineShadowFlags" Value="0.004"/&gt;
+    &lt;/Stage&gt;
+    &lt;Stage Name="hifa_fluxcalflag" Number="3" Score="1.000"&gt;
+      &lt;Metric Asdm="uid___A002_X6f4daf_Xf0" Name="%FluxcalFlags" Value="0.000"/&gt;
+    &lt;/Stage&gt;
+    &lt;Stage Name="hif_rawflagchans" Number="4" Score="1.000"&gt;
+      &lt;Metric Asdm="uid___A002_X6f4daf_Xf0" Name="%RawBadchansFlags" Value="0.000"/&gt;
+    &lt;/Stage&gt;
+    &lt;Stage Name="hif_refant" Number="5" Score="1.000"/&gt;
+    &lt;Stage Name="hifa_tsyscal" Number="6" Score="1.000"/&gt;
+    &lt;Stage Name="hifa_tsysflag" Number="7" Score="0.929"&gt;
+      &lt;Metric Asdm="uid___A002_X6f4daf_Xf0" Name="%TsysCaltableFlags" Value="11.384"/&gt;
+    &lt;/Stage&gt;
+    &lt;Stage Name="hifa_antpos" Number="8" Score="1.000"/&gt;
+    &lt;Stage Name="hifa_wvrgcalflag" Number="9" Score="Undefined"&gt;
+      &lt;Metric Asdm="uid___A002_X6f4daf_Xf0" Name="PhaseRmsRatio" Value="Undefined"/&gt;
+    &lt;/Stage&gt;
+    &lt;Stage Name="hif_lowgainflag" Number="10" Score="1.000"&gt;
+      &lt;Metric Asdm="uid___A002_X6f4daf_Xf0" Name="%HighLowGainFlags" Value="0.000"/&gt;
+    &lt;/Stage&gt;
+    &lt;Stage Name="hif_gainflag" Number="11" Score="1.000"/&gt;
+    &lt;Stage Name="hif_setjy" Number="12" Score="1.000"/&gt;
+    &lt;Stage Name="hifa_bandpass" Number="13" Score="1.000"/&gt;
+    &lt;Stage Name="hifa_spwphaseup" Number="14" Score="1.000"/&gt;
+    &lt;Stage Name="hifa_gfluxscale" Number="15" Score="1.000"/&gt;
+    &lt;Stage Name="hifa_timegaincal" Number="16" Score="0.990"/&gt;
+    &lt;Stage Name="hif_applycal" Number="17" Score="0.906"&gt;
+      &lt;Metric Asdm="uid___A002_X6f4daf_Xf0" Name="%ApplycalFlags" Value="10.165"/&gt;
+    &lt;/Stage&gt;
+    &lt;Stage Name="hif_makeimlist" Number="18" Score="1.000"/&gt;
+    &lt;Stage Name="hif_makeimages" Number="19" Score="1.000"/&gt;
+  &lt;/QaPerStage&gt;
+&lt;/PipelineAquaReport&gt;
+</td>
+<td>uid://A001/X2d6/X1eb</td>
+<td>2016-04-08T11:35:00</td>
+<td align="right">0</td>
+<td align="right">5000017731</td>
+<td align="right">5000017732</td>
+	</tr>
+</tbody></table><!-- SQL:
+select * from AQUA_PIPELINE_RUN--></body></html>

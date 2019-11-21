@@ -1,0 +1,15 @@
+*Precondition*
+- Open DRM tool https://2015-06-docker.asa-test.alma.cl/protrack/admin/drmTool.zul with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1:* try to upload transitions with the same timestamps
+1. For example, for OUS Status ID: uid://A001/X122/X2b6 is in QA2InProgress and we would like to upload transitions with the same timestamps for this.
+{noformat}
+uid://A001/X122/X2b1,Verified,2015-01-20 04:40:00,"Trying out the bulk updater, first step"
+uid://A001/X122/X2b1,ReadyToDeliver,2015-01-20 04:40:00,"Trying out the bulk updater, first step"
+uid://A001/X122/X2b1,Delivered,2015-01-20 04:40:00,"Trying out the bulk updater, first step"
+{noformat}
+2. Expected result: All duplicate transitions after the first will be rejected.
+3. Passed: OK (testcase01-a.png testcase01-b.png testcase01-c.png).

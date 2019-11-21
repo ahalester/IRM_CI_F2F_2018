@@ -1,0 +1,13 @@
+Although we know that this ticket is under is waiting for the discussion of results to re-implement these tasks if it will be necessary or not, this improvement was successfully verified in Phase B.
+
+*Precondition*
+- Open Reports of Protrack https://2015-06-docker.asa-test.alma.cl/protrack with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1:* Rename the Ph1m Priority Flag field
+1. Make query for projects.
+2. Open detail view for eny project. Check the fields.
+3. Expected result: Ph1m Priority Flag should be called Ph1m Priority Grade.
+4. Passed: OK (testcase01.png).

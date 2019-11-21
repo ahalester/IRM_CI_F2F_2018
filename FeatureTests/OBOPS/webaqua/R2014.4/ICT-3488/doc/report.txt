@@ -1,0 +1,16 @@
+*Precondition*
+
+Open Protrack http://concordia.sco.alma.cl:8080/protrack/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Linking from Protrack to AQUA*
+
+1. Click in OUS button
+2. In PI UserId input rsoto
+3. Click in Search button
+4. Select the first result
+5. Click in 'In AQUA' link
+6. Expected Result: Information of the ObsUnitSet should be showed in a new AQUA window.
+7. Passed: OK (testcaste01.png testcaste02.png ICT-3488-TestCase01.html).

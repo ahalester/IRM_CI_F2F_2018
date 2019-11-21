@@ -1,0 +1,12 @@
+*Precondition*
+
+- Open AQUA https://2016-03.asa-test.alma.cl/webaqua with user CASA account (pmerino)
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: QA0: new "pending" state with possible reasons*
+1. Go to WebAqua
+2. Try to set the QA0 flag of an EB to Pending.
+3. Expected Result: The EB should be sent to Pending.
+4. Passed: OK (testcase01.png)

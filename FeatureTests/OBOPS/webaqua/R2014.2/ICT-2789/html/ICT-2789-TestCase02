@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://hermione.sco.alma.cl:8080/" />
+<title>ICT-2789-TestCase02</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ICT-2789-TestCase02</td></tr>
+</thead><tbody>
+<tr>
+	<td>verifyTable</td>
+	<td>id=zk_c_45-cave.1.4</td>
+	<td>exact:FAIL</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_45-rows']/tr[1]/td[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@class='z-tab-text' and contains(text(),'ExecBlock')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//*[@class='z-label' and contains(text(),'Status')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//*[@class='z-label' and contains(text(),'FAIL')]</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

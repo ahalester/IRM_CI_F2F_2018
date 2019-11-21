@@ -1,0 +1,26 @@
+*Precondition*
+
+Open AQUA http://svea.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Looking ExecBlock column from the Scan List*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014/01/01
+5. In To select the current date
+6. In ExecBlock UID field input uid://A002/X785e52/X698
+7. Click in Search button
+8. Select the first result
+9. Go to Calibration Summaries
+10. Go to Atmosphere > Scan List
+11. Go to Focus > Scan List
+12. Go to Pointing > Scan List
+13. Go to Phase > Scan List
+14. Expected Result: All the Scan List tables do not have an "ExecBlock" column anymore.
+15. Passed: OK (testcaste01-atmosphere.png testcaste01-focus.png testcaste01-pointing.png testcaste01-phase.png ICT-3591-TestCase01.html).
+
+{color:red}Note: We searched a lot ob ExecBlocks (QA0) > Focus > Scan List, but the set of data in the testing environment does not have values for this field{color}

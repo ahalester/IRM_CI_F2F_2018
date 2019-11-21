@@ -1,0 +1,10 @@
+*Precondition*
+- Open Reports of Protrack https://2015-08.asa-test.alma.cl/protrack/ with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.43.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1:* Check QA2 status flag
+1. Open detail page for any Member ObsUnitSet.
+2. Expected result: There is a QA2 status flag.
+3. Passed: OK (testcase01.png).

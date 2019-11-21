@@ -1,0 +1,15 @@
+*Precondition*
+
+Open DRM tool of Protrack https://2016-03.asa-test.alma.cl/protrack/admin/bstTool.zul with CAS account
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Protrack: Batch state transition tool for Projects*
+
+1. Go to the following URL https://2016-03.asa-test.alma.cl/protrack/admin/bstTool.zul with an user that having OBOPS/ARCA rights.
+2. Upload csv file with transitions according to format, describe in help to this tool (for example, uid://A001/X111/X190, Ready ).
+3. Expected Result:
+   - If transition is successfull, some results table will appear.
+   - If there will be any error, a table with error will be exposed.
+4. Passed: OK (testcase01-a.png testcase01-b.png).

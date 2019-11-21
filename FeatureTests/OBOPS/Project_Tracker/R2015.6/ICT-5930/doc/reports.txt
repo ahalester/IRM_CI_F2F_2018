@@ -1,0 +1,24 @@
+Although we know that this ticket is under is waiting for the discussion of results to re-implement these tasks if it will be necessary or not, this improvement was successfully verified in Phase B.
+
+*Precondition*
+- Open Reports of Protrack https://2015-06-docker.asa-test.alma.cl/protrack with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1:* Display "Reviewed" instead of "Approved" state
+1. Open project query.
+2. There is a "Reviewed" state in the list of states.
+3. Query for "Reviewed" projects.
+4. Expected result:
+   - There is column "State" with "Reviewed" projects.
+   - Open details page. There is a field with "Reviewed" state.
+   - Open transitions menu. There are transitions from "Reviewed" state.
+   - Try any transition. You will see confirm dialog for transition from "Reviewed" state.
+5. Passed: OK (testcase01-a.png testcase01-b.png).
+
+*Test Case #2:* Transition from "Phase1Submitted" to "Reviewed" state
+1. Open project query.
+2. Query for "Phase1Submitted" projects. 
+3. Expected result: In details window in transitions menu try transition from "Phase1Submitted" to "Reviewed" state.
+4. Passed: OK (testcase02.png).

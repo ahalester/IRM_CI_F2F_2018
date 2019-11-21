@@ -1,0 +1,28 @@
+*Precondition*
+
+Open DRM tool of Protrack http://laetitia.sco.alma.cl:8080/protrack/admin/drmTool.zul with CAS account
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Logging in as an user without the "OBOPS/DRM" *
+
+1. Go to the following URL http://laetitia.sco.alma.cl:8080/protrack/admin/drmTool.zul
+2. Expected Result: Protrack should show an "Access denied" error
+3. Passed: OK (testcase01.png ICT-3814-TestCase01.html).
+
+*Test Case #2: Uploading CSV file*
+
+1. Go to the following URL http://laetitia.sco.alma.cl:8080/protrack/admin/drmTool.zul with an user that contains the "OBOPS/DRM" role
+2. Read the help documents and try to upload a few CSV files containing state transitions (allStateChanges.csv)
+3. Check the results of uploading these various files
+4. Expected Result:
+   - The tool will receive a list of transitions given in CSV format. The format of each line should follow the format described in the help document
+   - The tool will perform a best-effort work per OUS; in other words, given a list of transitions for a given mOUS, it will try to execute them all until the first error is found, in which case it will not try to execute the remaining ones
+   - Transition timestamps need to be given in certain occasions, but not always:
+     - If only one transition is given for a given mOUS, and no timestamp is given, the current date/time will be considered as the timestamp of the transition. If one is given, that one will be used instead
+     - If two ore more transitions are given for a mOUS, all except the last one must specify a timestamp. The last transition follows the rule above.
+     - Timestamps can be given simply as a date, or as date/time
+   - Records on the CSV files can contain whitespaces which will be trimmed
+   - In the results table users should be able to dump directly to the individual mOUSs in protrack in a new tab
+5. Passed: OK (testcase02-before-change.png testcase02-transition-change.png testcase02-after-change.png ICT-3814-TestCase02.html).

@@ -1,0 +1,32 @@
+Alex, lamentably this new feature was Verified NOK.
+
+*Precondition*
+- Open Protrack https://2015-06-docker.asa-test.alma.cl/protrack with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1:* Check the Project Tracker REST interface without PDF files in the /usr/share/tomcat/temp/obops_pdf_cache of the server
+1. Check that in the server, there are not PDF files 
+{noformat}
+[root@natalie obops_pdf_cache]# pwd
+/usr/share/tomcat/temp/obops_pdf_cache
+[root@natalie obops_pdf_cache]# ls -l
+total 0
+{noformat}
+2. Being authorized in project tracker, try in browser https://2015-06-docker.asa-test.alma.cl/protrack/rest/proposal/uid:||A001|X10f|X1b2
+3. Expected result: To create REST interface in the staff Project Tracker to download proposals pdf file
+4. Passed: NOK java.lang.RuntimeException: java.lang.NullPointerException (testcase01.png testcase01.log).
+
+*Test Case #2:* Check the Project Tracker REST interface with PDF files in the /usr/share/tomcat/temp/obops_pdf_cache of the server
+1. Check that in the server, there are PDF files 
+{noformat}
+[root@natalie obops_pdf_cache]# pwd
+/usr/share/tomcat/temp/obops_pdf_cache
+[root@natalie obops_pdf_cache]# ls -l
+total 0
+-rw-r--r-- 1 root root 0 Oct 25 14:01 proposal.pdf
+{noformat}
+2. Being authorized in project tracker, try in browser https://2015-06-docker.asa-test.alma.cl/protrack/rest/proposal/uid:||A001|X10f|X1b2
+3. Expected result: To create REST interface in the staff Project Tracker to download proposals pdf file
+4. Passed: NOK Empty page (testcase02.png testcase02.log).

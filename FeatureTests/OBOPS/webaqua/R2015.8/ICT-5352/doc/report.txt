@@ -1,0 +1,13 @@
+*Precondition*
+
+- Open AQUA https://2015-08.asa-test.alma.cl/webaqua/ with user CASA account (pmerino)
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.43.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Check the parallactic angle range for the polarization calibrator in Polarization project*
+
+1. Find an EB in a Polarization project, e.g., 2013.1.00725.S.
+2. Go to the EB Summary tab and check that the CALIBRATE_POLARIZATION has a "parallactic range"
+3. Expected Result: the CALIBRATE_POLARIZATION has a "parallactic range"
+4. Passed: OK

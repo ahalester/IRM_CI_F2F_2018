@@ -1,0 +1,21 @@
+*Precondition*
+
+- Open AQUA http://adeona.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Improve the legend of the QA0 temperature plots*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014/01/01
+5. In To select the current date
+6. In ExecBlock UID field input uid://A002/X822d50/X4dc
+7. Click in Search button
+8. Select the first result
+9. Go to the "Plots" tab and then to the "Atmosphere" tab
+10. Select sources from the dropdown list and look at the resulting plots
+11. Expected Result: The legend on the plot should show a colored symbol next to each item, which should correspond to the symbols used by the corresponding series on the plotting area
+12. Passed: OK (testcaste01.png ICT-4517-TestCase01.html).

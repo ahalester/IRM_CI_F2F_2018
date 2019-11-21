@@ -1,0 +1,26 @@
+*Precondition*
+
+Open AQUA http://urda.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Plot of the pointing, add a Circle with a radius of 3 sigma*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014/01/01
+5. In To select the current date
+6. In ExecBlock UID field input uid://A002/X77e1ed/X48
+7. Click in Search button
+8. Select the first result
+9. Go to Plots > Pointing
+10. In the Source select 0 - 0522-364@ALMA_RB_03
+11. Expected Result: A graph should be shown with the following characteristics:
+    - Pointing plots should include now a semi-transparent circle with the same color user to plot the points of the series it refers to
+    - The circle should be centered in the centroid defined by the points that make up that series
+    - The radius of the circle should be 3 times the standard deviation defined by the distances of each point to the centroid.
+12. Passed: OK (testcaste01.png ICT-3493-TestCase01.html).
+
+{color:red}Note: Some points are outside of the semi-transparent circle. Probably they are points outside of the average{color}

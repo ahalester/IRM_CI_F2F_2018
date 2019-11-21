@@ -1,0 +1,42 @@
+#!/bin/bash 
+
+# This script compares reference values with the floating values 
+# extracted from xml files, (namely SchebBlock.xml files) which come from an .aot project
+
+#$cd ../work/Projects-Cycle6/tmp
+
+# The precision used is 5
+
+precision=5 
+
+# These are the SchedBlock of interest from the project to test ICT-12685
+declare -a sblist=(SchedBlock2.xml SchedBlock3.xml SchedBlock6.xml SchedBlock7.xml SchedBlock10.xml SchedBlock11.xml)
+# The following ones are the reference values for the sensitivity goals of the resp. SBs
+declare -a sgref=(75.46978 541.12474 72.64219 381.63048 12.10703 63.60508)
+# in the array sgvalue we put the values found in the SBs, after rounding the values
+declare -a sgvalue=(0.0 0.0 0.0 0.0 0.0 0.0)
+declare -a result=(UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN)
+
+for (( i=0; i<${#sblist[@]}; i++ )) 
+do
+  # get the sensitivityGoal numeric value
+  sgtemp=`grep sensitivityGoal ${sblist[i]}  | awk -F">" '{print $2}' | awk -F"<" '{print $1}'`
+  # round the value at the 5th decimal digit 
+  sgvalue[$i]=`echo $sgtemp |xargs printf "%.*f\n" $precision`
+  # compare the values found with the reference values
+  if [ ${sgvalue[i]} != ${sgref[i]} ]
+  then 
+    echo "comparison between rounded value ${sgvalue[i]} and reference value ${sgref[i]} for SchedBlock file ${sblist[i]} FAILED" >> FAILED.txt
+    result[i]="FAILED"
+    break
+  else 
+    echo "comparison between rounded value ${sgvalue[i]} and reference value ${sgref[i]} for SchedBlock file ${sblist[i]} PASSED"
+    result[i]=" PASSED"
+  fi
+done
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+*Precondition*
+
+- Open Reports of Protrack https://2015-05-64b.asa-test.alma.cl/protrack with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1:* Opening QA0 status report PDF
+# Open SB query dialog.
+# Make search by any parameters (Project code: 2013.1.01364.S SB Name: eso_137-_a_03_7M and Fully observed).
+# Select project and SchedBlock with executions.
+# In the table of current executions click on the pdf link icons.
+# Expected Result: QA0 status report should be opened
+# Passed: OK (testcase01.png ICT-5410-TestCase01.java)
+
+*Test Case #2:* Opening QA0 status report HTML
+# Open SB query dialog.eso_137-_a_03_7M
+# Make search by any parameters ("Fully observed", for example).
+# Select project and SchedBlock with executions.
+# In the table of current executions click on the html link icons.
+# Expected Result: QA0 status report should be opened
+# Passed: OK (testcase02.png ICT-5410-TestCase02.java)

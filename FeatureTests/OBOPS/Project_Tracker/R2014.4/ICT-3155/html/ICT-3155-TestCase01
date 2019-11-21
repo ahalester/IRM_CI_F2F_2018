@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://hermione.sco.alma.cl:8080/" />
+<title>ICT-3155-TestCase01</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ICT-3155-TestCase01</td></tr>
+</thead><tbody>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_11']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//*[@id='zk_c_44']/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/div[1]/div[1]/div[3]/table[1]/tbody[2]/tr[10]/td[2]/div[1]/input</td>
+	<td>uid://A002/X77da97/X3ca</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//td[text()='Search']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_2']/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/div[3]/table[1]/tbody[2]/tr[1]/td[1]/div[1]</td>
+	<td>2012.1.00394.S</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_2']/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/div[3]/table[1]/tbody[2]/tr[1]/td[1]/div[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//*[@id='zk_c_2']/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody/tr[1]/td[1]/table[1]/tbody[1]/tr[15]/td[1]/div[1]/div[1]/table[1]/tbody[2]/tr[1]/th[3]/div[1]/div[1]</td>
+	<td>Exec. Fraction</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

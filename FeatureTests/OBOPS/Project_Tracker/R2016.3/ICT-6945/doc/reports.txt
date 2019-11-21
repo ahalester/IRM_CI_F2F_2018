@@ -1,0 +1,12 @@
+*Precondition*
+
+- Open Reports of Protrack https://2016-03.asa-test.alma.cl/protrack with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Project Tracker should support new OT Ph2Attention flag*
+1. The PT project search now has a P2G Attention Flag checkbox, and P2G Attention Reasons text box where you can enter a partial reason e.g. "High frequency".
+2. The project search results list has 2 new columns: P2G Attention Flag, and P2G Attention Reasons.
+3. Expected result: The project detail page has the P2G Attention Flag, and P2G Attention Reasons (only shown if the flag is true).
+4. Passed: OK (testcase01-a.png testcase01-b.png)

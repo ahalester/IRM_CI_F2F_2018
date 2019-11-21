@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://hermione.sco.alma.cl:8080/" />
+<title>ICT-2777-TestCase01</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ICT-2777-TestCase01</td></tr>
+</thead><tbody>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_38-cnt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_86-btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#zk_c_323 &gt; td.z-comboitem-text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_89-btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@class='z-calendar-title']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@_dt='0']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@class='z-calendar-calday']/tbody[1]/tr[2]/td[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=zk_c_98</td>
+	<td>uid://A002/X77dfee/X27</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=zk_c_98</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//*[@id='zk_c_200-head']/table[1]/tbody[2]/tr[1]/th[6]/div[1]</td>
+	<td>Start Time</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>id=zk_c_200-cave.1.5</td>
+	<td>exact:20140101-19:18</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_200-rows']/tr[1]/td[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[contains(text(),'ExecBlock')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[contains(text(),'ExecBlock')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@class='z-label' and contains(text(), 'Start Time')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//*[@class='z-label' and contains(text(), '2014-01-01T19:18:01')]</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

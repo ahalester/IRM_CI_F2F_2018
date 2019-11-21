@@ -1,0 +1,2142 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<test-suite basedir="" hfile="ALMA-OT_Test_Suite_pkgdoc.html" qftest-version="3.5.3" sourcefile="ALMA-OT_Test_Suite.qft" type="qftest" xfile="ALMA-OT_Test_Suite_pkgdoc.xml">
+  <comment>Test suite for the ALMA-OT GUI (automated with QF-Test).</comment>
+  <author>Peter Kratzer</author>
+  <dependency name="Test Suite Dependencies" qname="Test Suite Dependencies" ref="N10138">
+    <comment>Basic setup for automated ALMA-OT tests (test data base enabled, password for advanced user available, ...).</comment>
+  </dependency>
+  <package name="almaot" qname="almaot" ref="N3918D">
+    <comment>Stored procedures for testing the ALMA-OT GUI.</comment>
+    <author>Peter Kratzer</author>
+    <package name="dependencies" qname="almaot.dependencies" ref="N39197">
+      <comment>Collection of generally useful dependencies.</comment>
+      <author>Peter Kratzer</author>
+      <dependency name="Preparations" qname="almaot.dependencies.Preparations" ref="N391A1">
+        <comment>Setup the test environment (done only once when &lt;code&gt;PreparationsDone = false&lt;/code&gt; ).</comment>
+        <result>&lt;code&gt;PreparationsDone&lt;/code&gt; (global variable) set to &lt;code&gt;true&lt;/code&gt;.</result>
+        <author>Peter Kratzer</author>
+      </dependency>
+      <dependency name="AlmaOT" qname="almaot.dependencies.AlmaOT" ref="N39560">
+        <comment>
+          <p>Client (ALMA-OT) startup and shutdown are handled.</p>
+          <p>Startup includes setting a number of variables to facilitate the access to the test directory and its contained data, project and work subdirectories.</p>
+        </comment>
+        <result>&lt;code&gt;TESTDIR_ROOT&lt;/code&gt; (global variable).
+	Set to the parent directory of the test suite location.&lt;br&gt;
+	&lt;code&gt;TESTDIR_DATA&lt;/code&gt; (global variable).
+	Set to the data directory contained in the test module.&lt;br&gt;
+	&lt;code&gt;TESTDIR_DATA_PDF&lt;/code&gt; (global variable).
+	Set to the pdf subdirectory in the data directory of the test module.&lt;br&gt;
+	&lt;code&gt;TESTDIR_DATA_PROJ&lt;/code&gt; (global variable).
+	Set to the projet subdirectory in the data directory of the test module.&lt;br&gt;
+	&lt;code&gt;TESTDIR_WORK&lt;/code&gt; (global variable).
+	Set to the work directory contained in the test module.</result>
+        <author>Peter Kratzer</author>
+      </dependency>
+      <dependency name="MenuesDialogsClosed" qname="almaot.dependencies.MenuesDialogsClosed" ref="N395E4">
+        <comment>A program state where all menus and dialogs are closed is ensured.</comment>
+        <author>Peter Kratzer</author>
+      </dependency>
+      <dependency name="PreferencesDialog" qname="almaot.dependencies.PreferencesDialog" ref="N39623">
+        <comment>Opening and closing the preferences dialog is handled.</comment>
+        <param name="tabName">If this optional parameter is provided the specified tab (within the preferences dialog) is selected.</param>
+        <author>Peter Kratzer</author>
+      </dependency>
+      <dependency name="DataBaseUser" qname="almaot.dependencies.DataBaseUser" ref="N3969B">
+        <comment>A data base setting with specified (user, passwd) is applied in the preferences.</comment>
+        <param name="almaid">ALMA ID for data base test user.</param>
+        <param name="passwd">Password for data base test user.</param>
+        <result>Global variable &lt;code&gt;DBSettingDone&lt;/code&gt; is set to &lt;code&gt;true&lt;/code&gt;</result>
+        <author>Peter Kratzer</author>
+      </dependency>
+      <dependency name="AdvancedUser" qname="almaot.dependencies.AdvancedUser" ref="N3971F">
+        <comment>Advanced user settings are enabled or disabled.
+The procedure is executed only if the new setting differs from the previous one as memorised in the global variable &lt;code&gt;AdvancedUserActive&lt;/code&gt;.</comment>
+        <param name="active">Specifies whether advanced user option is to be enabled or disabled.</param>
+        <result>New setting is memorised in global variable &lt;code&gt;AdvancedUserActive&lt;/code&gt; for optimisation.</result>
+        <author>Peter Kratzer</author>
+      </dependency>
+      <dependency name="WorkingDirectory" qname="almaot.dependencies.WorkingDirectory" ref="N397EA">
+        <comment>The existence of the working directory is ensured.
+The working directory's location is expected in the global variable &lt;code&gt;TESTDIR_WORK&lt;/code&gt;.</comment>
+        <result>The specified working directory is created if it does not exist.&lt;br&gt;
+	The working directory's write permissions are set for the user (owner) only.&lt;br&gt;
+	A &lt;code&gt;UserException&lt;/code&gt; is thrown if the working directory does not exist and cannot be created.</result>
+        <author>Peter Kratzer</author>
+      </dependency>
+      <dependency name="ReadFile" qname="almaot.dependencies.ReadFile" ref="N3985A">
+        <comment>Existence and read permission for the specified file are ensured.</comment>
+        <param name="readFile">Name of the file whose existence and readability has to be guarantueed.</param>
+        <result>A &lt;code&gt;UserException&lt;/code&gt; is thrown if the required file does not exist.</result>
+        <author>Peter Kratzer</author>
+      </dependency>
+      <dependency name="WriteFile" qname="almaot.dependencies.WriteFile" ref="N39896">
+        <comment>Write permission for the specified file is ensured.
+An existing file with the specified name is cleaned up.</comment>
+        <param name="targetFile">Name of the file whose writability has to be guarantueed.</param>
+        <result>A &lt;code&gt;UserException&lt;/code&gt; is thrown if the required file cannot be written and/or deleted.</result>
+        <author>Peter Kratzer</author>
+      </dependency>
+      <dependency name="Perspective" qname="almaot.dependencies.Perspective" ref="N398E7">
+        <comment>The specified perspective setting is ensured.
+An actual setting is performed only if it differs from the previous setting.</comment>
+        <param name="id">Perspective (permitted values: 1, 2).</param>
+        <author>Peter Kratzer</author>
+      </dependency>
+    </package>
+    <package name="exec" qname="almaot.exec" ref="N39928">
+      <comment>Handling of the ALMA-OT client execution and external shell scripts.</comment>
+      <author>Peter Kratzer</author>
+      <procedure name="joinPath" qname="almaot.exec.joinPath" ref="N39932">
+        <comment>Join path components using the operating-system-specific path separator.</comment>
+        <param name="path1">1st path component (string).</param>
+        <param name="path2">2nd path component (string).</param>
+        <param name="path3">3rd path component (string), optional.</param>
+        <param name="path4">4th path component (string), optional.</param>
+        <param name="path5">5th path component (string), optional.</param>
+        <return>Joint path (string).</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="escapeEmailAddress" qname="almaot.exec.escapeEmailAddress" ref="N39962">
+        <comment>The at sign '@' in email address is escaped for entry selection since it is a reserved character in QF-Test.</comment>
+        <param name="input">Email address (string).</param>
+        <return>String with escaped at sign.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="escapeRegExp" qname="almaot.exec.escapeRegExp" ref="N3998B">
+        <comment>Some special characters are escaped since they are reserved characters in QF-Test (e.g. used for component names).</comment>
+        <param name="input">Input string.</param>
+        <return>String with escaped at sign.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="runOT" qname="almaot.exec.runOT" ref="N399B3">
+        <comment>The client program (ALMA-OT) is started and a row of messages and warnings appearing before the main window are handled.</comment>
+        <param name="cancelLoginDialog">Flag (boolean) if a login dialog for advanced users is canceled or provided with valid login data.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="stopOT" qname="almaot.exec.stopOT" ref="N39DD3">
+        <comment>
+          <p>The client program (ALMA-OT) is stopped.</p>
+          <p>Depending on the provided option unsaved project data is saved or discarded. If the client does not terminate within the timeout period the process is forcibly terminated.
+When the option "cancel" is given the client is not stopped.</p>
+        </comment>
+        <param name="option">One of the values (save, quit, cancel). Default value: quit.</param>
+        <param name="saveFileName">File name in conjunction with the option 'save'. Optional parameter.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="createWorkingCopy" qname="almaot.exec.createWorkingCopy" ref="N39FBA">
+        <comment>
+          <p>The specified source file is copied to the specified target file. If no target is specified the file is copied to the working directory with identical name.</p>
+          <p>This function is useful to protect the source file from being accidentally overwritten, in particular when save functions are used which do not accept a target file name.</p>
+        </comment>
+        <param name="srcFile">Source file name.</param>
+        <param name="targetFile">File name of the working copy.</param>
+        <return>Flag whether the working copy was successfully created.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="patchPreferencesFile" qname="almaot.exec.patchPreferencesFile" ref="N3A103">
+        <comment>The preferences file (containing the persistent settings) is patched for usage with the test submission service (effective only until ALMA release 9.0.5) and window position and size.</comment>
+        <param name="DBAddress">Archive (data base) address to be set as default.&lt;br&gt;
+		Example: &lt;code&gt;http://ite2.hq.eso.org:8180&lt;/code&gt;</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="removePersistentSettings" qname="almaot.exec.removePersistentSettings" ref="N3A15D">
+        <comment>The persistent settings' directory &lt;code&gt;.almaot&lt;/code&gt; is removed (saved with a timestamp).</comment>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="showACSTag" qname="almaot.exec.showACSTag" ref="N3A183">
+        <comment>The content of the file &lt;code&gt;$ACSROOT/ACS_TAG&lt;/code&gt; is shown in a log message so it may be retrieved from the test's runlog.</comment>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="showBuildTag" qname="almaot.exec.showBuildTag" ref="N3A1C6">
+        <comment>The content of the file &lt;code&gt;$ACSROOT/BUILD_TAG&lt;/code&gt; is shown in a log message so it may be retrieved from the test's runlog.</comment>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="showTestSuiteVersion" qname="almaot.exec.showTestSuiteVersion" ref="N3A209">
+        <comment>The test suite's repository version information is written to the logging system so it may be retrieved from the test's runlog.</comment>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getAlmaOTVersion" qname="almaot.exec.getAlmaOTVersion" ref="N3A22F">
+        <comment>The ALMA-OT version information is extracted from the "About" dialog.</comment>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="checkSubmissionService" qname="almaot.exec.checkSubmissionService" ref="N3A308">
+        <comment>
+          <p>Reachability and accessibility of the submission service via the provided user credentials are verified.</p>
+          <p>&lt;b&gt;Sets the global variable &lt;code&gt;Telescope&lt;/code&gt; if &lt;code&gt;autoselect&lt;/code&gt; is used.&lt;/b&gt;</p>
+        </comment>
+        <param name="submissionService">Submission service web address.&lt;br&gt;
+			Example: &lt;code&gt;http://gas01:8180&lt;/code&gt;</param>
+        <param name="user">User name.</param>
+        <param name="passwd">Password.</param>
+        <param name="exceptions">Flag (boolean) whether to throw exceptions in case of errors.</param>
+        <param name="checkInactive">Flag (boolean) whether this check expects an inactive user.</param>
+        <return>Flag (boolean) to indicate the submission service's status.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getJavaVersionFile" qname="almaot.exec.getJavaVersionFile" ref="N3A371">
+        <comment>The Java version information is extracted from the file created by the script "run_test.sh".</comment>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getStandAloneAlmaOTTag" qname="almaot.exec.getStandAloneAlmaOTTag" ref="N3A3B1">
+        <comment>The tag of a stand-alone ALMA-OT is extracted from the file BUILD_TAG under .../work/ot_inst/.</comment>
+        <return>Build-tag (string).</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+    </package>
+    <package name="math" qname="almaot.math" ref="N3A40A">
+      <comment>Mathematical procedures exceeding already available standard functionality.</comment>
+      <author>Peter Kratzer</author>
+      <procedure name="getNumericValue" qname="almaot.math.getNumericValue" ref="N3A414">
+        <comment>The numeric value is extracted from a string containing value and unit spearated by a blank.</comment>
+        <param name="input">Value with optional unit (separated by blank).</param>
+        <return>Numeric value without unit.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getUnitString" qname="almaot.math.getUnitString" ref="N3A431">
+        <comment>The unit is extracted from a string containing value and unit spearated by a blank.</comment>
+        <param name="input">Value with optional unit (separated by blank).</param>
+        <return>Unit string without the numeric value. An empty string is returned if the input value does not contain any unit.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="equalDecimals" qname="almaot.math.equalDecimals" ref="N3A44E">
+        <comment>Two given numbers (including their optional units) are compared with the specified accuracy.
+Different magnitudes of the same unit (e.g. MHz and GHz) are not converted automatically.</comment>
+        <param name="value1">First value (including optional units) (string).</param>
+        <param name="value2">Second value (including optional units) (string).</param>
+        <param name="decimals">Desired accuracy in powers of 10.</param>
+        <return>Flag (boolean) whether the two values are equal given the specified accuracy.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getSkyFreq" qname="almaot.math.getSkyFreq" ref="N3A472">
+        <comment>The sky frequency is computed for the given rest frequency and redshift z.</comment>
+        <param name="restFreq">Rest frequency with optional unit.</param>
+        <param name="redshiftZ">Redshift value z.</param>
+        <return>Sky frequency, including unit if contained in the rest frequency input parameter (string).</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getRestFreq" qname="almaot.math.getRestFreq" ref="N3A493">
+        <comment>The rest frequency is computed for the given sky frequency and redshift z.</comment>
+        <param name="skyFreq">Sky frequency with optional unit.</param>
+        <param name="redshiftZ">Redshift value z.</param>
+        <return>Rest frequency, including unit if contained in the sky frequency input parameter (string).</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+    </package>
+    <package name="prefs" qname="almaot.prefs" ref="N3A4B4">
+      <comment>Handling of the preferences dialogs.</comment>
+      <author>Peter Kratzer</author>
+      <procedure name="openPrefs" qname="almaot.prefs.openPrefs" ref="N3A4BE">
+        <comment>The preferences dialog window is opened (if not yet available).</comment>
+        <return>Flag (boolean) indicating the availability of the preference dialog.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="openPrefsTab" qname="almaot.prefs.openPrefsTab" ref="N3A521">
+        <comment>The preferences dialog window is opened (if not yet available) and the specified tab activated.</comment>
+        <return>Flag (boolean) indicating the availability of the selected tab in the preference dialog.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="closePrefs" qname="almaot.prefs.closePrefs" ref="N3A594">
+        <comment>The preferences window is closed.</comment>
+        <param name="commit">Value &lt;code&gt;true&lt;/code&gt; closes the preferences dialog using the "OK" button, confirming any changes. Otherwise (value &lt;code&gt;false&lt;/code&gt;) the "Cancel" button is used, discarding all changes not yet applied.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="selectAdvancedUserFeatures" qname="almaot.prefs.selectAdvancedUserFeatures" ref="N3A5F9">
+        <comment>The "Advanced User" features are enabled or disabled in the "Preferences" dialog.</comment>
+        <param name="enable">Flag (boolean) whether the "Advanced User" features are to be enabled or disabled.</param>
+        <param name="apply">Flag (boolean) whether the change is applied immediately using the "Apply" button.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="selectDB" qname="almaot.prefs.selectDB" ref="N3A692">
+        <comment>
+          <p>The data base (archive) is selected via the "Preferences" dialog.</p>
+          <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+- Preferences dialog window is open.&lt;br&gt;
+- Tab "Connection" is active.</p>
+        </comment>
+        <param name="apply">Flag (boolean) whether the change is applied immediately using the "Apply" button.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setDBPasswd" qname="almaot.prefs.setDBPasswd" ref="N3A791">
+        <comment>
+          <p>The data base password is entered in the "Preferences" dialog.</p>
+          <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+- Preferences dialog window is open.&lt;br&gt;
+- Tab "Connection" is active.</p>
+        </comment>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="changeDBUserPasswd" qname="almaot.prefs.changeDBUserPasswd" ref="N3A7B6">
+        <comment>The data base user name and password are changed if the specified value(s) differ(s) from the current settings.</comment>
+        <param name="userid">User name (ALMA ID) to be used for login.</param>
+        <param name="passwd">Password to be used for login.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="checkDBUser" qname="almaot.prefs.checkDBUser" ref="N3A903">
+        <comment>
+          <p>The user name setting in the "Preferences" dialog is cross-checked with the specified user name.</p>
+          <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+- Preferences dialog window is open.&lt;br&gt;
+- Tab "Connection" is active.</p>
+        </comment>
+        <param name="expectedUser">User name (ALMA ID) expected in the settings.</param>
+        <param name="logMsg">Flag (boolean) whether to create a log message in case of an error.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="handleLoginDialog" qname="almaot.prefs.handleLoginDialog" ref="N3A948">
+        <comment>For a specified time period the procedure waits for the login dialog and in case it appears the provided login data is entered and the dialog closed.</comment>
+        <param name="userid">User name (ALMA ID) to be used if the login dialog appears.</param>
+        <param name="passwd">Password to be used if the login dialog appears.</param>
+        <param name="timeout">The timeout value is used for waiting if the login dialog appears within the specified period.</param>
+        <return>Flag (boolean) indicating the occurrence of an error.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="switchUser" qname="almaot.prefs.switchUser" ref="N3AA96">
+        <comment>
+          <p>The user settings are switched in preferences.</p>
+          <p>&lt;strong&gt;Side-effects:&lt;/strong&gt;&lt;br&gt;
+Setting of global variable &lt;code&gt;AdvancedUserActive&lt;/code&gt; as a flag to indicate the currently active selection.</p>
+        </comment>
+        <param name="userid">User name (ALMA ID).</param>
+        <param name="passwd">Password for the specified user.</param>
+        <param name="advanced">Flag (boolean) for advanced user features.</param>
+        <return>Flag (boolean) indicating a successful switch.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="selectPerspective" qname="almaot.prefs.selectPerspective" ref="N3AB70">
+        <comment>The ALMA-OT perspective is set to the specified value.</comment>
+        <param name="id">Permitted values: (&lt;code&gt;1&lt;/code&gt;, &lt;code&gt;2&lt;/code&gt;) as provided in the selection dialog.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="selectScienceGoalSummaryView" qname="almaot.prefs.selectScienceGoalSummaryView" ref="N3AC24">
+        <comment>The science goal summary view is selected.</comment>
+        <param name="selection">Value &lt;code&gt;table&lt;/code&gt; selects the summary table, 
+		value &lt;code&gt;editors&lt;/code&gt; selects all its page editors</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="selectBLCorrelatorForACA" qname="almaot.prefs.selectBLCorrelatorForACA" ref="N3AC97">
+        <comment>The "BL Correlator for ACA SBs" feature is enabled or disabled in the "Preferences" dialog.</comment>
+        <param name="enable">Flag (boolean) whether the "BL Correlator for ACA SBs" feature is to be enabled or disabled.</param>
+        <param name="apply">Flag (boolean) whether the change is applied immediately using the "Apply" button.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="checkColourSetting" qname="almaot.prefs.checkColourSetting" ref="N3AD2B">
+        <comment>
+          <p>The RGB colour settings in the preferences are checked for the specified feature.</p>
+          <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+- Preferences dialog window is open.&lt;br&gt;
+- Tab "Colours" is active.</p>
+        </comment>
+        <param name="prefsButton">Button component name in preferences for specified feature.</param>
+        <param name="red">Value ([0...255]) for RGB component "red".</param>
+        <param name="green">Value ([0...255]) for RGB component "green".</param>
+        <param name="blue">Value ([0...255]) for RGB component "blue".</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="changeColourSetting" qname="almaot.prefs.changeColourSetting" ref="N3AE54">
+        <comment>The RGB colour settings in the preferences are changed for the specified feature.
+Empty values for any colour leave the respective component unchanged.</comment>
+        <param name="prefsButton">Button component name in preferences for specified feature.</param>
+        <param name="red">Value ([0...255]) for RGB component "red".</param>
+        <param name="green">Value ([0...255]) for RGB component "green".</param>
+        <param name="blue">Value ([0...255]) for RGB component "blue".</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+    </package>
+    <package name="project" qname="almaot.project" ref="N3AF9A">
+      <comment>
+        <p>Handling of project-specific operations.</p>
+        <p>General procedures suitable for both proposals (phase 1 projects) and programs (phase 2 projects) are located directly in this package, specific procedures are handled in their respective subpackage project or program.</p>
+      </comment>
+      <author>Peter Kratzer</author>
+      <procedure name="selectProjectTab" qname="almaot.project.selectProjectTab" ref="N3AFA4">
+        <comment>The tab for the selected project type is selected.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <throws name="UserException">If the project type is not one of the valid parameter values.</throws>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getTabID" qname="almaot.project.getTabID" ref="N3B0AF">
+        <comment>The component ID for the specified project type is determined.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <return>Component ID of project tab.</return>
+        <throws name="UserException">If the project type is not one of the valid parameter values.</throws>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getTreePath" qname="almaot.project.getTreePath" ref="N3B0FD">
+        <comment>The second level tree path for the specified project type is determined.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <return>Tree path for level 2, interpreted as a regular expression. Examples: &lt;code&gt;/.*/Proposal&lt;/code&gt;, &lt;code&gt;/.*/Science Plan&lt;/code&gt;.</return>
+        <throws name="UserException">If the project type is not one of the valid parameter values.</throws>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getTreePathDetail" qname="almaot.project.getTreePathDetail" ref="N3B14B">
+        <comment>The third level tree path for the specified project type is determined.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <return>Tree path for detail on level 3, interpreted as a regular expression. Examples: &lt;code&gt;/.*/Proposal/Planned Observing&lt;/code&gt;, &lt;code&gt;/.*/Science Plan/Special Observing Program&lt;/code&gt;.</return>
+        <throws name="UserException">If the project type is not one of the valid parameter values.</throws>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="handleUnsavedChangesDialog" qname="almaot.project.handleUnsavedChangesDialog" ref="N3B199">
+        <comment>For a specified time period the procedure waits for the dialog warning about unsaved changes and in case it appears the changes are commited or discarded.</comment>
+        <param name="save">Flag (boolean) specifying whether to commit (save) the unsaved changes (using button "Save") or discard them (using button "Discard").</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="handleSubmissionDialog" qname="almaot.project.handleSubmissionDialog" ref="N3B1FA">
+        <comment>For a specified time period the procedure waits for the warning dialog regarding differences in the current cycle and the proposal's original cycle.</comment>
+        <param name="ok">Flag (boolean) specifying whether to confirm the dialog (using button "Yes") or to deny the request (using button "No").</param>
+        <param name="required">Flag (boolean) specifying whether the appearance of the warning is mandatory.</param>
+        <return>Flag (boolean) whether the dialog handling was successful.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="openProjectFinder" qname="almaot.project.openProjectFinder" ref="N3B2A8">
+        <comment>The project finder dialog is opened via menu "File / Open Project".
+The procedure waits within the specified timeout period until the dialog window is open.</comment>
+        <throws name="ComponentNotFoundException">If the project finder dialog does not open within the timeout period.</throws>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="handleUpgradeRequiredDialog" qname="almaot.project.handleUpgradeRequiredDialog" ref="N3B2DE">
+        <comment>For a specified time period the procedure waits for the dialog warning about an upgrade required for the loaded project and in case it appears the necessary actions are performed.</comment>
+        <param name="ok">Flag (boolean) specifying whether to confirm the dialog (using button "Yes") or to deny the request (using button "No").</param>
+        <param name="required">Flag (boolean) specifying whether the upgrade warning is mandatory.</param>
+        <return>Flag (boolean) whether the dialog handling was successful.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="closeProjectFinder" qname="almaot.project.closeProjectFinder" ref="N3B431">
+        <comment>
+          <p>The project finder dialog is closed using the "Done" button.</p>
+          <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+The project finder dialog must be open.</p>
+        </comment>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="openFromDisk" qname="almaot.project.openFromDisk" ref="N3B44A">
+        <comment>The project specified by file name is loaded from disk.
+A basic check is performed to verify the success.</comment>
+        <param name="fileName">File name (fully qualified path) of project on disk.</param>
+        <param name="projectType">Project type. One of the values (Proposal, Program, Test). The type &lt;code&gt;Test&lt;/code&gt; performs a special test run.</param>
+        <param name="requireUpgrade">Flag (boolean) whether the opened proposal must ask for an upgrade.</param>
+        <param name="upgradeResponse">Flag (boolean) whether an upgarde request is granted (&lt;code&gt;upgradeResponse=true&lt;/code&gt;) or denied (&lt;code&gt;upgradeResponse=false&lt;/code&gt;).</param>
+        <param name="logErrors">Flag (boolean) whether possible errors shall be logged in the run-log.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="saveToDisk" qname="almaot.project.saveToDisk" ref="N3B76F">
+        <comment>The project is saved to disk with the specified file name.</comment>
+        <param name="fileName">Target file name (fully qualified path) of project on disk.</param>
+        <param name="projectType">Project type. One of the values (Proposal, Program, Test). The type &lt;code&gt;Test&lt;/code&gt; performs a special test run.</param>
+        <param name="overwrite">Flag (boolean) whether an existing file with the target file name should be overwritten.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="saveToDiskWithFileCheck" qname="almaot.project.saveToDiskWithFileCheck" ref="N3B91F">
+        <comment>The project is saved to disk with the specified file name and the existence of the created file is verified.</comment>
+        <param name="fileName">Target file name (fully qualified path) of project on disk.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="openFromDB" qname="almaot.project.openFromDB" ref="N3B9BC">
+        <comment>The specified project is loaded from the data base (archive).
+If the result is ambiguous (more than one matches) then the latest entry (by creation time) is selected. Additionally, if "ProjectCode" is selected, an error message is logged.</comment>
+        <param name="selector">Search type. One of the values (ProjectCode, AlmaID, ProjectName, All).</param>
+        <param name="parameter">Search parameter.</param>
+        <param name="wait">Flag (boolean) if result is to be awaited.</param>
+        <return>Flag (boolean) if project was opened successfully.</return>
+        <throws name="UserException">If the selector is not one of the valid parameter values.</throws>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getTemplateLibraryTree" qname="almaot.project.getTemplateLibraryTree" ref="N3C059">
+        <comment>The tree component for the specified project type's template library is determined.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <return>Tree component for template library.</return>
+        <throws name="UserException">If the project type is not one of the valid parameter values.</throws>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="showTemplateLibrary" qname="almaot.project.showTemplateLibrary" ref="N3C085">
+        <comment>The template library is displayed or hidden.</comment>
+        <param name="show">Flag (boolean) whether to show (&lt;code&gt;show=true&lt;/code&gt;) or hide (&lt;code&gt;show=false&lt;/code&gt;) the template library.</param>
+        <throws name="UserException">If the tab (should be either the proposal or the program tab) name cannot be determined automatically.</throws>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="selectTemplateLibraryScienceGoal" qname="almaot.project.selectTemplateLibraryScienceGoal" ref="N3C27E">
+        <comment>
+          <p>The specified science goal from the template library is selected.</p>
+          <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+- The template library must be already open.</p>
+        </comment>
+        <param name="title">Name of the science goal in the library to be selected.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="useAsTemplate" qname="almaot.project.useAsTemplate" ref="N3C2CB">
+        <comment>The specified project file is used as template.</comment>
+        <param name="file">Fully qualified file name of the project to be used as template.</param>
+        <return>Flag (boolean) whether the requested file was loaded as template.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="handleInfoBox" qname="almaot.project.handleInfoBox" ref="N3C394">
+        <comment>For a specified time period the procedure waits for the info message window and in case it appears the dialog is closed by pressing the OK button.</comment>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="handleWarningBox" qname="almaot.project.handleWarningBox" ref="N3C3C4">
+        <comment>For a specified time period the procedure waits for the warning message window and in case it appears the dialog is closed by pressing the OK button.</comment>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setTitle" qname="almaot.project.setTitle" ref="N3C3F4">
+        <comment>The title of a project of the specified type (Proposal or Program) is set with added time stamp.
+A previous setting is overwritten.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="title">New title for the current project.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getTitle" qname="almaot.project.getTitle" ref="N3C488">
+        <comment>The title of a project of the specified type (Proposal or Program) is returned.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <return>Project title (string).</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setPI" qname="almaot.project.setPI" ref="N3C4CF">
+        <comment>The project's PI is set.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="userID">ALMA ID of the new PI.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setCoI" qname="almaot.project.setCoI" ref="N3C6D1">
+        <comment>A CoI is added to the current project.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="userID">ALMA ID of the new CoI.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="removeAllCoI" qname="almaot.project.removeAllCoI" ref="N3C8A4">
+        <comment>All CoI's are removed from the current project.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setInvestigatorExecutive" qname="almaot.project.setInvestigatorExecutive" ref="N3C94A">
+        <comment>The executive for the specified user is set.
+This works only for specific users, currently only for Taiwanese.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="userID">ALMA ID of the investigator to be adapted.</param>
+        <param name="executive">Executive to be set for specified user. One of the values (North America, East Asia, 50\% NA 50\% EA).</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="checkTreePathExists" qname="almaot.project.checkTreePathExists" ref="N3CA8B">
+        <comment>The existence of the specified path in the tree view is verified.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="path">Tree view path (alphanumerical). Regular expressions are permitted.</param>
+        <return>Flag (boolean) if the specified path exists in the tree view.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="selectScienceGoal" qname="almaot.project.selectScienceGoal" ref="N3CAF6">
+        <comment>The specified science goal node is selected.
+This procedure acts as a single entry point for the science goal selection to handle possible changes in the node's representation.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <param name="section">Section sub-node (optional). One of the values (General, Field Setup, Spectral Setup, Calibration Setup, Control and Performance).</param>
+        <param name="calibrator">Flag (boolean) if the science goal to be selected consists of a calibrator.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="selectScienceGoalGeneral" qname="almaot.project.selectScienceGoalGeneral" ref="N3CB89">
+        <comment>The specified sub-node "General" of a given science goal node is selected.
+This procedure acts as a single entry point for the science goal selection to handle possible changes in the node's representation.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="selectScienceGoalFieldSetup" qname="almaot.project.selectScienceGoalFieldSetup" ref="N3CBAC">
+        <comment>The specified sub-node "Field Setup" of a given science goal node is selected.
+This procedure acts as a single entry point for the science goal selection to handle possible changes in the node's representation.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="selectScienceGoalSpectralSetup" qname="almaot.project.selectScienceGoalSpectralSetup" ref="N3CBCF">
+        <comment>The specified sub-node "Spectral Setup" of a given science goal node is selected.
+This procedure acts as a single entry point for the science goal selection to handle possible changes in the node's representation.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <param name="calibrator">Flag (boolean) if the science goal to be selected consists of a calibrator.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="selectScienceGoalCalibrationSetup" qname="almaot.project.selectScienceGoalCalibrationSetup" ref="N3CBF5">
+        <comment>The specified sub-node "Calibration Setup" of a given science goal node is selected.
+This procedure acts as a single entry point for the science goal selection to handle possible changes in the node's representation.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="selectScienceGoalCtrlPerf" qname="almaot.project.selectScienceGoalCtrlPerf" ref="N3CC18">
+        <comment>The specified sub-node "Control and Performance" of a given science goal node is selected.
+This procedure acts as a single entry point for the science goal selection to handle possible changes in the node's representation.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="selectScienceGoalTechJust" qname="almaot.project.selectScienceGoalTechJust" ref="N3CC3B">
+        <comment>The specified sub-node "Technical Justification" of a given science goal node is selected.
+This procedure acts as a single entry point for the science goal selection to handle possible changes in the node's representation.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="checkScienceGoalName" qname="almaot.project.checkScienceGoalName" ref="N3CC5E">
+        <comment>The existence of the science goal specified by name is verified.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <return>Flag (boolean) if the specified science goal exists.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="renameScienceGoal" qname="almaot.project.renameScienceGoal" ref="N3CCD8">
+        <comment>The specified science goal is renamed.
+To enable correct handling every science goal must have a distinctive and unique name (not "Science Goal").</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="oldname">Old science goal name.</param>
+        <param name="newname">New science goal name.</param>
+        <throws name="UserException">If a science goal with the new name exists already. Please note, that this is not a condition demanded by the ALMA-OT. The uniqueness of all science goal names is merely a convention used within this test suite to enable an unambiguous selection in the project tree by name.</throws>
+        <throws name="UserException">If the science goal with the old name does not exist.</throws>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="addScienceGoal" qname="almaot.project.addScienceGoal" ref="N3CDE7">
+        <comment>A new science goal is added to the current project.
+To enable correct handling the new science goal must have a distinctive and unique name (not "Science Goal").</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <throws name="UserException">If a science goal with the same name exists already. Please note, that this is not a condition demanded by the ALMA-OT. The uniqueness of all science goal names is merely a convention used within this test suite to enable a selection in the project tree by name.</throws>
+        <throws name="UserException">If the project type is invalid.</throws>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="deleteScienceGoal" qname="almaot.project.deleteScienceGoal" ref="N3CECD">
+        <comment>The specified science goal is deleted from the current project.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setScienceGoalGeneral" qname="almaot.project.setScienceGoalGeneral" ref="N3CFC3">
+        <comment>Values for the specified science goal's subnode "General" are set.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <param name="description">New description of the science goal.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setScienceGoalCoordinates" qname="almaot.project.setScienceGoalCoordinates" ref="N3D01A">
+        <comment>
+          <p>The coordinates for field setup are filled in.
+If a message box appears containing a warning that no coordinate conversion was performed this message is confirmed.</p>
+          <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+- This procedure assumes the field setup of a science goal is opened and the target tab (if several sources are contained in the selected science goal) is active.</p>
+        </comment>
+        <param name="coordSystem">Coordinate system.</param>
+        <param name="coordSexagesimal">Flag (boolean) for sexagesimal coordinates. Optional parameter.</param>
+        <param name="coordRA">Coordinates RA. Optional parameter.</param>
+        <param name="coordDec">Coordinates Dec. Optional parameter.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="resolveTargetName" qname="almaot.project.resolveTargetName" ref="N3D0E1">
+        <comment>
+          <p>The target name is resolved for the currently active science goal/target.</p>
+          <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+- The field setup node is selected and the target tab for the target to be resolved is already opened.</p>
+        </comment>
+        <param name="reset">Flag (boolean) whether to reset the name for an unresolvable target.</param>
+        <param name="expectError">Flag (boolean) whether to expect errors. If true, no errors are logged.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setScienceGoalSourceName" qname="almaot.project.setScienceGoalSourceName" ref="N3D234">
+        <comment>
+          <p>Set the source name for the selected science goal's field setup.</p>
+          <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+- This procedure assumes the field setup of a science goal is opened and the target tab (if several sources are contained in the selected science goal) is active.</p>
+        </comment>
+        <param name="source">Source name.</param>
+        <param name="resolve">Flag (boolean) whether the source name is to be resolved automatically.</param>
+        <param name="reset">Flag (boolean) how to react to a failed source name resolution.</param>
+        <param name="expectError">Flag (boolean) whether to expect a resolution error. If true, no error message is generated.</param>
+        <return>Flag (boolean) whether the setting (and resolution if selected) was successful.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setScienceGoalFieldSetup" qname="almaot.project.setScienceGoalFieldSetup" ref="N3D53B">
+        <comment>The basic field setup source parameters are entered for the selected science goal.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <param name="objtype">Object type. One of the values (source, solar).</param>
+        <param name="source">Source name.</param>
+        <param name="resolve">Flag (boolean) whether the source name is to be resolved automatically.</param>
+        <param name="coordSystem">Coordinate system.</param>
+        <param name="coordSexagesimal">Flag (boolean) for sexagesimal coordinates. Optional parameter.</param>
+        <param name="coordRA">Coordinates RA. Optional parameter.</param>
+        <param name="coordDec">Coordinates Dec. Optional parameter.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setScienceGoalFieldSetupVelocity" qname="almaot.project.setScienceGoalFieldSetupVelocity" ref="N3D833">
+        <comment>The basic field setup velocity parameters are entered for the selected science goal.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <param name="velocity">Source velocity (numerical value). Optional parameter.</param>
+        <param name="velocityUnit1">Source velocity (speed unit). Optional parameter.</param>
+        <param name="velocityUnit2">Source velocity (system). Optional parameter.</param>
+        <param name="redshiftZ">Redshift value (z). Optional parameter.</param>
+        <param name="dopplerType">Doppler type. Optional parameter.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getScienceGoalNumSources" qname="almaot.project.getScienceGoalNumSources" ref="N3D929">
+        <comment>The number of sources defined in the specified science goal is returned.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name. If empty the current science goal is used.</param>
+        <return>Number of sources.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getScienceGoalFieldSetupSourceRA" qname="almaot.project.getScienceGoalFieldSetupSourceRA" ref="N3D9F1">
+        <comment>The source RA in the specified science goal is returned.
+This procedure does not yet distinguish between different sources. The result is determined from the active (selected) source tab.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <return>Source RA.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getScienceGoalFieldSetupSourceDec" qname="almaot.project.getScienceGoalFieldSetupSourceDec" ref="N3DABD">
+        <comment>The source Dec in the specified science goal is returned.
+This procedure does not yet distinguish between different sources. The result is determined from the active (selected) source tab.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <return>Source Dec.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getScienceGoalFieldSetupRedshiftZ" qname="almaot.project.getScienceGoalFieldSetupRedshiftZ" ref="N3DB9C">
+        <comment>The redshift value in the specified science goal is returned.
+This procedure does not yet distinguish between different sources. The result is determined from the active (selected) source tab.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <return>Redshift value.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setScienceGoalTargetType" qname="almaot.project.setScienceGoalTargetType" ref="N3DBD5">
+        <comment>
+          <p>The target (field setup) type is set.</p>
+          <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+This procedure assumes the field setup of a science goal is opened and the target tab (if several sources are contained in the selected science goal) active.</p>
+        </comment>
+        <param name="targetType">Target (field setup) type. One of the values (points, rectangle).</param>
+        <throws name="UserException">If the target type is not one of the valid parameter values.</throws>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getScienceGoalTargetType" qname="almaot.project.getScienceGoalTargetType" ref="N3DC21">
+        <comment>The target type of the specified science goal is returned.
+The result value is determinied from the setting in the field setup node within the science goal.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <return>Target (field setup) type. One of the values (points, rectangle).</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setScienceGoalExpectedSourceProperties" qname="almaot.project.setScienceGoalExpectedSourceProperties" ref="N3DCBC">
+        <comment>
+          <p>The expected source properties are set.</p>
+          <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+This procedure assumes the field setup of a science goal is opened and the target tab (if several sources are contained in the selected science goal) active.</p>
+        </comment>
+        <param name="peakFlux">Peak flux (numerical value). Optional parameter.</param>
+        <param name="peakFluxUnit">Peak flux (unit). Optional parameter.</param>
+        <param name="polarisationPercentage">Polarisation percentage. Optional parameter.</param>
+        <param name="peakLineFlux">Peak line flux (numerical value). Optional parameter.</param>
+        <param name="peakLineFluxUnit">Peak line flux (unit). Optional parameter.</param>
+        <param name="lineWidth">Line width (numerical value). Optional parameter.</param>
+        <param name="lineWidthUnit">Line width (unit). Optional parameter.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setScienceGoalFieldCenterCoords" qname="almaot.project.setScienceGoalFieldCenterCoords" ref="N3DE53">
+        <comment>
+          <p>The specified field center coordinates and parameters are set.</p>
+          <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+This procedure assumes the field setup of a science goal is opened and the target tab (if several sources are contained in the selected science goal) active.</p>
+        </comment>
+        <param name="offsetFlag">Flag (boolean) for offset coordinates. Optional parameter.</param>
+        <param name="offsetUnit">Value for offset unit. Optional parameter.</param>
+        <param name="coordRA">RA coordinate value. Optional parameter.</param>
+        <param name="coordDec">Dec coordinate value. Optional parameter.</param>
+        <param name="coordIndex">Row index for entered coordinates. Use -1 to create a new entry.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setScienceGoalRectangleAbsCoords" qname="almaot.project.setScienceGoalRectangleAbsCoords" ref="N3DFAF">
+        <comment>
+          <p>The specified rectangle absolute coordinates are set.</p>
+          <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+This procedure assumes the field setup of a science goal is opened and the target tab (if several sources are contained in the selected science goal) active.</p>
+        </comment>
+        <param name="absCoordSystem">Coordinate system. Default value: J2000.</param>
+        <param name="absCoordSexagesimal">Flag (boolean) for sexagesimal coordinate system.</param>
+        <param name="absCoordRA">RA coordinate value.</param>
+        <param name="absCoordDec">Dec coorsdinate value.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setScienceGoalRectangleRelCoords" qname="almaot.project.setScienceGoalRectangleRelCoords" ref="N3E09E">
+        <comment>
+          <p>The specified rectangle relative coordinates are set.</p>
+          <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+This procedure assumes the field setup of a science goal is opened and the target tab (if several sources are contained in the selected science goal) active.</p>
+        </comment>
+        <param name="offsetLongitude">Longitudinal coordinate value.</param>
+        <param name="offsetLongitudeUnit">Longitudinal coordinate unit.</param>
+        <param name="offsetLatitude">Latitudinal coordinate value.</param>
+        <param name="offsetLatitudeUnit">Latitudinal coordinate unit.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setScienceGoalRectanglePar" qname="almaot.project.setScienceGoalRectanglePar" ref="N3E14D">
+        <comment>
+          <p>The specified rectangle parameters and coordinates are set.</p>
+          <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+This procedure assumes the field setup of a science goal is opened and the target tab (if several sources are contained in the selected science goal) active.</p>
+        </comment>
+        <param name="pLen">Rectangle p length value. Optional parameter.</param>
+        <param name="pLenUnit">Rectangle p length unit. Optional parameter.</param>
+        <param name="qLen">Rectangle q length value. Optional parameter.</param>
+        <param name="qLenUnit">Rectangle q length unit. Optional parameter.</param>
+        <param name="posAngle">Rectangle position angle value. Optional parameter.</param>
+        <param name="posAngleUnit">Rectangle position angle unit. Optional parameter.</param>
+        <param name="spacing">Rectangle spacing value. Optional parameter.</param>
+        <param name="spacingUnit">Rectangle spacing unit. Optional parameter.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="loadTargetListFromFile" qname="almaot.project.loadTargetListFromFile" ref="N3E273">
+        <comment>All targets defined in the specified file are added to the specified science goal's field setup.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <param name="fileName">Name of the file containing the target list.</param>
+        <param name="append">Flag (boolean) specifying whether the target list is suppoed to be appended to the current target list. Otherwise the existing target list is overwritten.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setScienceGoalSpectralSetupContinuum" qname="almaot.project.setScienceGoalSpectralSetupContinuum" ref="N3E2EF">
+        <comment>The specified science goal's parameters are set for single continuum.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <param name="polarization">Polarization. One of the values (XX, DUAL, FULL).</param>
+        <param name="receiverBand">ALMA receiver band. Permitted values: [1, 10].</param>
+        <param name="resetStdFreq">Optional flag (boolean) whether frequency is to be reset to standard value.</param>
+        <param name="frequency">Frequency value.</param>
+        <param name="frequencyUnit">Frequency unit.</param>
+        <param name="calibrator">Flag (boolean) for calibrator science goal.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getScienceGoalSpectralSetupContinuumSkyFreq" qname="almaot.project.getScienceGoalSpectralSetupContinuumSkyFreq" ref="N3E546">
+        <comment>The specified science goal's continuum sky frequency is read.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <return>Sky frequency. String consisting of numerical value and unit, separated by blank.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getScienceGoalSpectralSetupContinuumRestFreq" qname="almaot.project.getScienceGoalSpectralSetupContinuumRestFreq" ref="N3E66B">
+        <comment>The specified science goal's continuum rest frequency is read.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <return>Rest frequency. String consisting of numerical value and unit, separated by blank.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getScienceGoalSpectralSetupContinuumRepFreq" qname="almaot.project.getScienceGoalSpectralSetupContinuumRepFreq" ref="N3E76F">
+        <comment>The specified science goal's continuum representative frequency is read.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <return>Representative frequency. String consisting of numerical value and unit, separated by blank.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getScienceGoalSpectralSetupContinuumRepSkyFreq" qname="almaot.project.getScienceGoalSpectralSetupContinuumRepSkyFreq" ref="N3E82E">
+        <comment>The specified science goal's continuum representative sky frequency is read.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <return>Representative sky frequency. String consisting of numerical value and unit, separated by blank.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setScienceGoalSpectralSetupPolarization" qname="almaot.project.setScienceGoalSpectralSetupPolarization" ref="N3E925">
+        <comment>Setup existing science goal for spectral line and set polarization.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <param name="polarization">Polarization. One of the values (XX, DUAL, FULL).</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setScienceGoalSpectralSetupSpectralLine" qname="almaot.project.setScienceGoalSpectralSetupSpectralLine" ref="N3E9A0">
+        <comment>Setup existing science goal for spectral line and set polarization if specified.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <param name="polarization">Polarization (optional). One of the values (XX, DUAL, FULL).</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getSpectralLineBBNumEntries" qname="almaot.project.getSpectralLineBBNumEntries" ref="N3E9EE">
+        <comment>Return number of spectral line entries in specified baseband.</comment>
+        <param name="baseband">Baseband index. One of the values (0, 1, 2, 3).</param>
+        <return>Index of last entry. If the baseband does not contain any spectral lines the value -1 is returned.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getSpectralLineBBLastEntry" qname="almaot.project.getSpectralLineBBLastEntry" ref="N3EA97">
+        <comment>Return index of last spectral line entry in specified baseband.</comment>
+        <param name="baseband">Baseband index. One of the values (0, 1, 2, 3).</param>
+        <return>Index of last spectral line entry. If the baseband does not contain any spectral lines the value -1 is returned.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getSpectralLineBBNewEntry" qname="almaot.project.getSpectralLineBBNewEntry" ref="N3EB9C">
+        <comment>Return index of new spectral line entry in specified baseband.
+The new entry is identified by a frequency value "0.000".</comment>
+        <param name="baseband">Baseband index. One of the values (0, 1, 2, 3).</param>
+        <return>Index of new spectral line entry. If the baseband does not contain a new entry the value -1 is returned.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getSpectralLineBBCentralFreqRest" qname="almaot.project.getSpectralLineBBCentralFreqRest" ref="N3ECBF">
+        <comment>Return the central frequency (rest) value of specified spectral line entry in specified baseband.</comment>
+        <param name="baseband">Baseband index. One of the values (0, 1, 2, 3).</param>
+        <param name="index">Index of spectral line entry (count starts with 0).</param>
+        <return>Central frequency (rest) value including the unit. Example: 123.456789 GHz.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getSpectralLineBBCentralFreqSky" qname="almaot.project.getSpectralLineBBCentralFreqSky" ref="N3ED76">
+        <comment>Return the central frequency (sky) value of specified spectral line entry in specified baseband.</comment>
+        <param name="baseband">Baseband index. One of the values (0, 1, 2, 3).</param>
+        <param name="index">Index of spectral line entry (count starts with 0).</param>
+        <return>Central frequency (sky) value including the unit. Example: 123.456789 GHz.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="pressSpectralLineBBSelectLinesButton" qname="almaot.project.pressSpectralLineBBSelectLinesButton" ref="N3EE2D">
+        <comment>Press the "Select Lines to Observe" button for specified baseband.</comment>
+        <param name="baseband">Baseband index. One of the values (0, 1, 2, 3).</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="pressSpectralLineBBAddButton" qname="almaot.project.pressSpectralLineBBAddButton" ref="N3EE9A">
+        <comment>Press the "Add" button for specified baseband.</comment>
+        <param name="baseband">Baseband index. One of the values (0, 1, 2, 3).</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="pressSpectralLineBBDeleteButton" qname="almaot.project.pressSpectralLineBBDeleteButton" ref="N3EF07">
+        <comment>Press the "Delete" button for specified baseband.</comment>
+        <param name="baseband">Baseband index. One of the values (0, 1, 2, 3).</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setSpectralLineBBFraction" qname="almaot.project.setSpectralLineBBFraction" ref="N3EF74">
+        <comment>Set fraction value of specified spectral line entry in specified baseband.</comment>
+        <param name="baseband">Baseband index. One of the values (0, 1, 2, 3).</param>
+        <param name="index">Index of spectral line entry (count starts with 0).</param>
+        <param name="fraction">Fraction value. One of the values (1(Full), 1/2, 1/4, 1/8, 1/16, 1/32).</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setSpectralLineBBCentralFreqRest" qname="almaot.project.setSpectralLineBBCentralFreqRest" ref="N3F0DE">
+        <comment>Set central frequency (rest) value of specified spectral line entry in specified baseband.</comment>
+        <param name="baseband">Baseband index. One of the values (0, 1, 2, 3).</param>
+        <param name="index">Index of spectral line entry (count starts with 0).</param>
+        <param name="centerFreq">Center frequency (numeric part).</param>
+        <param name="centerFreqUnit">Center frequency (unit).</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setSpectralLineBBCentralFreqSky" qname="almaot.project.setSpectralLineBBCentralFreqSky" ref="N3F28D">
+        <comment>Set central frequency (sky) value of specified spectral line entry in specified baseband.</comment>
+        <param name="baseband">Baseband index. One of the values (0, 1, 2, 3).</param>
+        <param name="index">Index of spectral line entry (count starts with 0).</param>
+        <param name="centerFreq">Center frequency (numeric part).</param>
+        <param name="centerFreqUnit">Center frequency (unit).</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setSpectralLineBBTransition" qname="almaot.project.setSpectralLineBBTransition" ref="N3F43C">
+        <comment>Set transition text of specified spectral line entry in specified baseband.</comment>
+        <param name="baseband">Baseband index. One of the values (0, 1, 2, 3).</param>
+        <param name="index">Index of spectral line entry (count starts with 0).</param>
+        <param name="transition">Transition text. Default: "Manual window".</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setSpectralLineBBBandWidth" qname="almaot.project.setSpectralLineBBBandWidth" ref="N3F5E8">
+        <comment>Set bandwidth of specified spectral line entry in specified baseband.</comment>
+        <param name="baseband">Baseband index. One of the values (0, 1, 2, 3).</param>
+        <param name="index">Index of spectral line entry (count starts with 0).</param>
+        <param name="bandwidth">Bandwidth specification as regular expression. Example: 117.*488.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setSpectralLineBBSpecAvg" qname="almaot.project.setSpectralLineBBSpecAvg" ref="N3F724">
+        <comment>Set spectral average of specified spectral line entry in specified baseband.</comment>
+        <param name="baseband">Baseband index. One of the values (0, 1, 2, 3).</param>
+        <param name="index">Index of spectral line entry (count starts with 0).</param>
+        <param name="specAvg">Spectral average value (1, 2, 4, 8, 16).</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setSpectralLineBBRepWin" qname="almaot.project.setSpectralLineBBRepWin" ref="N3F855">
+        <comment>Set representative window for specified spectral line entry in specified baseband.</comment>
+        <param name="baseband">Baseband index. One of the values (0, 1, 2, 3).</param>
+        <param name="index">Index of spectral line entry (count starts with 0).</param>
+        <param name="representative">Flag (boolean) for representative window.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setScienceGoalSpectralSetupAddSpectralLine" qname="almaot.project.setScienceGoalSpectralSetupAddSpectralLine" ref="N3F8E4">
+        <comment>Add spectral line with specified parameters to selected baseband.
+Empty parameter values are ignored (not reset).</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <param name="baseband">Baseband index. One of the values (0, 1, 2, 3).</param>
+        <param name="fraction">Fraction value (optional). One of the values (1(Full), 1/2, 1/4, 1/8, 1/16, 1/32).</param>
+        <param name="centerFreq">Center frequency (numeric part).</param>
+        <param name="centerFreqUnit">Center frequency (unit).</param>
+        <param name="transition">Transition text. Default: "Manual window".</param>
+        <param name="bandwidth">Bandwidth specification as regular expression. Example: 117.*488.</param>
+        <param name="specAvg">Spectral average value (1, 2, 4, 8, 16).</param>
+        <param name="representative">Flag (boolean) for representative window.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setScienceGoalSpectralSetupSelectSpectralLine" qname="almaot.project.setScienceGoalSpectralSetupSelectSpectralLine" ref="N3FBE1">
+        <comment>Add spectral line to selected baseband by choosing the specified entry from the list of available lines.</comment>
+        <param name="baseband">Baseband index. One of the values (0, 1, 2, 3).</param>
+        <param name="filter">Filter criteria for spectral line list.</param>
+        <param name="band">Restrict spectral line list to specified ALMA band. Permitted values: [1, 10].</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getScienceGoalSpectralSetupNumSW" qname="almaot.project.getScienceGoalSpectralSetupNumSW" ref="N3FCDA">
+        <comment>Get number of spectral windows for specified science goal.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <return>Number of spectral windows in specified science goal's spectral setup.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getScienceGoalSpectralSetupPolarisation" qname="almaot.project.getScienceGoalSpectralSetupPolarisation" ref="N3FD74">
+        <comment>Get polarization setting for specified science goal.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <return>Polarization setting. One of the values (XX, Dual, Full).</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setScienceGoalSpectralSetupSpectralScan" qname="almaot.project.setScienceGoalSpectralSetupSpectralScan" ref="N3FE4F">
+        <comment>Setup existing science goal for spectral scan.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setSpectralScanFreqRange" qname="almaot.project.setSpectralScanFreqRange" ref="N3FE7E">
+        <comment>Setup frequency range for spectral scan.</comment>
+        <param name="startFreq">Start frequency (numeric part).</param>
+        <param name="startFreqUnit">Start frequency (unit).</param>
+        <param name="endFreq">End frequency (numeric part).</param>
+        <param name="endFreqUnit">End frequency (unit).</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setSpectralScanBandWidth" qname="almaot.project.setSpectralScanBandWidth" ref="N3FF16">
+        <comment>Setup band width for spectral scan.</comment>
+        <param name="bandwidth">Bandwidth specification as regular expression. Example: 468.*244</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setSpectralScanSpecAvg" qname="almaot.project.setSpectralScanSpecAvg" ref="N3FF94">
+        <comment>Setup spectral average value for spectral scan.</comment>
+        <param name="specAvg">Spectral average value (1, 2, 4, 8, 16).</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setSpectralScanRepFreq" qname="almaot.project.setSpectralScanRepFreq" ref="N3FFB5">
+        <comment>Setup representative frequency for spectral scan.</comment>
+        <param name="repFreq">Representative frequency (numeric part).</param>
+        <param name="repFreqUnit">Representative frequency (unit).</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getScienceGoalCalibrationSelection" qname="almaot.project.getScienceGoalCalibrationSelection" ref="N40007">
+        <comment>Return calibration selection for selected science goal.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <return>Calibration selection. One of the values (System, User).</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="addCalibrator" qname="almaot.project.addCalibrator" ref="N40099">
+        <comment>A calibrator is added to the specified science goal.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <param name="calType">Calibrator type. One of the values (Dynamic, Fixed).</param>
+        <param name="calibrator">Calibration intent. One of the values (Amplitude, Atmospheric, Bandpass, Delay, Focus, Phase, Pointing, , Polarization).</param>
+        <param name="create">Flag (boolean) whether the calibrator is actually created (changes commited).</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="closeCalibratorEditor" qname="almaot.project.closeCalibratorEditor" ref="N40252">
+        <comment>Unified procedure to close calibrator editors.</comment>
+        <param name="calType">Calibrator type. One of the values (Dynamic, Fixed).</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="closeDynamicCalibratorEditor" qname="almaot.project.closeDynamicCalibratorEditor" ref="N402BA">
+        <comment>The dynamic calibrator editor is closed.</comment>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="closeFixedCalibratorEditor" qname="almaot.project.closeFixedCalibratorEditor" ref="N402D0">
+        <comment>The fixed calibrator editor is closed.</comment>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setScienceGoalCtrlPerf" qname="almaot.project.setScienceGoalCtrlPerf" ref="N402E6">
+        <comment>Setup parameters for the specified science goal's control and performance node.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <param name="resulution">Resolution (numeric part).</param>
+        <param name="resolutionUnit">Resolution (unit).</param>
+        <param name="extendedSource">Flag (boolean) for using an extended source.</param>
+        <param name="angularScale">Angular scale (numeric part).</param>
+        <param name="angularScaleUnit">Angular scale (unit).</param>
+        <param name="sensitivity">Sensitivity (numeric part).</param>
+        <param name="sensitivityUnit">Sensitivity (unit).</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getScienceGoalCtrlPerfAngularRes" qname="almaot.project.getScienceGoalCtrlPerfAngularRes" ref="N40465">
+        <comment>Return angular resolution setting for selected science goal.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <return>Angular resolution (string) with numeric value and unit separated by blank.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getScienceGoalCtrlPerfLargestAngularScale" qname="almaot.project.getScienceGoalCtrlPerfLargestAngularScale" ref="N404D5">
+        <comment>Return largest angular scale setting for selected science goal.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <return>Largest angular scale (string) with numeric value and unit separated by blank.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getScienceGoalCtrlPerfSensitivity" qname="almaot.project.getScienceGoalCtrlPerfSensitivity" ref="N405CA">
+        <comment>Return normalised sensitivity setting for selected science goal.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <return>Sensitivity normalised to Jy or K (string) with numeric value and unit separated by blank.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setScienceGoalTechJust" qname="almaot.project.setScienceGoalTechJust" ref="N4071B">
+        <comment>Setup technical justification in specified science goal.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="name">Science goal name.</param>
+        <param name="text">Text for technical justification.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="validate" qname="almaot.project.validate" ref="N40756">
+        <comment>The current project is validated.</comment>
+        <return>Flag (boolean) if the validation was successful.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getNumValidationErrors" qname="almaot.project.getNumValidationErrors" ref="N407AD">
+        <comment>
+          <p>The number of validation errors is extracted from the validation message.</p>
+          <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+A previous validation run is expected to provide the necessary message.</p>
+        </comment>
+        <return>Number of validation errors.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getNumValidationWarnings" qname="almaot.project.getNumValidationWarnings" ref="N407F1">
+        <comment>
+          <p>The number of validation errors is extracted from the validation message.</p>
+          <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+A previous validation run is expected to provide the necessary message.</p>
+        </comment>
+        <return>Number of validation errors.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="checkValidationMessage" qname="almaot.project.checkValidationMessage" ref="N40835">
+        <comment>
+          <p>The list of validation messges is searched for the specified message.</p>
+          <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+A previous validation run is expected to open the feedback section and provide the message list.</p>
+        </comment>
+        <return>Flag (boolean) whether the specified message was found in the list of validation messages.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getProjectCode" qname="almaot.project.getProjectCode" ref="N408AD">
+        <comment>The project code of the current project is returned.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <return>Project code (string). If the current project is not yet submitted to the archive an empty string is returned.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="changeFieldChecked" qname="almaot.project.changeFieldChecked" ref="N40992">
+        <comment>
+          <p>The given value is entered into the specified input field and the new value is checked.</p>
+          <p>If both of the optional tree path parameters are provided the procedure navigates away from and back to the page containing the specified input field. In some cases only after this switch the success of the change operaation can be determined.</p>
+        </comment>
+        <param name="fieldID">Component ID of the input field to be changed.</param>
+        <param name="newValue">New value entered into the specified input field.</param>
+        <param name="treePath">Tree path of the page containing the input field (optional).</param>
+        <param name="treePathToggle">Tree path to navigate away from the page containing the input field (optional).</param>
+        <return>Flag (boolean) whether the change was successful.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="isScienceGoal" qname="almaot.project.isScienceGoal" ref="N40A18">
+        <comment>The specified node is checked whether it consists of a science goal.
+For the verification the node image is used.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="nodeIndex">Tree table index (integer) of the checked tree view node.</param>
+        <param name="logMsg">Flag (boolean) whether a negative result is logged.</param>
+        <return>Flag (boolean) whether the specified node consists of a science goal.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getNumScienceGoals" qname="almaot.project.getNumScienceGoals" ref="N40AA6">
+        <comment>The number of science goals in the current project with a specific type is counted.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="scienceGoalType">Science goal type. 
+			Permitted values for project type 'Proposal' (Science Goal). 
+			Permitted values for project type 'Program' (Science Goal, Observatory Setup, Calibrator Survey, Baseline Calibration,  Optical Pointing, Radiometric Pointing).</param>
+        <return>Number of science goals (integer) with the specified type.</return>
+        <throws name="UserException">If the project type is not one of the valid parameter values.</throws>
+        <throws name="UserException">If the science goal type is not one of the valid parameter values.</throws>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getScienceGoalByIndex" qname="almaot.project.getScienceGoalByIndex" ref="N40DFB">
+        <comment>The unique numeric path of a science goal is returned.</comment>
+        <param name="type">Project type. One of the values (Proposal, Program).</param>
+        <param name="scienceGoalType">Science goal type.
+			Permitted values for project type 'Proposal' (Science Goal). 
+			Permitted values for project type 'Program' (Science Goal, Observatory Setup, Calibrator Survey, Baseline Calibration,  Optical Pointing, Radiometric Pointing).</param>
+        <param name="index">Numeric index (integer) referring to the science goals only, starting with 0. E.g. the second science goal is specified by index 1.</param>
+        <return>Numeric path of the tree view (e.g. /0/0/3). To be used with the separator &amp;amp;. This path is only valid as long as the tree does not change. If no science goal with the specified index exists then an empty path is returned.</return>
+        <throws name="UserException">If the project type is not one of the valid parameter values.</throws>
+        <throws name="UserException">If the science goal type is not one of the valid parameter values.</throws>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <package name="proposal" qname="almaot.project.proposal" ref="N41115">
+        <comment>
+          <p>Handling of proposal-specific operations.</p>
+          <p>According to the ALMA-OT documentation proposals are phase 1 projects.</p>
+        </comment>
+        <author>Peter Kratzer</author>
+        <procedure name="new" qname="almaot.project.proposal.new" ref="N4111F">
+          <comment>A new project with type "Proposal" is created.</comment>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="setTitle" qname="almaot.project.proposal.setTitle" ref="N411C3">
+          <comment>The title of the current proposal is set.
+A previous setting is overwritten.</comment>
+          <param name="title">New title for the current proposal.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="getTitle" qname="almaot.project.proposal.getTitle" ref="N41214">
+          <comment>The title of the current proposal is returned.</comment>
+          <return>Proposal title (string).</return>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="setPI" qname="almaot.project.proposal.setPI" ref="N41231">
+          <comment>The current proposal's PI is set.</comment>
+          <param name="userID">ALMA ID of the new PI.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="setCoI" qname="almaot.project.proposal.setCoI" ref="N4124D">
+          <comment>A CoI is added to the current proposal.</comment>
+          <param name="userID">ALMA ID of the new CoI.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="setKeywordsByIndex" qname="almaot.project.proposal.setKeywordsByIndex" ref="N41269">
+          <comment>The proposal keywords are set.</comment>
+          <param name="keyword1">Index of first keyword (mandatory).</param>
+          <param name="keyword2">Index of second keyword (optional).</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="setDefaults" qname="almaot.project.proposal.setDefaults" ref="N412B1">
+          <comment>Default settings on the proposal node are filled in.
+The parameter values, if not empty, are written to the according fields. Other field, like abstract and science case, are always set to the default values.</comment>
+          <param name="addAbstractText">If not empty the specified text is added to the default abstract text (test message with time stamp).</param>
+          <param name="scienceCategory">Permitted values: (&lt;code&gt;Cosmology&lt;/code&gt;, &lt;code&gt;Galaxies&lt;/code&gt;, &lt;code&gt;ISM&lt;/code&gt;, &lt;code&gt;Exoplanets&lt;/code&gt;, &lt;code&gt;Sun&lt;/code&gt;)</param>
+          <param name="proposalType">Permitted values: (&lt;code&gt;Standard&lt;/code&gt;, &lt;code&gt;Opportunity&lt;/code&gt;)</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="attachScienceCaseDocument" qname="almaot.project.proposal.attachScienceCaseDocument" ref="N415B7">
+          <comment>
+            <p>The specified PDF file is attached under "Science &amp; Technical Case".</p>
+            <p>&lt;strong&gt;Known issues:&lt;/strong&gt;&lt;br&gt;
+* &lt;a target="_new" href="http://jira.alma.cl/browse/ICT-1619"&gt;ICT-1619&lt;/a&gt; ALMA-OT: Under Mac OS X the science &amp; technical case PDF file dialog changes unexpectedly&lt;br&gt;</p>
+          </comment>
+          <param name="filename">Fully qualified filename containing the required PDF document.</param>
+          <param name="logMsg">Flag (boolean) whether a negative result is logged.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="detachScienceCaseDocument" qname="almaot.project.proposal.detachScienceCaseDocument" ref="N417A5">
+          <comment>The PDF document under "Science &amp; Technical Case" is removed from the proposal.</comment>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="renameScienceGoal" qname="almaot.project.proposal.renameScienceGoal" ref="N417F4">
+          <comment>The specified science goal is renamed.
+To enable correct handling every science goal must have a distinctive and unique name (not "Science Goal").</comment>
+          <param name="oldname">Old science goal name.</param>
+          <param name="newname">New science goal name.</param>
+          <throws name="UserException">If a science goal with the new name exists already. Please note, that this is not a condition demanded by the ALMA-OT. The uniqueness of all science goal names is merely a convention used within this test suite to enable an unambiguous selection in the project tree by name.</throws>
+          <throws name="UserException">If the science goal with the old name does not exist.</throws>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="addScienceGoal" qname="almaot.project.proposal.addScienceGoal" ref="N41816">
+          <comment>A new science goal is added to the current proposal.
+To enable correct handling the new science goal must have a distinctive name (not "Science Goal").</comment>
+          <param name="name">Science goal name.</param>
+          <throws name="UserException">If a science goal with the same name exists already. Please note, that this is not a condition demanded by the ALMA-OT. The uniqueness of all science goal names is merely a convention used within this test suite to enable a selection in the project tree by name.</throws>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="deleteScienceGoal" qname="almaot.project.proposal.deleteScienceGoal" ref="N41831">
+          <comment>The specified science goal is deleted from the current proposal.</comment>
+          <param name="name">Science goal name.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="setScienceGoalGeneral" qname="almaot.project.proposal.setScienceGoalGeneral" ref="N4189A">
+          <comment>Values for the specified science goal's subnode "General" are set.</comment>
+          <param name="name">Science goal name.</param>
+          <param name="description">New description of the science goal.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="setScienceGoalFieldSetup" qname="almaot.project.proposal.setScienceGoalFieldSetup" ref="N418BC">
+          <comment>The basic field setup source parameters are entered for the selected science goal.</comment>
+          <param name="name">Science goal name.</param>
+          <param name="objtype">Object type. One of the values (source, solar).</param>
+          <param name="source">Source name.</param>
+          <param name="resolve">Flag (boolean) whether the source name is to be resolved automatically.</param>
+          <param name="coordSystem">Coordinate system.</param>
+          <param name="coordSexagesimal">Flag (boolean) for sexagesimal coordinates. Optional parameter.</param>
+          <param name="coordRA">Coordinates RA. Optional parameter.</param>
+          <param name="coordDec">Coordinates Dec. Optional parameter.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="setScienceGoalFieldSetupVelocity" qname="almaot.project.proposal.setScienceGoalFieldSetupVelocity" ref="N41907">
+          <comment>The basic field setup velocity parameters are entered for the selected science goal.</comment>
+          <param name="name">Science goal name.</param>
+          <param name="velocity">Source velocity (numerical value). Optional parameter.</param>
+          <param name="velocityUnit1">Source velocity (speed unit). Optional parameter.</param>
+          <param name="velocityUnit2">Source velocity (system). Optional parameter.</param>
+          <param name="redshiftZ">Redshift value (z). Optional parameter.</param>
+          <param name="dopplerType">Doppler type. Optional parameter.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="addSourceToFieldSetup" qname="almaot.project.proposal.addSourceToFieldSetup" ref="N41941">
+          <comment>A source is added to the selected science goal's field setup.</comment>
+          <param name="name">Science goal name.</param>
+          <param name="objtype">Object type. One of the values (source, solar).</param>
+          <param name="source">Source name.</param>
+          <param name="resolve">Flag (boolean) whether the source name is to be resolved automatically.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="deleteSourceFromFieldSetup" qname="almaot.project.proposal.deleteSourceFromFieldSetup" ref="N4198A">
+          <comment>The named source is deleted from the selected science goal's field setup.</comment>
+          <param name="name">Science goal name.</param>
+          <param name="source">Source name.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="queryImage" qname="almaot.project.proposal.queryImage" ref="N41A36">
+          <comment>
+            <p>Query image for current source from specified server.</p>
+            <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+The field setup within the concerned science goal must be opened and the tab of the requested source must be opened.</p>
+          </comment>
+          <param name="imageServer">Server name where the query is placed.</param>
+          <param name="imageSize">Requested image size in arcmin.</param>
+          <return>Flag (boolean) whether query operation was successful.</return>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="setScienceGoalSpectralSetupContinuum" qname="almaot.project.proposal.setScienceGoalSpectralSetupContinuum" ref="N41BDD">
+          <comment>The proposal's specified science goal's parameters are set for single continuum.</comment>
+          <param name="name">Science goal name.</param>
+          <param name="polarization">Polarization. One of the values (XX, DUAL, FULL).</param>
+          <param name="receiverBand">ALMA receiver band. Permitted values: [1, 10].</param>
+          <param name="resetStdFreq">Optional flag (boolean) whether frequency is to be reset to standard value.</param>
+          <param name="frequency">Frequency value.</param>
+          <param name="frequencyUnit">Frequency unit.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="setScienceGoalSpectralSetupPolarization" qname="almaot.project.proposal.setScienceGoalSpectralSetupPolarization" ref="N41C15">
+          <comment>Setup existing science goal for spectral line and set polarization.</comment>
+          <param name="name">Science goal name.</param>
+          <param name="polarization">Polarization. One of the values (XX, DUAL, FULL).</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="setScienceGoalSpectralSetupSpectralLine" qname="almaot.project.proposal.setScienceGoalSpectralSetupSpectralLine" ref="N41C37">
+          <comment>Setup existing science goal in current proposal for spectral line and set polarization if specified.</comment>
+          <param name="name">Science goal name.</param>
+          <param name="polarization">Polarization (optional). One of the values (XX, DUAL, FULL).</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="setScienceGoalSpectralSetupAddSpectralLine" qname="almaot.project.proposal.setScienceGoalSpectralSetupAddSpectralLine" ref="N41C59">
+          <comment>Add spectral line with specified parameters to selected baseband.
+Empty parameter values are ignored (not reset).</comment>
+          <param name="name">Science goal name.</param>
+          <param name="baseband">Baseband index. One of the values (0, 1, 2, 3).</param>
+          <param name="fraction">Fraction value (optional). One of the values (1(Full), 1/2, 1/4, 1/8, 1/16, 1/32).</param>
+          <param name="centerFreq">Center frequency (numeric part).</param>
+          <param name="centerFreqUnit">Center frequency (unit).</param>
+          <param name="transition">Transition text. Default: "Manual window".</param>
+          <param name="bandwidth">Bandwidth specification as regular expression. Example: 117.*488.</param>
+          <param name="specAvg">Spectral average value (1, 2, 4, 8, 16).</param>
+          <param name="representative">Flag (boolean) for representative window.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="setScienceGoalSpectralSetupSpectralScan" qname="almaot.project.proposal.setScienceGoalSpectralSetupSpectralScan" ref="N41CA3">
+          <comment>Setup specified science goal in current proposal for spectral scan.</comment>
+          <param name="name">Science goal name.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="addDynamicCalibrator" qname="almaot.project.proposal.addDynamicCalibrator" ref="N41CBE">
+          <comment>A dynamic calibrator is added to the specified science goal.</comment>
+          <param name="name">Science goal name.</param>
+          <param name="calibrator">Calibration intent. One of the values (Amplitude, Atmospheric, Bandpass, Delay, Focus, Phase, Pointing, , Polarization).</param>
+          <param name="create">Flag (boolean) whether the calibrator is actually created (changes commited).</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="addFixedCalibrator" qname="almaot.project.proposal.addFixedCalibrator" ref="N41CE9">
+          <comment>A fixed calibrator is added to the specified science goal.</comment>
+          <param name="name">Science goal name.</param>
+          <param name="calibrator">Calibration intent. One of the values (Amplitude, Atmospheric, Bandpass, Delay, Focus, Phase, Pointing, , Polarization).</param>
+          <param name="create">Flag (boolean) whether the calibrator is actually created (changes commited).</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="setScienceGoalCtrlPerf" qname="almaot.project.proposal.setScienceGoalCtrlPerf" ref="N41D14">
+          <comment>Setup parameters for the specified science goal's control and performance node.</comment>
+          <param name="name">Science goal name.</param>
+          <param name="resulution">Resolution (numeric part).</param>
+          <param name="resolutionUnit">Resolution (unit).</param>
+          <param name="extendedSource">Flag (boolean) for using an extended source.</param>
+          <param name="angularScale">Angular scale (numeric part).</param>
+          <param name="angularScaleUnit">Angular scale (unit).</param>
+          <param name="sensitivity">Sensitivity (numeric part).</param>
+          <param name="sensitivityUnit">Sensitivity (unit).</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="generateAllSBs" qname="almaot.project.proposal.generateAllSBs" ref="N41D57">
+          <comment>All SBs are generated for the current proposal.</comment>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="checkTimeEstimate" qname="almaot.project.proposal.checkTimeEstimate" ref="N41DC9">
+          <comment>The time estimate for the specified science goal is checked.</comment>
+          <param name="name">Science goal name.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="checkACASuggestion" qname="almaot.project.proposal.checkACASuggestion" ref="N41F18">
+          <comment>The ACA suggestion for the specified science goal is checked.</comment>
+          <param name="name">Science goal name.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="getACASuggestion" qname="almaot.project.proposal.getACASuggestion" ref="N41FC1">
+          <comment>The ACA suggestion for the specified science goal is checked.</comment>
+          <param name="name">Science goal name.</param>
+          <return>ACA suggestion. One of the values (unknown, required, unnecessary, impossible).</return>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="setComplementaryACAObservations" qname="almaot.project.proposal.setComplementaryACAObservations" ref="N420A7">
+          <comment>The flag for complementary ACA observations is set for the specified science goal.</comment>
+          <param name="name">Science goal name.</param>
+          <param name="flag">Flag (boolean) specifying whether ACA is to be used.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="setMoreTimeRequired" qname="almaot.project.proposal.setMoreTimeRequired" ref="N420F4">
+          <comment>The flag for requesting more time is set for the specified science goal.</comment>
+          <param name="name">Science goal name.</param>
+          <param name="flag">Flag (boolean) specifying whether more time is required.</param>
+          <param name="desiredTimeValue">Value of additional time required (used only if flag is true).</param>
+          <param name="desiredTimeUnit">Unit of additional time required (used only if flag is true).</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="setTimeConstraint" qname="almaot.project.proposal.setTimeConstraint" ref="N4219D">
+          <comment>The flag for time-constrained observation is set and the respective parameters are filled in.</comment>
+          <param name="name">Science goal name.</param>
+          <param name="startTime">Start time (optional).</param>
+          <param name="offsetStartDays">When no start date is specified the current day is used with the specified offset.</param>
+          <param name="offsetStartSeconds">When no start time is specified the current time is used with the specified offset (seconds).</param>
+          <param name="endTime">End time (optional).</param>
+          <param name="offsetEndDays">When no end date is specified the current day is used with the specified offset.</param>
+          <param name="offsetEndSeconds">When no end time is specified the current time is used with the specified offset (seconds).</param>
+          <param name="allowedMargin">Permitted time deviation.</param>
+          <param name="allowedMarginUnit">Unit of permitted time deviation.</param>
+          <param name="text">Text to justify constraints.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="resetTimeConstraint" qname="almaot.project.proposal.resetTimeConstraint" ref="N422FE">
+          <comment>The flag for time-constrained observation is reset</comment>
+          <param name="name">Science goal name.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="setScienceGoalTechJust" qname="almaot.project.proposal.setScienceGoalTechJust" ref="N42328">
+          <comment>Setup technical justification in specified science goal for current proposal.</comment>
+          <param name="name">Science goal name.</param>
+          <param name="text">Text for technical justification.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="showPrintableSummary" qname="almaot.project.proposal.showPrintableSummary" ref="N42349">
+          <comment>The printable summary for the specified node is displayed.</comment>
+          <param name="fileNamePDF">Target file name.</param>
+          <param name="submitted">Flag (boolean) whether the current project has already been submitted.</param>
+          <param name="checkName">Flag (boolean) whether the PI's name is to be checked in the resulting summary.</param>
+          <param name="node">Node the summary is to be generated for.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="showPrintableSummaryWithFileCheck" qname="almaot.project.proposal.showPrintableSummaryWithFileCheck" ref="N42646">
+          <comment>The printable summary for the specified node is displayed and the generation of the resulting file verified.</comment>
+          <param name="fileNamePDF">Target file name.</param>
+          <param name="submitted">Flag (boolean) whether the current project has already been submitted.</param>
+          <param name="checkName">Flag (boolean) whether the PI's name is to be checked in the resulting summary.</param>
+          <param name="node">Node the summary is to be generated for.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="generateProposalPDF" qname="almaot.project.proposal.generateProposalPDF" ref="N426EE">
+          <comment>The PDF file for the whole proposal is generated.</comment>
+          <param name="fileNamePDF">Target file name.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="generateProposalPDFWithFileCheck" qname="almaot.project.proposal.generateProposalPDFWithFileCheck" ref="N42773">
+          <comment>The PDF file for the whole proposal is generated and the generation of the resulting file verified.</comment>
+          <param name="fileNamePDF">Target file name.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="submit" qname="almaot.project.proposal.submit" ref="N42810">
+          <comment>The current proposal is submitted to the archive (DB).</comment>
+          <param name="logFile">File path for saving the log file (optional).</param>
+          <param name="saveFile">File path for saving the proposal file (optional).</param>
+          <param name="submitAsNew">Flag (boolean) whether the proposal is to be submitted as a new proposal (requires user authorization).</param>
+          <param name="ignoreFailure">Flag (boolean) whether errors are reported (used i.p. for negative tests).</param>
+          <return>Flag (boolean) whether the submission was successful.</return>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="submitWithFileCheck" qname="almaot.project.proposal.submitWithFileCheck" ref="N42BD5">
+          <comment>The current proposal is submitted to the archive (DB)  and the generation of the resulting files verified.</comment>
+          <param name="logFile">File path for saving the log file (optional).</param>
+          <param name="saveFile">File path for saving the proposal file (optional).</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="getProjectCode" qname="almaot.project.proposal.getProjectCode" ref="N42CA8">
+          <comment>The project code of the current project is returned.</comment>
+          <return>Project code (string). If the current project is not yet submitted to the archive an empty string is returned.</return>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="isScienceGoal" qname="almaot.project.proposal.isScienceGoal" ref="N42CF4">
+          <comment>The specified node is checked whether it consists of a science goal.
+For the verification the node image is used.</comment>
+          <param name="nodeIndex">Tree table index (integer) of the checked tree view node.</param>
+          <param name="logMsg">Flag (boolean) whether a negative result is logged.</param>
+          <return>Flag (boolean) whether the specified node consists of a science goal.</return>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="getNumScienceGoals" qname="almaot.project.proposal.getNumScienceGoals" ref="N42D1C">
+          <comment>The number of science goals in the current project with a specific type is counted.</comment>
+          <param name="scienceGoalType">Science goal type. 
+			Permitted values: Science Goal.</param>
+          <return>Number of science goals (integer) with the specified type.</return>
+          <throws name="UserException">If the project type is not one of the valid parameter values.</throws>
+          <throws name="UserException">If the science goal type is not one of the valid parameter values.</throws>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="getScienceGoalByIndex" qname="almaot.project.proposal.getScienceGoalByIndex" ref="N42D3F">
+          <comment>The unique numeric path of a science goal is returned.</comment>
+          <param name="scienceGoalType">Science goal type.
+			Permitted values: Science Goal.</param>
+          <param name="index">Numeric index (integer) referring to the science goals only, starting with 0. E.g. the second science goal is specified by index 1.</param>
+          <return>Numeric path of the tree view (e.g. /0/0/3). To be used with the separator &amp;amp;. This path is only valid as long as the tree does not change. If no science goal with the specified index exists then an empty path is returned.</return>
+          <throws name="UserException">If the project type is not one of the valid parameter values.</throws>
+          <throws name="UserException">If the science goal type is not one of the valid parameter values.</throws>
+          <author>Peter Kratzer</author>
+        </procedure>
+      </package>
+      <package name="program" qname="almaot.project.program" ref="N42D67">
+        <comment>
+          <p>Handling of program-specific operations.</p>
+          <p>According to the ALMA-OT documentation programs are phase 2 projects.</p>
+        </comment>
+        <author>Peter Kratzer</author>
+        <procedure name="new" qname="almaot.project.program.new" ref="N42D71">
+          <comment>
+            <p>A new project with type "Program" is created.</p>
+            <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+"Advanced user" features must be enabled in the OT.</p>
+          </comment>
+          <param name="commissioning">Flag (boolean) to specify whether the new project is a standard or a commissioning program.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="setTitle" qname="almaot.project.program.setTitle" ref="N42DF2">
+          <comment>The title of the current program is set.
+A previous setting is overwritten.</comment>
+          <param name="title">New title for the current program.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="getTitle" qname="almaot.project.program.getTitle" ref="N42E43">
+          <comment>The title of the current program is returned.</comment>
+          <return>Program title (string).</return>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="setPI" qname="almaot.project.program.setPI" ref="N42E60">
+          <comment>The current program's PI is set.</comment>
+          <param name="userID">ALMA ID of the new PI.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="setCoI" qname="almaot.project.program.setCoI" ref="N42E7C">
+          <comment>A CoI is added to the current program.</comment>
+          <param name="userID">ALMA ID of the new CoI.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="renameScienceGoal" qname="almaot.project.program.renameScienceGoal" ref="N42E97">
+          <comment>The specified science goal is renamed.
+To enable correct handling every science goal must have a distinctive and unique name (not "Science Goal").</comment>
+          <param name="oldname">Old science goal name.</param>
+          <param name="newname">New science goal name.</param>
+          <throws name="UserException">If a science goal with the new name exists already. Please note, that this is not a condition demanded by the ALMA-OT. The uniqueness of all science goal names is merely a convention used within this test suite to enable an unambiguous selection in the project tree by name.</throws>
+          <throws name="UserException">If the science goal with the old name does not exist.</throws>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="addScienceGoal" qname="almaot.project.program.addScienceGoal" ref="N42EB9">
+          <comment>A new science goal is added to the current program.
+To enable correct handling the new science goal must have a distinctive name (not "Science Goal").</comment>
+          <param name="name">Science goal name.</param>
+          <throws name="UserException">If a science goal with the same name exists already. Please note, that this is not a condition demanded by the ALMA-OT. The uniqueness of all science goal names is merely a convention used within this test suite to enable a selection in the project tree by name.</throws>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="deleteScienceGoal" qname="almaot.project.program.deleteScienceGoal" ref="N42F16">
+          <comment>The specified science goal is deleted from the current program.</comment>
+          <param name="name">Science goal name.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="setScienceGoalGeneral" qname="almaot.project.program.setScienceGoalGeneral" ref="N42F7F">
+          <comment>Values for the specified science goal's subnode "General" are set.</comment>
+          <param name="name">Science goal name.</param>
+          <param name="description">New description of the science goal.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="setScienceGoalFieldSetup" qname="almaot.project.program.setScienceGoalFieldSetup" ref="N42FA1">
+          <comment>The basic field setup source parameters are entered for the selected science goal.</comment>
+          <param name="name">Science goal name.</param>
+          <param name="objtype">Object type. One of the values (source, solar).</param>
+          <param name="source">Source name.</param>
+          <param name="resolve">Flag (boolean) whether the source name is to be resolved automatically.</param>
+          <param name="coordSystem">Coordinate system.</param>
+          <param name="coordSexagesimal">Flag (boolean) for sexagesimal coordinates. Optional parameter.</param>
+          <param name="coordRA">Coordinates RA. Optional parameter.</param>
+          <param name="coordDec">Coordinates Dec. Optional parameter.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="setScienceGoalFieldSetupVelocity" qname="almaot.project.program.setScienceGoalFieldSetupVelocity" ref="N42FEC">
+          <comment>The basic field setup velocity parameters are entered for the selected science goal.</comment>
+          <param name="name">Science goal name.</param>
+          <param name="velocity">Source velocity (numerical value). Optional parameter.</param>
+          <param name="velocityUnit1">Source velocity (speed unit). Optional parameter.</param>
+          <param name="velocityUnit2">Source velocity (system). Optional parameter.</param>
+          <param name="redshiftZ">Redshift value (z). Optional parameter.</param>
+          <param name="dopplerType">Doppler type. Optional parameter.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="addSourceToFieldSetup" qname="almaot.project.program.addSourceToFieldSetup" ref="N43026">
+          <comment>A source is added to the selected science goal's field setup.</comment>
+          <param name="name">Science goal name.</param>
+          <param name="objtype">Object type. One of the values (source, solar).</param>
+          <param name="source">Source name.</param>
+          <param name="resolve">Flag (boolean) whether the source name is to be resolved automatically.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="setScienceGoalSpectralSetupContinuum" qname="almaot.project.program.setScienceGoalSpectralSetupContinuum" ref="N4305A">
+          <comment>The program's specified science goal's parameters are set for single continuum.</comment>
+          <param name="name">Science goal name.</param>
+          <param name="polarization">Polarization. One of the values (XX, DUAL, FULL).</param>
+          <param name="receiverBand">ALMA receiver band. Permitted values: [1, 10].</param>
+          <param name="resetStdFreq">Optional flag (boolean) whether frequency is to be reset to standard value.</param>
+          <param name="frequency">Frequency value.</param>
+          <param name="frequencyUnit">Frequency unit.</param>
+          <param name="calibrator">Flag (boolean) for calibrator science goal.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="setScienceGoalSpectralSetupPolarization" qname="almaot.project.program.setScienceGoalSpectralSetupPolarization" ref="N43098">
+          <comment>Setup existing science goal for spectral line and set polarization.</comment>
+          <param name="name">Science goal name.</param>
+          <param name="polarization">Polarization. One of the values (XX, DUAL, FULL).</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="setScienceGoalSpectralSetupSpectralLine" qname="almaot.project.program.setScienceGoalSpectralSetupSpectralLine" ref="N430BA">
+          <comment>Setup existing science goal for spectral line and set polarization if specified.</comment>
+          <param name="name">Science goal name.</param>
+          <param name="polarization">Polarization (optional). One of the values (XX, DUAL, FULL).</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="addDynamicCalibrator" qname="almaot.project.program.addDynamicCalibrator" ref="N430DC">
+          <comment>A dynamic calibrator is added to the specified science goal.</comment>
+          <param name="name">Science goal name.</param>
+          <param name="calibrator">Calibration intent. One of the values (Amplitude, Atmospheric, Bandpass, Delay, Focus, Phase, Pointing, , Polarization).</param>
+          <param name="create">Flag (boolean) whether the calibrator is actually created (changes commited).</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="addFixedCalibrator" qname="almaot.project.program.addFixedCalibrator" ref="N43107">
+          <comment>A fixed calibrator is added to the specified science goal.</comment>
+          <param name="name">Science goal name.</param>
+          <param name="calibrator">Calibration intent. One of the values (Amplitude, Atmospheric, Bandpass, Delay, Focus, Phase, Pointing, , Polarization).</param>
+          <param name="create">Flag (boolean) whether the calibrator is actually created (changes commited).</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="setScienceGoalCtrlPerf" qname="almaot.project.program.setScienceGoalCtrlPerf" ref="N43132">
+          <comment>Setup parameters for the specified science goal's control and performance node.</comment>
+          <param name="name">Science goal name.</param>
+          <param name="resulution">Resolution (numeric part).</param>
+          <param name="resolutionUnit">Resolution (unit).</param>
+          <param name="extendedSource">Flag (boolean) for using an extended source.</param>
+          <param name="angularScale">Angular scale (numeric part).</param>
+          <param name="angularScaleUnit">Angular scale (unit).</param>
+          <param name="sensitivity">Sensitivity (numeric part).</param>
+          <param name="sensitivityUnit">Sensitivity (unit).</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="generateAllSBs" qname="almaot.project.program.generateAllSBs" ref="N43175">
+          <comment>Generate all SBs for the current program.</comment>
+        </procedure>
+        <procedure name="generateScienceGoalSBs" qname="almaot.project.program.generateScienceGoalSBs" ref="N43207">
+          <comment>Generate all SBs for the selected science goal in the current program.</comment>
+        </procedure>
+        <procedure name="selectScienceGoalObsUnitSet" qname="almaot.project.program.selectScienceGoalObsUnitSet" ref="N43735">
+          <comment>The ObsUnitSet node in the specified science goal is selected.</comment>
+          <param name="name">Science goal name.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="numberScienceGoalSBs" qname="almaot.project.program.numberScienceGoalSBs" ref="N43B28">
+          <comment>A unique prefix "#SB&amp;lt;num&amp;gt;#" (&amp;lt;num&amp;gt; = 0, 1, 2, ...) is added to each SB for identification.
+The tree view node's indexes may change with the tree view and consequently are unsuitable for a unique reference.</comment>
+          <param name="name">Science goal name.</param>
+          <param name="calibrator">Flag (boolean) if containing node is a calibrator.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="numberScienceGoalMemberOUSs" qname="almaot.project.program.numberScienceGoalMemberOUSs" ref="N44041">
+          <comment>A unique prefix "#M&amp;lt;num&amp;gt;#" (&amp;lt;num&amp;gt; = 0, 1, 2, ...) is added to each member OUS for identification.
+The tree view node's indexes may change with the tree view and consequently are unsuitable for a unique reference.</comment>
+          <param name="name">Science goal name.</param>
+          <param name="calibrator">Flag (boolean) if containing node is a calibrator.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="submit" qname="almaot.project.program.submit" ref="N44548">
+          <comment>The current program is submitted to the archive (DB).</comment>
+          <param name="logFile">File path for saving the log file (optional).</param>
+          <param name="saveFile">File path for saving the program file (optional).</param>
+          <param name="submitAsNew">Flag (boolean) whether the program is to be submitted as a new program (requires user authorization).</param>
+          <return>Flag (boolean) whether the submission was successful.</return>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="getProjectCode" qname="almaot.project.program.getProjectCode" ref="N44953">
+          <comment>The project code of the current project is returned.</comment>
+          <return>Project code (string). If the current project is not yet submitted to the archive an empty string is returned.</return>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="addObsUnitSet" qname="almaot.project.program.addObsUnitSet" ref="N4499F">
+          <comment>An ObsUnitSet is added to the current program.</comment>
+          <param name="name">ObsUnitSet name.
+
+&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+- A phase 2 program has been created.&lt;br&gt;
+- Node "Science Plan" is active.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="addSB" qname="almaot.project.program.addSB" ref="N44AA5">
+          <comment>A scheduling block (SB) is added to the current program.</comment>
+          <param name="parentNode">Node name where new SB it to be created.</param>
+          <param name="name">Scheduling block name.
+
+&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+- A phase 2 program with an ObsUnitSet has been created.&lt;br&gt;
+- Node to take the new SB is active (e.g. ObsUnit Set node).</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="addFieldSource" qname="almaot.project.program.addFieldSource" ref="N44BC4">
+          <comment>A new field source is added to the current program.</comment>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="getNewBaseBandName" qname="almaot.project.program.getNewBaseBandName" ref="N44D0F">
+          <comment>
+            <p>The name for a new base band is determined by counting the existing ones.</p>
+            <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+- The "Instrument Setup" must be open.</p>
+          </comment>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="addBaseBand" qname="almaot.project.program.addBaseBand" ref="N44E55">
+          <comment>
+            <p>A baseband is added to the instrument setup.</p>
+            <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+- The "Instrument Setup" must be open.</p>
+          </comment>
+          <param name="desiredFrequency"></param>
+          <return>Name of new baseband. Equals the title of the tab containing the baseband configuration.</return>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="getNewSpectralWindowName" qname="almaot.project.program.getNewSpectralWindowName" ref="N44EF1">
+          <comment>The name for a new spectral window is determined by counting the existing ones.</comment>
+          <param name="baseBandName">Name of base band to contain the new spectral window.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="addSpectralWindow" qname="almaot.project.program.addSpectralWindow" ref="N44FCF">
+          <comment>A new spectral window is added to the specified base band.</comment>
+          <param name="baseBandName">Name of base band to contain the new spectral window.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="addInstrumentSetup" qname="almaot.project.program.addInstrumentSetup" ref="N4502C">
+          <comment>A new instrument setup is added to the specified node.</comment>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="addObservingParameters" qname="almaot.project.program.addObservingParameters" ref="N451A9">
+          <comment>A new observing paremeter set is added to the specified node.</comment>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="clearObservingParameterSelection" qname="almaot.project.program.clearObservingParameterSelection" ref="N45348">
+          <comment>All parameter selection checkboxes for science goals and calibrations are deselected.</comment>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="addTarget" qname="almaot.project.program.addTarget" ref="N45433">
+          <comment>A new taarget is added to the current program.</comment>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="getNewObservingGroupIndex" qname="almaot.project.program.getNewObservingGroupIndex" ref="N455C5">
+          <comment>The index of a new observing group is determined by counting the existing ones.</comment>
+          <param name="parentNode">Node to contain the new observing group.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="addObservingGroup" qname="almaot.project.program.addObservingGroup" ref="N456D7">
+          <comment>A new observing group is added to the specified node.</comment>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="addHolographySetup" qname="almaot.project.program.addHolographySetup" ref="N4586C">
+          <comment>
+            <p>A holography setup is added to the current program.</p>
+            <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+- A phase 2 program has been created.&lt;br&gt;
+- Node "Science Plan" is active.</p>
+          </comment>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="addAstroHolographySetup" qname="almaot.project.program.addAstroHolographySetup" ref="N45888">
+          <comment>
+            <p>An astro holography setup is added to the current program.</p>
+            <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+- A phase 2 program has been created.&lt;br&gt;
+- Node "Science Plan" is active.</p>
+          </comment>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="addOpticalPointingScienceGoal" qname="almaot.project.program.addOpticalPointingScienceGoal" ref="N458A4">
+          <comment>A new optical pointing science goal is added to the current program.</comment>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="addRadiometricPointingGoal" qname="almaot.project.program.addRadiometricPointingGoal" ref="N458EA">
+          <comment>A new radiometric pointing goal is added to the current program.</comment>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="addBaselineCalibrationGoal" qname="almaot.project.program.addBaselineCalibrationGoal" ref="N45930">
+          <comment>A new base line calibration goal is added to the current program.</comment>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="addCalibratorSurveyGoal" qname="almaot.project.program.addCalibratorSurveyGoal" ref="N45976">
+          <comment>A new calibrator survey goal is added to the current program.</comment>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="addUserSelectedSource" qname="almaot.project.program.addUserSelectedSource" ref="N45A48">
+          <comment>A new new user selected source is added to the current program.</comment>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="isScienceGoal" qname="almaot.project.program.isScienceGoal" ref="N45C97">
+          <comment>The specified node is checked whether it consists of a science goal.
+For the verification the node image is used.</comment>
+          <param name="nodeIndex">Tree table index (integer) of the checked tree view node.</param>
+          <param name="logMsg">Flag (boolean) whether a negative result is logged.</param>
+          <return>Flag (boolean) whether the specified node consists of a science goal.</return>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="isObservatorySetup" qname="almaot.project.program.isObservatorySetup" ref="N45CBF">
+          <comment>The specified node is checked whether it consists of an observatory setup.
+For the verification the node image is used.
+This procedure applies only to projects of type Program.</comment>
+          <param name="nodeIndex">Tree table index (integer) of the checked tree view node.</param>
+          <param name="logMsg">Flag (boolean) whether a negative result is logged.</param>
+          <return>Flag (boolean) whether the specified node consists of an observatory setup.</return>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="isCalibratorSurvey" qname="almaot.project.program.isCalibratorSurvey" ref="N45D4B">
+          <comment>The specified node is checked whether it consists of a calibrator survey.
+For the verification the node image is used to check for an observatory setup. In addition the science goal's name must match the string "Calibrator Survey" at the beginning.
+This procedure applies only to projects of type Program.</comment>
+          <param name="nodeIndex">Tree table index (integer) of the checked tree view node.</param>
+          <param name="logMsg">Flag (boolean) whether a negative result is logged.</param>
+          <return>Flag (boolean) whether the specified node consists of a calibrator survey.</return>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="isBaselineCalibration" qname="almaot.project.program.isBaselineCalibration" ref="N45E1B">
+          <comment>The specified node is checked whether it consists of a baseline calibration.
+For the verification the node image is used to check for an observatory setup. In addition the science goal's name must match the string "Baseline Calibration" at the beginning.
+This procedure applies only to projects of type Program.</comment>
+          <param name="nodeIndex">Tree table index (integer) of the checked tree view node.</param>
+          <param name="logMsg">Flag (boolean) whether a negative result is logged.</param>
+          <return>Flag (boolean) whether the specified node consists of a baseline calibration.</return>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="isOpticalPointing" qname="almaot.project.program.isOpticalPointing" ref="N45E96">
+          <comment>The specified node is checked whether it consists of an optical pointing.
+For the verification the node image is used to check for an observatory setup. In addition the science goal's name must match the string "Optical Pointing" at the beginning.
+This procedure applies only to projects of type Program.</comment>
+          <param name="nodeIndex">Tree table index (integer) of the checked tree view node.</param>
+          <param name="logMsg">Flag (boolean) whether a negative result is logged.</param>
+          <return>Flag (boolean) whether the specified node consists of an optical pointing.</return>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="isRadiometricPointing" qname="almaot.project.program.isRadiometricPointing" ref="N45F11">
+          <comment>The specified node is checked whether it consists of a radiometric pointing.
+For the verification the node image is used to check for an observatory setup. In addition the science goal's name must match the string "Radiometric Pointing" at the beginning.
+This procedure applies only to projects of type Program.</comment>
+          <param name="nodeIndex">Tree table index (integer) of the checked tree view node.</param>
+          <param name="logMsg">Flag (boolean) whether a negative result is logged.</param>
+          <return>Flag (boolean) whether the specified node consists of a radiometric pointing.</return>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="isObsUnitSet" qname="almaot.project.program.isObsUnitSet" ref="N45F8C">
+          <comment>The specified node is checked whether it consists of an observation unit set.
+For the verification the node image is used.
+This procedure applies only to projects of type Program.</comment>
+          <param name="nodeIndex">Tree table index (integer) of the checked tree view node.</param>
+          <param name="logMsg">Flag (boolean) whether a negative result is logged.</param>
+          <return>Flag (boolean) whether the specified node consists of an observation unit set.</return>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="getNumScienceGoals" qname="almaot.project.program.getNumScienceGoals" ref="N45FFA">
+          <comment>The number of science goals in the current project with a specific type is counted.</comment>
+          <param name="scienceGoalType">Science goal type. 
+			Permitted values: Science Goal, Observatory Setup, Calibrator Survey, Baseline Calibration,  Optical Pointing, Radiometric Pointing.</param>
+          <return>Number of science goals (integer) with the specified type.</return>
+          <throws name="UserException">If the project type is not one of the valid parameter values.</throws>
+          <throws name="UserException">If the science goal type is not one of the valid parameter values.</throws>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="getScienceGoalByIndex" qname="almaot.project.program.getScienceGoalByIndex" ref="N4601D">
+          <comment>The unique numeric path of a science goal is returned.</comment>
+          <param name="scienceGoalType">Science goal type.
+			Permitted values: Science Goal, Observatory Setup, Calibrator Survey, Baseline Calibration,  Optical Pointing, Radiometric Pointing.</param>
+          <param name="index">Numeric index (integer) referring to the science goals only, starting with 0. E.g. the second science goal is specified by index 1.</param>
+          <return>Numeric path of the tree view (e.g. /0/0/3). To be used with the separator &amp;amp;. This path is only valid as long as the tree does not change. If no science goal with the specified index exists then an empty path is returned.</return>
+          <throws name="UserException">If the project type is not one of the valid parameter values.</throws>
+          <throws name="UserException">If the science goal type is not one of the valid parameter values.</throws>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="selectBaseBand" qname="almaot.project.program.selectBaseBand" ref="N46045">
+          <comment>
+            <p>A baseband in the instrument setup is selected.</p>
+            <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+- The "Instrument Setup" must be open.</p>
+          </comment>
+          <param name="baseBandName">Base band name (e.g. BB_1).</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="setScienceGoalTechJust" qname="almaot.project.program.setScienceGoalTechJust" ref="N46064">
+          <comment>Setup technical justification in specified science goal for current program.</comment>
+          <param name="name">Science goal name.</param>
+          <param name="text">Text for technical justification.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+      </package>
+      <package name="test" qname="almaot.project.test" ref="N46085">
+        <comment>This package contains high-level test procedures.
+Example: consistency checks for science goals.</comment>
+        <author>Peter Kratzer</author>
+        <procedure name="checkScienceGoalSummaryView" qname="almaot.project.test.checkScienceGoalSummaryView" ref="N4608F">
+          <comment>Summary view consistency check for the specified science goal.
+The values displayed in the specified science goal's summary view are cross-checked with the settings collected from the various input masks.</comment>
+          <param name="type">Project type. One of the values (Proposal, Program).</param>
+          <param name="name">Science goal name.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="checkPlannedObservingScienceGoal" qname="almaot.project.test.checkPlannedObservingScienceGoal" ref="N4673A">
+          <comment>Planned observing consistency check for the specified science goal.
+The values displayed in the planned observing view are cross-checked with the settings collected from the various input masks.</comment>
+          <param name="type">Project type. One of the values (Proposal, Program).</param>
+          <param name="name">Science goal name.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="checkBaseLinesDisplay" qname="almaot.project.test.checkBaseLinesDisplay" ref="N46FBC">
+          <comment>Base line display check for the specified science goal.</comment>
+          <param name="type">Project type. One of the values (Proposal, Program).</param>
+          <param name="name">Science goal name.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="checkPrecedingAtmCalRequired" qname="almaot.project.test.checkPrecedingAtmCalRequired" ref="N47025">
+          <comment>Check whether the specified calibration purpose requires a preceding atmospheric calibration.</comment>
+          <param name="purpose">Calibration type. One of the values (AmpCal, BndCal, PhsCal, ...).</param>
+          <return>Flag (boolean) whether atmospheric calibration is required.</return>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="checkObsGroupTargetTable" qname="almaot.project.test.checkObsGroupTargetTable" ref="N470B5">
+          <comment>Consistency check for the observing group target table.</comment>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="checkSBAtmCal" qname="almaot.project.test.checkSBAtmCal" ref="N471BC">
+          <comment>
+            <p>The specified scheduling block (SB) is checked for a required preceding atmospheric calibration target.</p>
+            <p>Precondition: SBs for science goal must be generated and numbered.</p>
+          </comment>
+          <param name="scienceGoal">Science goal name.</param>
+          <param name="sbIndex">Index of SB to be checked.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="checkContinuumFreqConversion" qname="almaot.project.test.checkContinuumFreqConversion" ref="N4744E">
+          <comment>The continuum frequency conversion is verified for the specified target.</comment>
+          <param name="type">Project type. One of the values (Proposal, Program).</param>
+          <param name="name">Name of target requiring check.</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="checkRedshiftAdaptationContinuum" qname="almaot.project.test.checkRedshiftAdaptationContinuum" ref="N47531">
+          <comment>The redshift adaptation for a continuum is verified.</comment>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="checkRedshiftAdaptationSpectralLine" qname="almaot.project.test.checkRedshiftAdaptationSpectralLine" ref="N476EF">
+          <comment>The redshift adaptation for a spectral line is verified.</comment>
+          <author>Peter Kratzer</author>
+        </procedure>
+        <procedure name="walkProjectTreeNodes" qname="almaot.project.test.walkProjectTreeNodes" ref="N47978">
+          <comment>The complete project tree node is walked through using "cursor down" key.
+Thus displaying each node's content is exercised.</comment>
+          <param name="type">Project type. One of the values (Proposal, Program).</param>
+          <author>Peter Kratzer</author>
+        </procedure>
+      </package>
+    </package>
+    <package name="spectral" qname="almaot.spectral" ref="N47A4A">
+      <comment>Handling of the spectral line selection dialog.</comment>
+      <author>Peter Kratzer</author>
+      <procedure name="openSpectralLineSelection" qname="almaot.spectral.openSpectralLineSelection" ref="N47A54">
+        <comment>
+          <p>The spectral line selection dialog window for the selected baseband is opened.</p>
+          <p>This procedure implies that only one spectral line dialog can be open at any time (ensured by the client).</p>
+          <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+The spectral setup of the science goal to be configured must be selected.</p>
+        </comment>
+        <param name="baseband">Base band index (integer). Permitted values: 0, 1, 2, 3.</param>
+        <param name="reset">Flag (boolean) to specify whether to reset the filter settings in the spectral line selection dialog after opening the window.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="closeSpectralLineSelection" qname="almaot.spectral.closeSpectralLineSelection" ref="N47AA6">
+        <comment>
+          <p>The spectral line selection dialog window is closed.</p>
+          <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+The spectral line selection dialog window must be open.</p>
+        </comment>
+        <param name="commit">Flag (boolean) whether to commit the changes using the button "OK" or discard them using the button "Cancel".</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="setFilter" qname="almaot.spectral.setFilter" ref="N47B02">
+        <comment>
+          <p>The filter for preselecting transitions is set.</p>
+          <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+The spectral line selection dialog window must be open.</p>
+        </comment>
+        <param name="filter">New filter value.</param>
+        <param name="includeDescription">Flag (boolean) specifying whether the description is included for filtering.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="enableSidebandFilter" qname="almaot.spectral.enableSidebandFilter" ref="N47B3C">
+        <comment>
+          <p>The sideband filter is enabled or disabled.</p>
+          <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+The spectral line selection dialog window must be open.</p>
+        </comment>
+        <param name="enable">Flag (boolean) specifying whether to enable or disable the sideband filter.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="resetFilters" qname="almaot.spectral.resetFilters" ref="N47B58">
+        <comment>
+          <p>All filters in the spectral line selection dialog are reset.</p>
+          <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+The spectral line selection dialog window must be open.</p>
+        </comment>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="getAlmaBandForFreq" qname="almaot.spectral.getAlmaBandForFreq" ref="N47B81">
+        <comment>The ALMA band for the specified frequency is determined.</comment>
+        <param name="freqVal">Numeric part of the evaluated frequency.</param>
+        <param name="freqUnit">Unit of the evaluated frequency.</param>
+        <return>Determined ALMA band, integer value within the range [1, 10]. If an invalid frequency (i.e. not supported by the ALMA receivers) is specified the value &lt;strong&gt;-1&lt;/strong&gt; is returned.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="selectAlmaBand" qname="almaot.spectral.selectAlmaBand" ref="N47CF1">
+        <comment>
+          <p>The ALMA band is selected.</p>
+          <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+The spectral line selection dialog window must be open.</p>
+        </comment>
+        <param name="low">Lower boundary for the ALMA band selection. Permitted values: [1, 10].</param>
+        <param name="high">Uper boundary for the ALMA band selection. Permitted values: [1, 10].</param>
+        <throws name="UserException">If one of the passed boundary values is outside the permitted range.</throws>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="selectSkyFrequency" qname="almaot.spectral.selectSkyFrequency" ref="N47F67">
+        <comment>
+          <p>The sky frequency range is selected.</p>
+          <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+The spectral line selection dialog window must be open.</p>
+        </comment>
+        <param name="minFreq">Lower boundary for the sky frequency selection.</param>
+        <param name="maxFreq">Uper boundary for the sky frequency selection.</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="cleanSelectedTransitions" qname="almaot.spectral.cleanSelectedTransitions" ref="N47FED">
+        <comment>
+          <p>All selected transitions in the spectral line selection window are removed.</p>
+          <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+The spectral line selection dialog window must be open.</p>
+        </comment>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="addTransition" qname="almaot.spectral.addTransition" ref="N4805E">
+        <comment>
+          <p>The specified transition is added to the list of selected transitions.</p>
+          <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+* The spectral line selection dialog window must be open.&lt;br&gt;
+* The specified transition must exist in the provided list and match exactly.</p>
+        </comment>
+        <param name="transition">Transition to be selected. Example: &lt;code&gt;34SO2 v=0 20(0,20)-19(1,19)&lt;/code&gt;</param>
+        <author>Peter Kratzer</author>
+      </procedure>
+      <procedure name="removeTransition" qname="almaot.spectral.removeTransition" ref="N480DA">
+        <comment>
+          <p>The specified transition is removed from the list of selected transitions.</p>
+          <p>&lt;strong&gt;Prerequisites:&lt;/strong&gt;&lt;br&gt;
+* The spectral line selection dialog window must be open.</p>
+        </comment>
+        <param name="transition">Transition to be selected. Example: &lt;code&gt;C8H J=55/2-53/2, &#937;=3/2, F=28-27, l=f&lt;/code&gt;</param>
+        <return>Flag (boolean) if the specified transition was found in the selection list and deleted.</return>
+        <author>Peter Kratzer</author>
+      </procedure>
+    </package>
+    <procedure name="maximizeFeedback" qname="almaot.maximizeFeedback" ref="N48157">
+      <comment>The feedback region is maximized.</comment>
+      <author>Peter Kratzer</author>
+    </procedure>
+    <procedure name="minimizeFeedback" qname="almaot.minimizeFeedback" ref="N4819D">
+      <comment>The feedback region is minimized.</comment>
+      <author>Peter Kratzer</author>
+    </procedure>
+    <procedure name="checkFeedbackVisible" qname="almaot.checkFeedbackVisible" ref="N481E3">
+      <comment>The visibility of the feedback region is checked.</comment>
+      <return>Flag (boolean) whether the feedback region is visible.</return>
+      <author>Peter Kratzer</author>
+    </procedure>
+    <procedure name="showFeedback" qname="almaot.showFeedback" ref="N4821D">
+      <comment>It is ensured that the feedback region is visible and not minimized.</comment>
+      <author>Peter Kratzer</author>
+    </procedure>
+    <procedure name="minimizeOverview" qname="almaot.minimizeOverview" ref="N48270">
+      <comment>The overview region is minimized.</comment>
+      <author>Peter Kratzer</author>
+    </procedure>
+    <procedure name="checkMenuItemActive" qname="almaot.checkMenuItemActive" ref="N482B6">
+      <comment>The specified menu item is verified and its label cross-checked with the expected label (to eliminate component recognition issues).</comment>
+      <param name="menuId">Component id of the menu containing the checked menu item.</param>
+      <param name="xmenuId">Component id of the submenu containing the checked menu item (optional).</param>
+      <param name="submenuId">Component id of the checked menu item.</param>
+      <param name="label">Expected label of the menu item.</param>
+      <param name="active">Expected state of the checked menu item.</param>
+      <return>Flag (boolean) whether the checked (sub)menu item carries the expected label and has  the expected state.</return>
+      <author>Peter Kratzer</author>
+    </procedure>
+    <procedure name="checkToolButtonActive" qname="almaot.checkToolButtonActive" ref="N48463">
+      <comment>The specified tool bar item is verified and its label cross-checked with the expected label (to eliminate component recognition issues).</comment>
+      <param name="componentId">Component id of the checked tool bar item.</param>
+      <param name="label">Expected label of the tool bar item.</param>
+      <param name="active">Expected state of the checked tool bar item.</param>
+      <return>Flag (boolean) whether the checked tool bar item carries the expected label and has  the expected state.</return>
+      <author>Peter Kratzer</author>
+    </procedure>
+    <procedure name="clickMainWindow" qname="almaot.clickMainWindow" ref="N4862E">
+      <comment>
+        <p>The main window's menu bar is clicked twice (no double-click).</p>
+        <p>This function is useful e.g. to check for blocking modal windows (dialogs, messages etc.).</p>
+      </comment>
+      <author>Peter Kratzer</author>
+    </procedure>
+    <procedure name="getTimestamp" qname="almaot.getTimestamp" ref="N4865A">
+      <comment>A time stamp string is created.</comment>
+      <return>Time stamp string.</return>
+      <author>Peter Kratzer</author>
+    </procedure>
+    <procedure name="getUTCTimestamp" qname="almaot.getUTCTimestamp" ref="N48687">
+      <comment>A UTC time stamp string is created.</comment>
+      <param name="date">Date used for the time stamp (optional).</param>
+      <param name="offsetDays">When no date is specified the current day is used with the specified offset.</param>
+      <param name="time">Time used for the time stamp (optional).</param>
+      <param name="offsetSeconds">When no time is specified the current time is used with the specified offset (seconds).</param>
+      <return>UTC Time stamp string.</return>
+      <author>Peter Kratzer</author>
+    </procedure>
+    <procedure name="checkPerspective" qname="almaot.checkPerspective" ref="N486D1">
+      <comment>The current perspective is cross-checked with the provided value.</comment>
+      <param name="id">Expected perspective. Permitted values: (1,2).</param>
+      <return>Flag (boolean) whether the active perspective matches the expectation.</return>
+      <author>Peter Kratzer</author>
+    </procedure>
+    <procedure name="parkMousePointer" qname="almaot.parkMousePointer" ref="N486F8">
+      <comment>
+        <p>The mouse pointer is moved to the upper left corner of the main window.</p>
+        <p>This procedure is particularly useful to avoid mouse-over actions, e.g. for image checks.</p>
+      </comment>
+      <author>Peter Kratzer</author>
+    </procedure>
+  </package>
+</test-suite>

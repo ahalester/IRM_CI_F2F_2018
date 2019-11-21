@@ -1,0 +1,15 @@
+*Precondition*
+
+Open Reports of Protrack http://concordia.sco.alma.cl:8080/protrack/reports/dso.zul with CASA account
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Generating Observing Efficiency report with QA0 counts for the DDT projects*
+
+1. In the Reports panel
+2. Select the cycle: 2013.1
+3. Choose the KPI: Observing Efficiency
+4. Click in the General Observing Effiency button
+5. Expected Result: The KPI Observing Efficiency report should contains the QA0 counts for the DDT projects.
+6. Passed: OK (testcaste01.png ICT-3323-TestCase01.html).

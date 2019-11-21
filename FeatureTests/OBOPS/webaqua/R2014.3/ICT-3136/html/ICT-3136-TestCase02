@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://hermione.sco.alma.cl:8080/" />
+<title>ICT-3024-TestCase02</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ICT-3024-TestCase02</td></tr>
+</thead><tbody>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_38-cnt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_75-cnt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_130-btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#zk_c_327 &gt; td.z-comboitem-text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_133-btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@class='z-calendar-title']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@_dt='0']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@class='z-calendar-calday']/tbody[1]/tr[2]/td[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=zk_c_142</td>
+	<td>uid://A002/X5ca255/Xb</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=zk_c_142</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForTable</td>
+	<td>id=zk_c_208-cave.1.0</td>
+	<td>exact:uid://A002/X5ca255/Xb-X000015e1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_208-rows']/tr[1]/td[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>//textarea[@class='z-textbox']</td>
+	<td>line1<br />line 2 continue<br /><br />line 3 at end${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[contains(text(),'Add Comment')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td></td>
+	<td>line1&lt;br&gt;line 2 continue&lt;br&gt;&lt;br&gt;line 3 at end</td>
+</tr>
+</tbody></table>
+</body>
+</html>

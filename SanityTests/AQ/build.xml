@@ -1,0 +1,29 @@
+<project name="AQSanityTest" default="all"
+    xmlns:ivy="antlib:org.apache.ivy.ant">
+    <target name="all" depends="resolve,compile"/>
+    <target name="resolve" description="resolve dependencies with ivy">
+        <ivy:resolve />
+        <ivy:cachepath pathid="default.classpath"/>
+    </target>
+    <target name="compile" 
+        depends="resolve" 
+        description="Compile the artifacts">
+        <mkdir dir="bin" />
+        <javac srcdir="src" destdir="bin" >
+            <classpath refid="default.classpath" />
+        </javac>
+    </target>
+    <target name="test"
+        depends="compile"
+        description="Run tests on test farm">
+        <java classname="org.testng.TestNG">
+            <arg line="config/testng.xml -d testreports"/>
+            <classpath>
+                <path refid="default.classpath" />
+                <path path="bin" />
+            </classpath>
+            <sysproperty key="test_url" value="${test_url}"/>
+            <sysproperty key="selenium_path" value="${selenium_path}"/>
+        </java>
+    </target>
+</project>

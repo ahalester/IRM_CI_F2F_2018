@@ -1,0 +1,12 @@
+*Precondition*
+
+- Open Reports of Protrack https://2015-08.asa-test.alma.cl/protrack/ with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Generate the horizon plot*
+1. Search project 2015.1.00502.S, SB: WISE_J18_a_06_TE
+2. Generate the horizon plot
+3. Expected result: The horizon plot should be generated without errors.
+4. Passed: OK (testcase01.png)

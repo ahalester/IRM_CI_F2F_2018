@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://hermione.sco.alma.cl:8080/" />
+<title>ICT-3024-TestCase01</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ICT-3024-TestCase01</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://beta.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/aq/?#sortCol=Release%20date&amp;sortDir=dsc&amp;col_1=_checkbox_selector;;;&amp;col_2=Project%20code;;;&amp;col_3=Source%20name;;;&amp;col_4=RA;;;&amp;col_5=Dec;;;&amp;col_6=Band;;;&amp;col_7=Integration;;;&amp;col_8=Release%20date</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td></td>
+	<td>Frequency support</td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td></td>
+	<td>Velocity resolution</td>
+</tr>
+</tbody></table>
+</body>
+</html>

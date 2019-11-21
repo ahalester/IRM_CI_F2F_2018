@@ -1,0 +1,94 @@
+*Precondition*
+- Open SnooPI Back-end https://2015-08.asa-test.alma.cl/pi-view-rest-server/health
+- Open SnooPI Front-end https://2015-08.asa-test.alma.cl/public-protrack with CASA account (user: kkohno, pass: aaa)
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1:* Home navigation
+1. Click in Home button.
+2. Expected result: The main view should be loaded.
+3. Passed: OK (testcase01.png).
+
+*Test Case #2:* My Projects
+1. Click in My Projects button.
+2. Expected result: A view with the project of the user should be loaded.
+3. Passed: OK (testcase02.png).
+
+*Test Case #3:* My SchedBlocks
+1. Click in My SchedBlocks button.
+2. Expected result: A view with the schedblocks of the user should be loaded.
+3. Passed: OK (testcase03.png).
+
+*Test Case #4:* Science Portal Quick Link
+1. Click in Science Portal button.
+2. Expected result: A new window with the Science Portal WebSite should be loaded.
+3. Passed: OK (testcase04.png).
+
+*Test Case #5:* Archive Query Link
+1. Click in Archive Query button.
+2. Expected result: A new window with the Archive Query WebSite should be loaded.
+3. Passed: OK (testcase05.png).
+
+*Test Case #6:* Helpdesk Link
+1. Click in Helpdesk button.
+2. Expected result: A new window with the Helpdesk WebSite should be loaded.
+3. Passed: OK (testcase06.png).
+
+*Test Case #7:* ESO Link
+1. Click in ESO button.
+2. Expected result: A new window with the ESO WebSite should be loaded.
+3. Passed: OK (testcase07.png).
+
+*Test Case #8:* NRAO Link
+1. Click in NRAO button.
+2. Expected result: A new window with the NRAO WebSite should be loaded.
+3. Passed: OK (testcase08.png).
+
+*Test Case #9:* NAOJ Link
+1. Click in NAOJ button.
+2. Expected result: A new window with the NAOJ WebSite should be loaded.
+3. Passed: OK (testcase09.png).
+
+*Test Case #10:* Projects
+1. Click in Projects button.
+2. Expected result: The list of the projects should be loaded.
+3. Passed: OK (testcase10.png).
+
+*Test Case #11:* More News
+1. Click in More News button.
+2. Expected result: The list of the news should be refreshed.
+3. Passed: OK (testcase11.png).
+
+*Test Case #12:* Tickets
+1. Click in Tickets button.
+2. Expected result: The list of the tickets should be loaded.
+3. Passed: OK (testcase12.png).
+
+*Test Case #13:* All projects
+1. Click in All projects button.
+2. Expected result: The list of the projects of the users should be loaded.
+3. Passed: OK (testcase13.png).
+
+*Test Case #14:* Contact scientist
+1. Click in Contact scientist projects button.
+2. Expected result: The list of the projects of the contact scientist should be loaded.
+3. Passed: OK (testcase14.png).
+
+*Test Case #15:* My profile
+1. Click in My profile button.
+2. Expected result: The profile of the user should be loaded.
+3. Passed: OK (testcase15.png).
+
+*Test Case #16:* Logout
+1. Click in Logout button.
+2. Expected result: Logout successful.
+3. Passed: OK (testcase16.png).
+
+*Test Case #17:* Test of the REST server
+1. Go to https://2015-08.asa-test.alma.cl/pi-view-rest-server/health
+2. Expected result: Successful response
+{noformat}
+{"status":"ok","database":"Oracle","hello":"Hello"}
+{noformat}
+3. Passed: OK (testcase17.png).

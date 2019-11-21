@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<pkgdoc-summary basedir="" sourcedir="">
+  <summary dependencies="11" packages="10" procedures="274"/>
+  <test-suite basedir="" hfile="ALMA-OT_Test_Suite_pkgdoc.html" qftest-version="3.5.3" sourcefile="ALMA-OT_Test_Suite.qft" type="qftest" xfile="ALMA-OT_Test_Suite_pkgdoc.xml">
+    <summary dependencies="11" packages="10" procedures="274"/>
+    <comment>Test suite for the ALMA-OT GUI (automated with QF-Test).</comment>
+    <author>Peter Kratzer</author>
+    <dependency name="Test Suite Dependencies" qname="Test Suite Dependencies" ref="N10138">
+      <comment>Basic setup for automated ALMA-OT tests (test data base enabled, password for advanced user available, ...).</comment>
+    </dependency>
+    <package name="almaot" qname="almaot" ref="N3918D">
+      <summary dependencies="10" packages="9" procedures="274"/>
+      <comment>Stored procedures for testing the ALMA-OT GUI.</comment>
+      <author>Peter Kratzer</author>
+      <package name="dependencies" qname="almaot.dependencies" ref="N39197">
+        <summary dependencies="10" packages="0" procedures="0"/>
+        <comment>Collection of generally useful dependencies.</comment>
+        <author>Peter Kratzer</author>
+        <dependency name="Preparations" qname="almaot.dependencies.Preparations" ref="N391A1">
+          <comment>Setup the test environment (done only once when &lt;code&gt;PreparationsDone = false&lt;/code&gt; ).</comment>
+          <result>&lt;code&gt;PreparationsDone&lt;/code&gt; (global variable) set to &lt;code&gt;true&lt;/code&gt;.</result>
+          <author>Peter Kratzer</author>
+        </dependency>
+        <dependency name="AlmaOT" qname="almaot.dependencies.AlmaOT" ref="N39560">
+          <comment>
+            <p>Client (ALMA-OT) startup and shutdown are handled.</p>
+            <p>Startup includes setting a number of variables to facilitate the access to the test directory and its contained data, project and work subdirectories.</p>
+          </comment>
+          <result>&lt;code&gt;TESTDIR_ROOT&lt;/code&gt; (global variable).
+	Set to the parent directory of the test suite location.&lt;br&gt;
+	&lt;code&gt;TESTDIR_DATA&lt;/code&gt; (global variable).
+	Set to the data directory contained in the test module.&lt;br&gt;
+	&lt;code&gt;TESTDIR_DATA_PDF&lt;/code&gt; (global variable).
+	Set to the pdf subdirectory in the data directory of the test module.&lt;br&gt;
+	&lt;code&gt;TESTDIR_DATA_PROJ&lt;/code&gt; (global variable).
+	Set to the projet subdirectory in the data directory of the test module.&lt;br&gt;
+	&lt;code&gt;TESTDIR_WORK&lt;/code&gt; (global variable).
+	Set to the work directory contained in the test module.</result>
+          <author>Peter Kratzer</author>
+        </dependency>
+        <dependency name="MenuesDialogsClosed" qname="almaot.dependencies.MenuesDialogsClosed" ref="N395E4">
+          <comment>A program state where all menus and dialogs are closed is ensured.</comment>
+          <author>Peter Kratzer</author>
+        </dependency>
+        <dependency name="PreferencesDialog" qname="almaot.dependencies.PreferencesDialog" ref="N39623">
+          <comment>Opening and closing the preferences dialog is handled.</comment>
+          <param name="tabName">If this optional parameter is provided the specified tab (within the preferences dialog) is selected.</param>
+          <author>Peter Kratzer</author>
+        </dependency>
+        <dependency name="DataBaseUser" qname="almaot.dependencies.DataBaseUser" ref="N3969B">
+          <comment>A data base setting with specified (user, passwd) is applied in the preferences.</comment>
+          <param name="almaid">ALMA ID for data base test user.</param>
+          <param name="passwd">Password for data base test user.</param>
+          <result>Global variable &lt;code&gt;DBSettingDone&lt;/code&gt; is set to &lt;code&gt;true&lt;/code&gt;</result>
+          <author>Peter Kratzer</author>
+        </dependency>
+        <dependency name="AdvancedUser" qname="almaot.dependencies.AdvancedUser" ref="N3971F">
+          <comment>Advanced user settings are enabled or disabled.
+The procedure is executed only if the new setting differs from the previous one as memorised in the global variable &lt;code&gt;AdvancedUserActive&lt;/code&gt;.</comment>
+          <param name="active">Specifies whether advanced user option is to be enabled or disabled.</param>
+          <result>New setting is memorised in global variable &lt;code&gt;AdvancedUserActive&lt;/code&gt; for optimisation.</result>
+          <author>Peter Kratzer</author>
+        </dependency>
+        <dependency name="WorkingDirectory" qname="almaot.dependencies.WorkingDirectory" ref="N397EA">
+          <comment>The existence of the working directory is ensured.
+The working directory's location is expected in the global variable &lt;code&gt;TESTDIR_WORK&lt;/code&gt;.</comment>
+          <result>The specified working directory is created if it does not exist.&lt;br&gt;
+	The working directory's write permissions are set for the user (owner) only.&lt;br&gt;
+	A &lt;code&gt;UserException&lt;/code&gt; is thrown if the working directory does not exist and cannot be created.</result>
+          <author>Peter Kratzer</author>
+        </dependency>
+        <dependency name="ReadFile" qname="almaot.dependencies.ReadFile" ref="N3985A">
+          <comment>Existence and read permission for the specified file are ensured.</comment>
+          <param name="readFile">Name of the file whose existence and readability has to be guarantueed.</param>
+          <result>A &lt;code&gt;UserException&lt;/code&gt; is thrown if the required file does not exist.</result>
+          <author>Peter Kratzer</author>
+        </dependency>
+        <dependency name="WriteFile" qname="almaot.dependencies.WriteFile" ref="N39896">
+          <comment>Write permission for the specified file is ensured.
+An existing file with the specified name is cleaned up.</comment>
+          <param name="targetFile">Name of the file whose writability has to be guarantueed.</param>
+          <result>A &lt;code&gt;UserException&lt;/code&gt; is thrown if the required file cannot be written and/or deleted.</result>
+          <author>Peter Kratzer</author>
+        </dependency>
+        <dependency name="Perspective" qname="almaot.dependencies.Perspective" ref="N398E7">
+          <comment>The specified perspective setting is ensured.
+An actual setting is performed only if it differs from the previous setting.</comment>
+          <param name="id">Perspective (permitted values: 1, 2).</param>
+          <author>Peter Kratzer</author>
+        </dependency>
+      </package>
+      <package name="exec" qname="almaot.exec" ref="N39928">
+        <summary dependencies="0" packages="0" procedures="15"/>
+        <comment>Handling of the ALMA-OT client execution and external shell scripts.</comment>
+        <author>Peter Kratzer</author>
+      </package>
+      <package name="math" qname="almaot.math" ref="N3A40A">
+        <summary dependencies="0" packages="0" procedures="5"/>
+        <comment>Mathematical procedures exceeding already available standard functionality.</comment>
+        <author>Peter Kratzer</author>
+      </package>
+      <package name="prefs" qname="almaot.prefs" ref="N3A4B4">
+        <summary dependencies="0" packages="0" procedures="15"/>
+        <comment>Handling of the preferences dialogs.</comment>
+        <author>Peter Kratzer</author>
+      </package>
+      <package name="project" qname="almaot.project" ref="N3AF9A">
+        <summary dependencies="0" packages="3" procedures="216"/>
+        <comment>
+          <p>Handling of project-specific operations.</p>
+          <p>General procedures suitable for both proposals (phase 1 projects) and programs (phase 2 projects) are located directly in this package, specific procedures are handled in their respective subpackage project or program.</p>
+        </comment>
+        <author>Peter Kratzer</author>
+        <package name="proposal" qname="almaot.project.proposal" ref="N41115">
+          <summary dependencies="0" packages="0" procedures="45"/>
+          <comment>
+            <p>Handling of proposal-specific operations.</p>
+            <p>According to the ALMA-OT documentation proposals are phase 1 projects.</p>
+          </comment>
+          <author>Peter Kratzer</author>
+        </package>
+        <package name="program" qname="almaot.project.program" ref="N42D67">
+          <summary dependencies="0" packages="0" procedures="56"/>
+          <comment>
+            <p>Handling of program-specific operations.</p>
+            <p>According to the ALMA-OT documentation programs are phase 2 projects.</p>
+          </comment>
+          <author>Peter Kratzer</author>
+        </package>
+        <package name="test" qname="almaot.project.test" ref="N46085">
+          <summary dependencies="0" packages="0" procedures="10"/>
+          <comment>This package contains high-level test procedures.
+Example: consistency checks for science goals.</comment>
+          <author>Peter Kratzer</author>
+        </package>
+      </package>
+      <package name="spectral" qname="almaot.spectral" ref="N47A4A">
+        <summary dependencies="0" packages="0" procedures="11"/>
+        <comment>Handling of the spectral line selection dialog.</comment>
+        <author>Peter Kratzer</author>
+      </package>
+    </package>
+  </test-suite>
+</pkgdoc-summary>

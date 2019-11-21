@@ -1,0 +1,28 @@
+<project name="ARCHIVEsourcecatRegressionTests" default="all"
+    xmlns:ivy="antlib:org.apache.ivy.ant">
+    <target name="all" depends="resolve,compile"/>
+    <target name="resolve" description="resolve dependencies with ivy">
+        <ivy:resolve />
+        <ivy:cachepath pathid="default.classpath"/>
+    </target>
+    <target name="compile" 
+        depends="resolve" 
+        description="Compile the artifacts">
+        <mkdir dir="lib" />
+        <javac srcdir="test" 
+            destdir="lib">
+            <classpath refid="default.classpath" />
+        </javac>
+    </target>
+    <target name="test"
+        depends="compile"
+        description="Run tests in a local manner">
+        <java classname="org.testng.TestNG">
+            <arg line="config/testng.xml -d test-reports"/>
+            <classpath>
+                <path refid="default.classpath" />
+                <path path="lib" />
+            </classpath>
+        </java>
+    </target>
+</project>

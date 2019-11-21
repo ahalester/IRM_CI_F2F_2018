@@ -1,0 +1,23 @@
+attachEphemerisFile: check parameter
+
+comment field: to be filled in always 
+
+Procedure:                                    walkProjectTreeNodes                                                        
+check what is testing (there is a loop without checking anything)
+check also the package "test" whether it is used or not
+
+look under the GUI sanity check: Persistent Settings: they are all disabled, check why
+~                                                                                                                                                                                        
+~                                                                                                                                                                                        
+~                                                                                                                                                                                        
+~                                                                                                                                                                                        
+~                                                                                                                                                                                        
+~                                                                                                                                                                                        
+~                                                                                                                                                                                        
+~                                                                                                                                                                                        
+~                                                                                                                                                                                        
+~                                                                                                                                                                                        
+~                                                                                                                                                                                        
+~                                                                                                                                                                                        
+~                                                                                                                                                                                        
+~                                              

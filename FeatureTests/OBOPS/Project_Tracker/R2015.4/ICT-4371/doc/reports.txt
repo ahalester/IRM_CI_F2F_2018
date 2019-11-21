@@ -1,0 +1,16 @@
+*Precondition*
+
+- Open Reports of Protrack http://isabella.sco.alma.cl:8080/protrack/ with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: *
+1. Input in the quick search: aremijan
+2. Expected result: There are no results with COI Userid aremijan. For example: 2013.1.01061.S
+3. Passed: OK (testcase01.png ICT-43711-TestCase01.html)
+
+*Test Case #2: *
+1. Input in the quick search: Completed
+2. Expected result: There are no results with State Completed. For example: 2013.1.01061.S
+3. Passed: OK (testcase02.png ICT-4371-TestCase02.html)

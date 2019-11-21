@@ -1,0 +1,58 @@
+*Precondition*
+
+Open AQUA http://lucina.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+Test Case #1: Inserting line breaks in the ExecBlocks - Comments tab
+
+1. Go to Manual Search
+2. Go to Search ExecBlocks (QA0)
+3. Interval: Other, From: 2014/01/01 12:00:00 AM To: 2014/08/05 10:45:38 PM and Search
+4. Input ExecBlock UID: uid://A002/X77e1ed/X7
+5. Go to "Comments" tab
+6. Add a comment with line breaks to it
+7. Expected Result: After the comment has been added, AQUA displays it in read-only mode, preserving the line breaks.
+8. Passed: OK (testcase01.png ICT-3136-TestCase01.html).
+
+Test Case #2: Inserting line breaks in the Sessions - Comments tab
+
+1. Go to Manual Search
+2. Go to Search Sessions (QA1)
+3. Interval: Other, From: 2014/01/01 12:00:00 AM To: 2014/08/05 10:45:38 PM and Search
+4. Input the Session UID: uid://A002/X5ca255/Xb
+5. Go to ExecBlock tabd and "Comments" tab
+6. Add a comment with line breaks to it
+7. Expected Result: After the comment has been added, AQUA displays it in read-only mode, preserving the line breaks.
+8. Passed: OK (testcase02.png ICT-3136-TestCase01.html).
+
+Test Case #3: Copying/Pasting line breaks in the ExecBlocks - Comments tab
+
+1. Go to Manual Search
+2. Go to Search ExecBlocks (QA0)
+3. Interval: Other, From: 2014/01/01 12:00:00 AM To: 2014/08/05 10:45:38 PM and Search
+4. Select the row ExecBlock UID: uid://A002/X77e1ed/X7
+5. Go to "Comments" tab
+6. Copy a comment with line breaks like this
+   line A
+   line B
+   line C
+7. Paste in a comment
+8. Expected Result: If we copy/paste a text in a comment box, the linebreak is not conserved. We should preprocess it to allow that linebreak.
+9. Passed: OK (testcase03.png).
+
+Test Case #4: Copying/Pasting line breaks in the Sessions - Comments tab
+
+1. Go to Manual Search
+2. Go to Search Sessions (QA1)
+3. Interval: Other, From: 2014/01/01 12:00:00 AM To: 2014/08/05 10:45:38 PM and Search
+4. Select the row ExecBlock UID: uid://A002/X77e1ed/Xb
+5. Go to "Comments" tab
+6. Copy a comment with line breaks like this
+   line A
+   line B
+   line C
+7. Paste in a comment
+8. Expected Result: If we copy/paste a text in a comment box, the linebreak is not conserved. We should preprocess it to allow that linebreak.
+9. Passed: OK (testcase04.png).

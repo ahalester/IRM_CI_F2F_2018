@@ -1,0 +1,14 @@
+*Precondition*
+
+Open AQ http://gallia.sco.alma.cl:8080/aq/
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Extend results grid vertically*
+
+1. Click in Search button
+2. The results grid fills the available browser window
+3. Resize the window
+4. Expected result: Verify that the results grid is resized to fill the available space
+5. Passed: OK (testcase01-original-size.png testcase01-increase-size.png testcase01-decrease-size.png ICT-2985-TestCase01.html)

@@ -1,0 +1,13 @@
+*Precondition*
+
+- Open Reports of Protrack https://2015-05-64b.asa-test.alma.cl/protrack with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1:* Searching projects with Time Constrained
+# Open Project search
+# Check "Time constrained" option
+# Press "Search"
+# Expected Result: The list of time constrained projects.
+# Passed: OK (testcase01.png ICT-5458-TestCase01.java)

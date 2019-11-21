@@ -1,0 +1,17 @@
+url=https://deployment_version.asa-test.alma.cl/
+pha_url=http://phase-a.hq.eso.org/webaqua-OBOPS-deployment_version
+url_e2e=https://deployment_version-e2e.asa-test.alma.cl/webaqua/
+url_de=http://test-aqua:8080/webaqua/
+
+mail_hog_url=https://deployment_version.asa-test.alma.cl/mail/#
+mail_hog_e2e_url=https://deployment_version-e2e.asa-test.alma.cl/mail/
+
+env_version=2017sep
+env_version_rotate=sep2017
+
+qa0_uri=webaqua
+qa2_uri=qa2
+protrack_uri=protrack
+
+db_connection_url=jdbc:oracle:thin:@//ora12c2.hq.eso.org:1521/ALMA
+

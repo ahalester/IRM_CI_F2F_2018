@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://hermione.sco.alma.cl:8080/" />
+<title>ICT-3177-TestCase03</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ICT-3177-TestCase03</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://gallia.sco.alma.cl:8080/aq/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=public_data</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=queryFormSubmit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='resultTable']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td></td>
+	<td>In Progress</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=slickgrid_970454Release date</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td></td>
+	<td>2015-07-11T22:22:18.000</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

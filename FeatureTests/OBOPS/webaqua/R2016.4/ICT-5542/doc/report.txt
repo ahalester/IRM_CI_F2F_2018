@@ -1,0 +1,13 @@
+*Precondition*
+
+- Open AQUA https://2016-04.asa-test.alma.cl/webaqua with user CASA account (pmerino)
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: QA0 : Add a note and eventually a warning in the Summary for time critical project*
+
+1. Open EBs for time constrained projects (the codes of such projects could be found with Time Constrained search option in Protrack).
+   For example: Project UID: uid://A001/X2fb/Xe28
+2. Expected Result: There will be "Time critical" row in the ExecBlock summary
+3. Passed: OK (testcaste01.png)

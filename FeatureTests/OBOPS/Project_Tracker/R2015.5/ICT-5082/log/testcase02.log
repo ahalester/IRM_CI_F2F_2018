@@ -1,0 +1,15 @@
+2015-08-06T15:46:52.190 INFO [pmerino@http-apr-8080-exec-7] [a.l.s.StateEngineImpl#logWithDetail] StateEngineImpl.changeState() for SBStatusEntityT: uid://A001/X147/X2b5
+  Called with params [targetState:FullyObserved][subsystem: obops][userId: pmerino][flags: null][info: Testing of ICT-5082][timestamp: 2015-08-06T15:46:52]
+2015-08-06T15:46:52.250 INFO [pmerino@http-apr-8080-exec-7] [a.l.s.StateEngineImpl#logWithDetail] StateEngineImpl.changeOusStateAsEffect() for OUSStatusEntityT: uid://A001/X147/X2b4
+  Called with params [targetState:FullyObserved][subsystem: stateengine][userId: pmerino][flags: null][info: null][timestamp: 2015-08-06T15:46:52]
+2015-08-06T15:46:52.317 INFO [pmerino@http-apr-8080-exec-7] [a.l.s.StateEngineImpl#logWithDetail] StateEngineImpl.changeState() for SBStatusEntityT: uid://A001/X147/X2b5
+  Transitions completed, attempting transactionManager.commit...
+2015-08-06T15:46:52.317 INFO [pmerino@http-apr-8080-exec-7] [a.l.s.StateEngineImpl#logWithDetail] StateEngineImpl.changeState() for SBStatusEntityT: uid://A001/X147/X2b5
+  Transaction committed!
+2015-08-06T15:46:52.317 INFO [pmerino@http-apr-8080-exec-7] [a.l.s.StateEngineImpl#logWithDetail] StateEngineImpl.executeActionCommands() for SBStatusEntityT: uid://A001/X147/X2b5
+  Number of postTransitionActions to execute: 1
+2015-08-06T15:46:52.324 INFO [pmerino@http-apr-8080-exec-7] [a.l.s.StateEngineImpl#executeActionCommands] Executing postTransitionAction alma.lifecycle.stateengine.action.PIAndDelegeesEmailAction on a new Thread.
+2015-08-06T15:46:52.508 WARNING [noauth@Thread-9] [a.l.s.a.PIAndDelegeesEmailAction#execute] Using an ObopsconfigMailMerger instance that should have been injected instead of hardcoded. Please check the application's spring context and make sure it declares a valid mailMerger bean
+2015-08-06T15:46:52.570 INFO [noauth@Thread-9] [a.o.m.MailSenderImpl#sendMail] Connecting to amchavan@smtp.sco.alma.cl with connecttimeout=45000 and timeout=15000
+2015-08-06T15:46:52.583 FINE [noauth@Thread-9] [a.o.m.MailSenderImpl#sendMail] Sending email 'ALMA project 2013.1.01391.S SB fully observed (NGC6357__g_03_TP)' TO: Christopher Faesi  <cfaesi@cfa.harvard.edu>
+

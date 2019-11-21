@@ -1,0 +1,30 @@
+*Precondition*
+- Open Protrack https://2015-06.asa-test.alma.cl/protrack/ with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1:* Check if the obops.protrack.currentcycle property exists in obopsConfig.properties
+1. Go to the main host of the 2015.6 Offline Testing Environment.
+{noformat}
+ssh root@chicago.sco.alma.cl
+{noformat}
+2. Check the content of obopsConfig.properties
+{noformat}
+[root@chicago ~]# vim /etc/offline/2015-06/config/obopsConfig.properties
+{noformat}
+3. Expected result: In the section "Project Tracker properties" should have something like this:
+{noformat}
+obops.protrack.currentcycle = 2013.A, 2013.1, 2012.1:A, 2012.A:A
+{noformat}
+4. Passed: OK (testcase01.png).
+{noformat}
+obops.protrack.currentcycle = 2015.A, 2015.1, 2013.1:A, 2013.A:A
+{noformat}
+
+*Test Case #2:* Search by Predefined state queries
+1. Click the Project button
+2. In Project Cycles select 2015.1
+3. In Predefined state queries choose "Projects finished during interval"
+4. Expected result: The search filter should have results
+5. Passed: OK (testcase02-a.png testcase02-b.png)

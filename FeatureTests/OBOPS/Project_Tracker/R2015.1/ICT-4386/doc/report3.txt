@@ -1,0 +1,52 @@
+Hi Rodrigo,
+
+You are rigth. Taking a look with more details of the latest logs we noted that the reason of the fail is insert into slog_allocated_time_interval (entry_id, arrayFamily, startTime, endTime, id) using the shiftlog_entries_seq sequence.
+
+*TABLE: slog_allocated_time_interval*
+{noformat}
+describe slog_allocated_time_interval
+Name        Null     Type         
+----------- -------- ------------ 
+ID          NOT NULL NUMBER(10)   
+ENTRY_ID    NOT NULL NUMBER(10)   
+ARRAYFAMILY NOT NULL VARCHAR2(11) 
+STARTTIME   NOT NULL TIMESTAMP(6) 
+ENDTIME              TIMESTAMP(6)
+{noformat}
+
+*TABLE: shiftlog_entries*
+{noformat}
+describe shiftlog_entries
+Name                          Null     Type               
+----------------------------- -------- ------------------ 
+SE_ID                         NOT NULL NUMBER(19)         
+SE_TYPE                       NOT NULL NUMBER(10)         
+SE_SUBJECT                             VARCHAR2(256 CHAR) 
+SE_TIMESTAMP                  NOT NULL TIMESTAMP(6)
+...
+{noformat}
+
+*SEQUENCE: shiftlog_entries_seq*
+{noformat}
+CREATE SEQUENCE  "ALMA"."SHIFTLOG_ENTRIES_SEQ"  MINVALUE 5000000000000000001 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 5000000000000000041 CACHE 20 NOORDER  NOCYCLE ;
+{noformat}
+
+*DATA OF slog_allocated_time_interval*
+{noformat}
+select SE_ID, SE_TYPE, SE_SUBJECT, SE_TIMESTAMP, SE_AUTHOR, SE_START, SE_LOCATION, SE_ALMABUILD, SE_ACSVERSION
+ from shiftlog_entries
+ where se_id > 1000000;
+{noformat}
+
+||SE_ID||SE_TYPE||SE_SUBJECT||SE_TIMESTAMP||SE_AUTHOR||SE_START||SE_LOCATION||SE_ALMABUILD||SE_ACSVERSION
+|5000000000000000021|1|'2015-02-16T18:31:01'|to_timestamp('16-FEB-15 06.38.10.544000000 PM'|'DD-MON-RR HH.MI.SS.FF AM')|'almamgr'|to_timestamp('16-FEB-15 06.31.01.420000000 PM'|'DD-MON-RR HH.MI.SS.FF AM')|'TST-2014.4-TESTING'|'2015-01-B-2015-02-11-01-00-00'|'ACS-2015.1.0'|
+|5000000000000000022|1|'2015-02-16T20:11:27'|to_timestamp('16-FEB-15 08.29.16.988000000 PM'|'DD-MON-RR HH.MI.SS.FF AM')|'almaop'|to_timestamp('16-FEB-15 08.11.27.033000000 PM'|'DD-MON-RR HH.MI.SS.FF AM')|'TST-2014.4-TESTING'|'2015-01-B-2015-02-11-01-00-00'|'ACS-2015.1.0'|
+|5000000000000000023|1|'2015-02-16T20:31:38'|to_timestamp('16-FEB-15 09.44.54.590000000 PM'|'DD-MON-RR HH.MI.SS.FF AM')|'almaop'|to_timestamp('16-FEB-15 08.31.38.040000000 PM'|'DD-MON-RR HH.MI.SS.FF AM')|'TST-2014.4-TESTING'|'2015-01-B-2015-02-11-01-00-00'|'ACS-2015.1.0'|
+|5000000000000000024|0|null|to_timestamp('16-FEB-15 08.54.44.840000000 PM'|'DD-MON-RR HH.MI.SS.FF AM')|'almaop'|to_timestamp('16-FEB-15 08.54.44.840000000 PM'|'DD-MON-RR HH.MI.SS.FF AM')|'TST-2014.4-TESTING'|null|null|
+|5000000000000000025|3|null|to_timestamp('16-FEB-15 08.59.40.107000000 PM'|'DD-MON-RR HH.MI.SS.FF AM')|'almaop'|to_timestamp('16-FEB-15 08.59.40.107000000 PM'|'DD-MON-RR HH.MI.SS.FF AM')|'TST-2014.4-TESTING'|null|null|
+|5000000000000000026|1|'2015-02-16T21:46:40'|to_timestamp('16-FEB-15 09.46.40.323000000 PM'|'DD-MON-RR HH.MI.SS.FF AM')|'almaop'|to_timestamp('16-FEB-15 09.46.40.323000000 PM'|'DD-MON-RR HH.MI.SS.FF AM')|'TST-2014.4-TESTING'|'2015-01-B-2015-02-11-01-00-00'|'ACS-2015.1.0'|
+
+Values of shiftlog_entries are 19 length and when is trying to insert into slog_allocated_time_interval the ENTRY_ID column is 10 length, then fails.
+
+Please check the rigth database's change of 2015.1 in the Testing Enviroment (ALMAI2.SCO.CL).
+

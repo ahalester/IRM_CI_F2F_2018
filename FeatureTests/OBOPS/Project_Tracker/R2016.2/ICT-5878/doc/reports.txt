@@ -1,0 +1,15 @@
+*Precondition*
+- Open Reports of Protrack https://2015-08.asa-test.alma.cl/protrack/ with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.43.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1:* Send an email notification to P2G and CS when SB is changed from Waiting+ForPI to Waiting+ForP2G*
+1. Open SchedBlock search.
+2. In SB Name input GRB_b_03_TE.
+3. Click in Search button.
+4. Change SB state from Waiting+ForPI to Waiting+ForP2G.
+5. Expected result: This transition should also result in the P2G email notification.
+6. Passed: NOK (testcase01.png).
+   - I don't receive any email notification.
+   - In catalina.out there are no action of email.

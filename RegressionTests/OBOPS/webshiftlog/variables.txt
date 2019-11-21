@@ -1,0 +1,23 @@
+# Variables.txt
+# This file is read by "SetupVariables.sh"
+#
+#  
+#-----
+# Test url and cas logout url.
+#
+testUrl=http://irm-docker.mtk.nao.ac.jp:10080/webshiftlog/
+casLogout=https://irm-docker.mtk.nao.ac.jp:10443/cas/logout
+#
+#-----
+# Test user name and password, who has a valid role.
+#
+testUser="knaka"
+testUserPW="Ky0k0"
+#
+#-----
+# Test user name and password, who doesn't have a valid role.
+#
+noauthUser="almaproc"
+noauthUserPW="Almapr0c" 
+#
+# End of file

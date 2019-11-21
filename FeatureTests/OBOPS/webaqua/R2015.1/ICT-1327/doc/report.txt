@@ -1,0 +1,41 @@
+*Precondition*
+
+- Open AQUA http://pales.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino, role OBOPS/AOD)
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Calculate the execution fraction for that ExecBlock without errors*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014/01/01
+5. In To select the current date
+6. In ExecBlock UID field input uid://A002/X822d50/X4dc
+7. Click in Search button
+8. Select the first result
+9. Go to first tab and click in "Set QA0 Status" button
+10. Select the "Pass" option for the QA0 status
+11. Click on the "Explain result" link if available
+12. Expected Result:
+    - If no error occurs, the result of the calculation should be placed on the "Execution fraction" field, and the "Explain result" link should be visible
+    - When clicking on the "Explain result" link, a new window should show up showing a table with the expected and actual values for the System Temperatures, Number of Antennas and Time on Source. Below the table a formula should show up, explaining how the final result is calculated. The result of the formula should come next, followed by the maximum allowed value. The final result should appear at the bottom, in bold font.
+13. Passed: OK (testcaste01.png ICT-1327-TestCase01.html).
+
+*Test Case #2: Calculate the execution fraction for that ExecBlock with errors*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014/01/01
+5. In To select the current date
+6. In ExecBlock UID field input uid://A002/X821133/X16d
+7. Click in Search button
+8. Select the first result
+9. Go to first tab and click in "Set QA0 Status" button
+10. Select the "Pass" option for the QA0 status
+11. Click on the "Explain result" link if available
+12. Expected Result: 
+    - If there is any error while calculating the execution fraction for the ExecBlock, an error message should appear under the "Execution fraction" field indicating the error, and the field itself should be set to "1"
+13. Passed: OK (testcaste02.png ICT-1327-TestCase02.html).

@@ -1,0 +1,5 @@
+[root@8d33a8196f6c pipeline-staging-area]# mv 2015.1.00002.S_2016_04_08T11_35_00.000.TMP 2015.1.00002.S_2016_04_08T11_35_00.000
+
+2016-06-18 12:01:40.034  INFO 1752 --- [pool-5-thread-1] a.o.p.service.StagingAreaProcessingTask  : Found Pipeline run directory: 2015.1.00002.S_2016_04_08T11_35_00.000
+2016-06-18 12:01:40.114  INFO 1752 --- [pool-5-thread-1] a.o.p.service.StagingAreaProcessingTask  : Processed Pipeline run directory: 2015.1.00002.S_2016_04_08T11_35_00.000
+2016-06-18 12:01:40.134  INFO 1752 --- [pool-5-thread-1] a.o.p.service.StagingAreaProcessingTask  : Task: found 1 new dirs, processed 1 dirs, ingested 0 dirs, stored 1 weblogs, 132 msec

@@ -1,0 +1,28 @@
+*Precondition*
+
+Open Reports of Protrack http://gudrun.sco.alma.cl:8080/protrack/ with CASA account
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Improvements in the OUSs layout*
+
+1. Select "OUS" button
+2. In PI UserId input rsoto
+3. Click in "Search" button
+4. Click the first result
+5. Expected Result: In the panel, the elements should appear in the following order from top to bottom (if they appear at all): "ObsUnitSet: <name>", "ObsUnitSet execution summary", "ObsUnitSet status history" and "Status change history timeline".
+6. Passed: OK (testcaste01.png ICT-3815-TestCase01.html).
+
+{color:red}Note: We noted that the first block was only 'ObsUnitSet' (without the name), not 'ObsUnitSet: <name>'{color:red}
+
+*Test Case #2: Improvements in the SBs layout*
+
+1. Select "SBs" button
+2. In PI UserId input rsoto
+3. Click in "Search" button
+4. Click the first result
+5. Expected Result: In the panel, the elements should appear in the following order from top to bottom (if they appear at all): "SchedBlock: <name>", "Exec Status List", "Field Source List", "Preconditions and constraints", "Calibration requirements", "Spectral Windows", "SchedBlock status history" and "Status change history timeline".
+6. Passed: OK (testcaste02.png ICT-3815-TestCase02.html).
+
+{color:red}Note: For this case, we noted that the second block was not 'Exec Status List'. But in other tests 'Exec Status List' was showed{color:red}

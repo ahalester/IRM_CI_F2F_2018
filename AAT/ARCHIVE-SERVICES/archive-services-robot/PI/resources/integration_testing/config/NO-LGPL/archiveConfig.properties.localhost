@@ -1,0 +1,61 @@
+# product_ingestor properties
+# ---------------------------
+
+# Ingestor properties
+archive.product_ingestor.heap_size.max=3072m
+archive.product_ingestor.heap_size.min=512m
+archive.product_ingestor.ingest_all_recipes=false
+archive.product_ingestor.log.directory=${user.home}
+archive.product_ingestor.log.level=INFO
+archive.product_ingestor.product_analyzer_path=/home/smclay/sandbox/git/alma.git/IRM/RegressionTests/ARCHIVE/archive-services-robot/PI/resources/integration_testing/script/product_analyzer.py
+archive.product_ingestor.product_ingestor_path=/home/smclay/sandbox/git/alma.git/IRM/RegressionTests/ARCHIVE/archive-services-robot/PI/resources/integration_testing/jar/product-ingestor-2018.10-SNAPSHOT-all.jar
+archive.product_ingestor.script_for_pi_path=/home/smclay/sandbox/git/alma.git/IRM/RegressionTests/ARCHIVE/archive-services-robot/PI/resources/integration_testing/script/scriptForPI.py
+
+# ALMA database properties
+archive.product_ingestor.alma.db.connection=jdbc:oracle:thin:@localhost:1522/XE
+archive.product_ingestor.alma.db.username=alma
+archive.product_ingestor.alma.db.password=123pass
+
+# NGAS archive properties
+archive.product_ingestor.ngas.servers=localhost:7777
+archive.product_ingestor.ngas.threads=4
+archive.product_ingestor.ngas.timeout=3600
+archive.product_ingestor.ngas.db.connection=jdbc:oracle:thin:@localhost:1522/XE
+archive.product_ingestor.ngas.db.username=ngas
+archive.product_ingestor.ngas.db.password=123pass
+
+# ALMA XTSS (extended state system) server properties
+archive.product_ingestor.xtss.rest.url=http://172.18.0.2:10001/xtss-rest-server/service/api
+archive.product_ingestor.xtss.rest.username=alma
+archive.product_ingestor.xtss.rest.password=123pass
+
+# Data packer properties
+archive.ngas.completionTimeoutMinutes=60
+
+# test_sql_builder properties
+# ---------------------------
+
+# ALMA database properties
+archive.test_sql_builder.alma.db.connection=jdbc:oracle:thin:@localhost:1522/XE
+archive.test_sql_builder.alma.db.username=alma
+archive.test_sql_builder.alma.db.password=123pass
+
+archive.test_sql_builder.ngas.db.connection=jdbc:oracle:thin:@localhost:1522/XE
+archive.test_sql_builder.ngas.db.username=ngas
+archive.test_sql_builder.ngas.db.password=123pass
+
+# test_product_ingestor.sh properties
+# -----------------------------------
+archive.test_product_ingestor.alma.db.connection=localhost:1522/XE
+archive.test_product_ingestor.alma.db.username=alma
+archive.test_product_ingestor.alma.db.password=123pass
+
+archive.test_product_ingestor.ngas.servers=localhost:7777
+archive.test_product_ingestor.ngas.db.connection=localhost:1522/XE
+archive.test_product_ingestor.ngas.db.username=ngas
+archive.test_product_ingestor.ngas.db.password=123pass
+
+archive.test_product_ingestor.ftp.url=ftp://almaarchive1.hq.eso.org/test_products
+archive.test_product_ingestor.ftp.username=ftpuser
+archive.test_product_ingestor.ftp.password=123pass
+

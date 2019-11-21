@@ -1,0 +1,84 @@
+*Precondition*
+
+- Open Shiftlog Tool from themis.sco.alma.cl using:
+{noformat}
+=> Using ACS : ACS-2015.1.0
+       Build : 2015-01-ACS-B
+{noformat}
+
+*Test Case #1: Check behaviour of "Start New Shift" and "Stop Current Shift" buttons*
+
+1. Go to Shiftlog Tool
+2. Click the 'Start New Shift' button
+3. Input some comment and Save
+4. Click the 'Stop Current Shift' button
+5. Accept the confirmation and Input some comment and Save
+6. Expected Result:
+   - After 'Start New Shift' button, the current shift status bar should be enabled and the shift state is ONGOING.
+   - After 'Stop Current Shift' button, the current shift status bar should be disabled and the shift state is FINISHED.
+7. Passed: OK (testcase01-start-new-shift.png testcase01-stop.png).
+
+*Test Case #2: Check behaviour of Add/remove/edit entries on the table*
+
+1. Go to File > New > Entry 
+2. Confirm with Yes
+3. Click in Save button
+4. Double click in a row for load the entry. Edit some field and save
+5. Expected Result:
+   - After New Entry, the new entry should be shown in the table.
+   - After Edit Entry, the entry should be loaded in the table.
+6. Passed: OK (testcase02.png).
+
+*Test Case #3: Check behaviour of "Start" and "Stop" buttons for each array family*
+
+1. Click in the "Start" button of some array family and Confirm. For example 12 [m].
+2. Expected Result: It should be possible to define zero, one or more allocated time intervals for each array family using these buttons.
+3. Passed: NOK. After confirmation, an SQL error appears (testcase03-exception.png testcase03-details.png).
+{noformat}
+2015-02-16T20:22:35.585 WARNING [hibernate] SQL Error: 1438, SQLState: 22003
+2015-02-16T20:22:35.586 SEVERE [hibernate] ORA-01438: value larger than specified precision allowed for this column
+
+2015-02-16T20:22:35.588 WARNING [hibernate] SQL Error: 1438, SQLState: 22003
+2015-02-16T20:22:35.589 SEVERE [hibernate] ORA-01438: value larger than specified precision allowed for this column
+
+failed to flush logging queue because remote logging service has not been made available.
+failed to flush logging queue because remote logging service has not been made available.
+2015-02-16T20:22:35.590 SEVERE [hibernate] Could not synchronize database state with session
+org.hibernate.exception.DataException: Could not execute JDBC batch update
+	at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:100)
+	at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:66)
+	at org.hibernate.jdbc.AbstractBatcher.executeBatch(AbstractBatcher.java:275)
+	at org.hibernate.engine.ActionQueue.executeActions(ActionQueue.java:266)
+	at org.hibernate.engine.ActionQueue.executeActions(ActionQueue.java:167)
+	at org.hibernate.event.def.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:321)
+	at org.hibernate.event.def.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:50)
+	at org.hibernate.impl.SessionImpl.flush(SessionImpl.java:1027)
+	at org.hibernate.impl.SessionImpl.managedFlush(SessionImpl.java:365)
+	at org.hibernate.transaction.JDBCTransaction.commit(JDBCTransaction.java:137)
+	at org.springframework.orm.hibernate3.HibernateTransactionManager.doCommit(HibernateTransactionManager.java:657)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:755)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:724)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:475)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:270)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:94)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:172)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)
+	at com.sun.proxy.$Proxy37.startAllocatedTime(Unknown Source)
+	at alma.obops.shiftlog.gui.CurrentShiftPanel$2$1.doInBackground(CurrentShiftPanel.java:205)
+	at alma.obops.shiftlog.gui.CurrentShiftPanel$2$1.doInBackground(CurrentShiftPanel.java:199)
+	at javax.swing.SwingWorker$1.call(SwingWorker.java:296)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at javax.swing.SwingWorker.run(SwingWorker.java:335)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: java.sql.BatchUpdateException: ORA-01438: value larger than specified precision allowed for this column
+
+	at oracle.jdbc.driver.OraclePreparedStatement.executeBatch(OraclePreparedStatement.java:10345)
+	at oracle.jdbc.driver.OracleStatementWrapper.executeBatch(OracleStatementWrapper.java:230)
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeBatch(NewProxyPreparedStatement.java:1723)
+	at org.hibernate.jdbc.BatchingBatcher.doExecuteBatch(BatchingBatcher.java:70)
+	at org.hibernate.jdbc.AbstractBatcher.executeBatch(AbstractBatcher.java:268)
+	... 24 more
+failed to flush logging queue because remote logging service has not been made available.
+{noformat}

@@ -1,0 +1,36 @@
+*Precondition*
+
+Open AQUA http://svea.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Scan Time is UTC timestamp*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014/01/01
+5. In To select the current date
+6. In ExecBlock UID field input uid://A002/X785e52/X698
+7. Click in Search button
+8. Select the first result
+9. Go to Calibration Summaries
+10. Go to Phase > Scan List
+11. Expected Result: For this case, values shown in the "Scan Time" should never be a Modified Julian Date (a number like 54356.1234), but UTC timestamps instead (e.g., "2014-01-01 04:53:23).
+12. Passed: OK (testcaste01-phase.png ICT-3592-TestCase01.html).
+
+*Test Case #2: Scan Time is Undefined*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014/01/01
+5. In To select the current date
+6. In ExecBlock UID field input uid://A002/X785e52/X698
+7. Click in Search button
+8. Select the first result
+9. Go to Calibration Summaries
+10. Go to Atmosphere > Scan List
+11. Expected Result: For this case, the value of the timestamp should be "Undefined" or any other non-numeric string.
+12. Passed: OK (testcaste02-atmosphere.png ICT-3592-TestCase02.html).

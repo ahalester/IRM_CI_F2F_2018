@@ -1,0 +1,14 @@
+*Precondition*
+
+- Open AQUA http://adeona.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Remove the "CALIBRATE_AMPLI" intent from ExecBlocks results*
+
+1. Open some ExecBlocks in AQUA
+2. Go to the "Summary" tab
+3. Check the "Times" section and note down the scan intents that are listed.
+4. Expected Result: The "CALIBRATE_AMPLI" intent should never appear on the list
+5. Passed: OK (testcaste01.png ICT-3502-TestCase01.html).

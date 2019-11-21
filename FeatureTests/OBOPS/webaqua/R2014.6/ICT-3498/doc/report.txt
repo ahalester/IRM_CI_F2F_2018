@@ -1,0 +1,45 @@
+*Precondition*
+
+Open AQUA http://svea.sco.alma.cl:8080/webaqua/ with user CASA account (pmerino)
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: New fields in Summary tab*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014/01/01
+5. In To select the current date
+6. In ExecBlock UID field input uid://A002/X785e52/X698
+7. Click in Search button
+8. Select the first result
+9. Go to Summary tab
+10. Expected Result: The "Summary" tab should contain a new section titled "Array", where the following fields should be present:
+    - Baseline min. length [m]
+    - Baseline max. length [m]
+    - Angular Resolution [arcsec]
+    - Maximum Recoverable Scale [arcsec]
+
+11. Passed: OK (testcaste01.png ICT-3498-TestCase01.html).
+
+*Test Case #2: Plots/Antenna Positions features*
+
+1. Go to Manual Search tab
+2. Go to ExecBlocks (QA0) tab
+3. In Interval select Other
+4. In From select some date of 2014/01/01
+5. In To select the current date
+6. In ExecBlock UID field input uid://A002/X785e52/X698
+7. Click in Search button
+8. Select the first result
+9. Go to Plots tab > Antenna Positions
+10. Expected Result:
+    - The "Plots"/"Antenna Positions" tab should initially show a "Load" button. When clicking it, the plot with the antenna positions should be loaded and the button should dissapear.
+    - The plot should be square and should show the positions of the antennas in latitude/longitude units, and should show the longest and shortest baselines
+    - When hovering the mouse over the points on the plot the name of the antenna and the corresponding pad should be shown, alongside with the more precise latitude/longitude coordinate.
+
+11. Passed: OK (testcaste02.png ICT-3498-TestCase02.html).
+
+{color:red}We searched a lot of ExecBlocks > Plots tab > Antenna Positions but all were 'No Array information'. Probably some data is lost in the database. But Rodrigo posted some examples with Array Information{color}

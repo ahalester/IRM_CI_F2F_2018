@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# The xmlFile should be the sched block containing the TP parameters. 
+# There should be only 1 TP sched block in the test project TPwithMulipleSourcesPh2.aot
+xmlFile=$1
+
+[ -z $1 ] && echo "$0 requires input file" && exit 1
+
+# get the integration times for the two Science Parameters of the sched block
+VALUES=`sed -n "/sbl:ScienceParameters/,/\/sbl:ScienceParameters/p" $xmlFile | grep integrationTime | awk -F">" '{print $2}' | awk -F"<" '{print $1}'`
+
+set -- $VALUES 
+# Sum the two integration times; the second refers to 4 sources, therefore it is multiplied by 4
+TOS=$(echo "$1 + ($2 * 4)"|  bc)
+# get the total minutes for the sched block; these have to be less than 40!
+MIN_TOS=`echo "scale = 2; $TOS / 60" | bc`
+
+echo $MIN_TOS
+

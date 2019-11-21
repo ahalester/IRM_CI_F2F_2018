@@ -1,0 +1,14 @@
+Although we know that this ticket was tagged to 201509-CYCLE3-OFF, this bug-fixed was successfully verified in Phase B of 2015.6.
+
+*Precondition*
+- Open DRM tool https://2015-06-docker.asa-test.alma.cl/protrack/admin/drmTool.zul with CASA account
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.30.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1:* Check the Help links
+1. Open DRM Tool.
+2. Test the "how this tool works" link
+3. Test the "should be formatted" link
+4. Expected result: If we press the links in the tool, we will see the proper windows and does not have any error messages
+5. Passed: OK (testcase01.png).

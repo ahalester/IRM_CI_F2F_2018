@@ -1,0 +1,46 @@
+*Precondition*
+
+Open AQ http://gallia.sco.alma.cl:8080/aq/
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Showing 'In Progress' in rows*
+
+1. Unncheck "Options->show public data only"
+2. Click in "Search" button
+3. As this returns a lot of rows it may be possible that firefox warns about "unresponsive script". This is a known issue and is being addressed. Click in Continue button.
+4. Expected Result: Verify that any rows which do not have a corresponding entry for "Release Date" in DP_DELIVERY_STATUS have the release date shown as "In Progress" in the results grid.
+5. Passed: OK (testcase01.png ICT-3177-TestCase01.html)
+
+*Test Case #2: Showing 'In Q3' in rows*
+
+1. Unncheck "Options->show public data only"
+2. Click in "Search" button
+3. As this returns a lot of rows it may be possible that firefox warns about "unresponsive script". This is a known issue and is being addressed. Click in Continue button.
+4. Input "In Q3" in Release date filter
+5. Expected Result: Verify that any any deliveries which have a release date > 2090 in DP_DELIVERY_STATUS are displayed as "In QA3".
+6. Passed: NOK (testcase02.png ICT-3177-TestCase02.html). There are not results 'In Q3'.
+
+*Test Case #3: Showing dates in rows*
+
+1. Unncheck "Options->show public data only"
+2. Click in "Search" button
+3. As this returns a lot of rows it may be possible that firefox warns about "unresponsive script". This is a known issue and is being addressed. Click in Continue button.
+4. Click in narrow of "Release date" filter
+5. Expected Result: Verify that otherwise the release date is showed.
+6. Passed: OK (testcase03.png ICT-3177-TestCase03.html)
+
+*Test Case #4: Showing a specific ASDM*
+
+1. Make sure the release date is displayed correctly when accessing the UI directly with an ASDM. This is what the ARCs will do when they want to let a PI know that their data is available
+2. Select an ASDM_UID e.g uid://A001/X3b/X234
+3. Type the URL directly into the browser address bar http://server/aq?asdm_uid=uid://A001/X3b/X234
+4. Expected Result: Verify the release date is displayed correctly
+5. Passed: NOK (testcase04.png ICT-3177-TestCase04.html)
+
+Note 1: The message "Warning: unresponsive script" is showing some kind of big loop in the JavaScript and is very unusable.
+
+Note 2: Testcase 1, 2 and 3 were tested in the above browsers and for all the performance was completely degraded in the search, taking around 100% of CPU use. For crc-xx of STES (Operation) is dangerous, so I would like to say that this ticket should be refused to test in production.
+
+In summary, this improvement "Labelling in Release Date column" is working but the performance of search was degraded selecting the option "public data only". Assigning to the Testing Manager in order to take a decision if this improvement should be released to production.

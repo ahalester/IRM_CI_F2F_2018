@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://edna.sco.alma.cl:8080/" />
+<title>ICT-5876-TestCase01</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ICT-5876-TestCase01</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/protrack/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=zk_c_82</td>
+	<td>TW_Hya_a_04_TE</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_108</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_11-cnt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#zk_c_323-a &gt; span.z-menuitem-text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=zk_c_445</td>
+	<td>Testing ICT-5876</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zk_c_447</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>zk_c_950-chdex</td>
+	<td>Waiting ForP2G</td>
+</tr>
+</tbody></table>
+</body>
+</html>

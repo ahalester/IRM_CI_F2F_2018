@@ -1,0 +1,47 @@
+*Precondition*
+
+Open Reports of Protrack http://laetitia.sco.alma.cl:8080/protrack/ with CASA account
+Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+Using Mozilla Firefox v.30.0 (Latest version)
+Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Tree loading from a Quick Search*
+
+1. In the Quick Search input 2012*123.S and Enter
+2. Click the first result
+3. Navigate the tree hierarchy of the project.
+4. Expected Result: In the left panel, the information should be loaded on-demand.
+5. Passed: OK (testcase01.png ICT-4167-TestCase01.html).
+
+*Test Case #2: Tree loading from Project Search*
+
+1. Click in the Project button
+2. In PI UserId input sagawa and click in Search button
+3. Click the second result
+4. Navigate the tree hierarchy of the project.
+5. Expected Result: In the left panel, the information should be loaded on-demand.
+6. Passed: OK (testcase02.png ICT-4167-TestCase02.html).
+
+*Test Case #3: Tree loading from SB Search*
+
+1. Click in the SB button
+2. In PI UserId input sagawa and click in Search button
+3. Click the first result
+4. Navigate the tree hierarchy of the project.
+5. Expected Result: In the left panel, the information should be loaded on-demand.
+6. Passed: OK (testcase03.png ICT-4167-TestCase03.html).
+
+*Test Case #4: Tree loading from OUS Search*
+
+1. Click in the OUS button
+2. In PI UserId input sagawa and click in Search button
+3. Click the first result
+4. Navigate the tree hierarchy of the project.
+5. Expected Result: In the left panel, the information should be loaded on-demand.
+6. Passed: OK (testcase04.png ICT-4167-TestCase04.html).
+
+{color:red}General Notes:
+
+- From Firebug we noted the AJAX request-response for each click in the tree's navigation.
+- The state change popup menus for each entity type (project, OUS and SB) is working.
+{color}

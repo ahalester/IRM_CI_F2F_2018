@@ -1,0 +1,14 @@
+*Precondition*
+
+- Open AQUA of Production https://asa.alma.cl/webaqua with user CASA account (pmerino)
+- Using Mozilla Firefox v.13.0.1 (crc-xx of STEs)
+- Using Mozilla Firefox v.43.0 (Latest version)
+- Using Google Chrome 35.0.1916 (Latest version)
+
+*Test Case #1: Check the difference between expected and observed positions*
+
+1. Go to the following URL: https://asa.alma.cl/webaqua/?ebuid=uid://A002/Xaa2cd9/Xd6f
+2. Expected Result: There is no error message:
+Database error
+For input string: "4300971557"
+3. Passed: OK (testcase01.png)

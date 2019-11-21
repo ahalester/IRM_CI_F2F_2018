@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://hermione.sco.alma.cl:8080/" />
+<title>ICT-3024-TestCase01</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ICT-3024-TestCase01</td></tr>
+</thead><tbody>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_38-cnt']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_76-cnt']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=zk_c_174</td>
+	<td>SG OUS (Band 9 compact continuum mapping of SMMJ2135 (z=2.326))</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=zk_c_177</td>
+	<td>uid://A001/Xa0/X1b0e</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=zk_c_174</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//*[@id='zk_c_215']/div[3]/table[1]/tbody[2]/tr/td[1]/div[1]/span[2]</td>
+	<td>uid://A001/Xa0/X1b0e-X711809626</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='zk_c_215']/div[3]/table[1]/tbody[2]/tr/td[1]/div[1]/span[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td></td>
+	<td>In Protrack</td>
+</tr>
+</tbody></table>
+</body>
+</html>

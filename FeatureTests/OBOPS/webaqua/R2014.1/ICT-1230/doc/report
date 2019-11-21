@@ -1,0 +1,286 @@
+===============================================================================
+*Precondition 1:*
+
+* Open AQUA http://sophrosyne.sco.alma.cl:8080/webaqua/ with user CASA account
+* Using Mozilla Firefox v.13.0.1 (crc-01 of AOS)
+* pmerino account has OBOPS/AOD role
+===============================================================================
+
+*Test Case #1: Enter to the application with OBOPS/AOD role (pmerino).*
+
+1. Go to http://sophrosyne.sco.alma.cl:8080/webaqua/
+2. Input NetID pmerino
+3. Input Password and click Login (testcase01-3.png).
+4. Expected Result: The AQUA main panel is loaded (testcase01-4.png).
+5. Passed: OK.
+
+*Test Case #2: Set QA0 Status with OBOPS/AOD role (pmerino).*
+
+1. Go to 'Manual Search" tab. Interval > Other, From 2014/01/01 03:51:54 PM to 2014/04/06 05:51:54 PM and click in Search button.
+2. Select some ExecBlock UID without QA0 Status (testcase02-2.png).
+3. Expected Result: The 'Set QA0 Status' button is available.
+4. Passed: OK.
+
+*Test Case #3: Set QA1 Status with OBOPS/AOD role (pmerino).*
+
+1. Go to 'Manual Search" tab > Search Sessions (QA1) > Interval Other, From 2014/01/01 03:51:54 PM to 2014/04/06 05:51:54 PM and click in Search button.
+2. Select some ExecBlock UID without QA1 Status (testcase03-2.png).
+3. Expected Result: The 'Set QA1 Status' button is available.
+4. Passed: OK.
+
+*Test Case #4: Set QA2 Status with OBOPS/AOD role (pmerino).*
+
+1. Go to 'Manual Search" tab > Search OUSs (QA2) and click in Search button.
+2. Select some ExecBlock UID without QA2 Status (testcase04-2.png).
+3. Expected Result: The 'Set QA2 Status' button is not available.
+4. Passed: OK.
+
+===============================================================================
+*Precondition 2:*
+
+* Open AQUA http://sophrosyne.sco.alma.cl:8080/webaqua/ with user CASA account
+* Using Mozilla Firefox v.13.0.1 (crc-01 of AOS)
+* Now pmerino account has OBOPS/QAA role
+===============================================================================
+
+Test Case #5: Set QA2 Status with OBOPS/QAA role (pmerino).
+
+1. Go to http://sophrosyne.sco.alma.cl:8080/webaqua/
+2. Input NetID pmerino
+3. Input Password and click Login
+4. Go to 'Manual Search" tab > Search OUSs (QA2) and click in Search button.
+5. Select some ExecBlock UID without QA2 Status.
+6. Expected Result: The 'Set QA2 Status' button is available (testcase05-6.png).
+7. Passed: OK.
+
+===============================================================================
+*Precondition 3:*
+
+* Open AQUA http://sophrosyne.sco.alma.cl:8080/webaqua/ with user CASA account
+* Using Mozilla Firefox v.13.0.1 (crc-01 of AOS)
+* Now pmerino account has OBOPS/ARCA role
+===============================================================================
+
+*Test Case #6: Set QA0 Status with OBOPS/ARCA role (pmerino).*
+
+1. Go to http://sophrosyne.sco.alma.cl:8080/webaqua/
+2. Input NetID pmerino
+3. Input Password and click Login
+4. Go to 'Manual Search" tab. Interval > Other, From 2014/01/01 03:51:54 PM to 2014/04/06 05:51:54 PM and click in Search button.
+5. Select some ExecBlock UID without QA0 Status.
+6. Expected Result: The 'Set QA0 Status' button is not available (testcase06-6.png).
+7. Passed: OK.
+
+*Test Case #7: Set QA1 Status with OBOPS/ARCA role (pmerino).*
+
+1. Go to http://sophrosyne.sco.alma.cl:8080/webaqua/
+2. Input NetID pmerino
+3. Input Password and click Login
+4. Go to 'Manual Search" tab > Search Sessions (QA1) > Interval Other, From 2014/01/01 03:51:54 PM to 2014/04/06 05:51:54 PM and click in Search button.
+5. Select some ExecBlock UID without QA1 Status.
+6. Expected Result: The 'Set QA1 Status' button is not available (testcase07-6.png).
+7. Passed: OK.
+
+*Test Case #8: Set QA2 Status with OBOPS/ARCA role (pmerino).*
+
+1. Go to http://sophrosyne.sco.alma.cl:8080/webaqua/
+2. Input NetID pmerino
+3. Input Password and click Login
+4. Go to 'Manual Search" tab > Search OUSs (QA2) and click in Search button.
+5. Select some ExecBlock UID without QA2 Status.
+6. Expected Result: The 'Set QA2 Status' button is not available (testcase08-6.png).
+7. Passed: OK.
+
+===============================================================================
+*Precondition 4:*
+
+* Open AQUA http://sophrosyne.sco.alma.cl:8080/webaqua/ with user CASA account
+* Using Mozilla Firefox v.13.0.1 (crc-01 of AOS)
+* Now pmerino account has JAO/CSV_ASTRONOMER role
+===============================================================================
+
+*Test Case #9: Set QA0 Status with JAO/CSV_ASTRONOMER role (pmerino).*
+
+1. Go to http://sophrosyne.sco.alma.cl:8080/webaqua/
+2. Input NetID pmerino
+3. Input Password and click Login
+4. Go to 'Manual Search" tab. Interval > Other, From 2014/01/01 03:51:54 PM to 2014/04/06 05:51:54 PM and click in Search button.
+5. Select some ExecBlock UID without QA0 Status.
+6. Expected Result: The 'Set QA0 Status' button is not available (testcase09-6.png).
+7. Passed: OK.
+
+*Test Case #10: Set QA1 Status with JAO/CSV_ASTRONOMER role (pmerino).*
+
+1. Go to http://sophrosyne.sco.alma.cl:8080/webaqua/
+2. Input NetID pmerino
+3. Input Password and click Login
+4. Go to 'Manual Search" tab > Search Sessions (QA1) > Interval Other, From 2014/01/01 03:51:54 PM to 2014/04/06 05:51:54 PM and click in Search button.
+5. Select some ExecBlock UID without QA1 Status.
+6. Expected Result: The 'Set QA1 Status' button is not available (testcase10-6.png).
+7. Passed: OK.
+
+*Test Case #11: Set QA2 Status with JAO/CSV_ASTRONOMER role (pmerino).*
+
+1. Go to http://sophrosyne.sco.alma.cl:8080/webaqua/
+2. Input NetID pmerino
+3. Input Password and click Login
+4. Go to 'Manual Search" tab > Search OUSs (QA2) and click in Search button.
+5. Select some ExecBlock UID without QA2 Status.
+6. Expected Result: The 'Set QA2 Status' button is not available (testcase11-6.png).
+7. Passed: OK.
+
+===============================================================================
+*Precondition 5:*
+
+* Open AQUA http://sophrosyne.sco.alma.cl:8080/webaqua/ with user CASA account
+* Using Mozilla Firefox v.13.0.1 (crc-01 of AOS)
+* Now pmerino account has JAO/DSO_ASTRONOMER role
+===============================================================================
+
+*Test Case #12: Set QA0 Status with JAO/DSO_ASTRONOMER role (pmerino).*
+
+1. Go to http://sophrosyne.sco.alma.cl:8080/webaqua/
+2. Input NetID pmerino
+3. Input Password and click Login
+4. Go to 'Manual Search" tab. Interval > Other, From 2014/01/01 03:51:54 PM to 2014/04/06 05:51:54 PM and click in Search button.
+5. Select some ExecBlock UID without QA0 Status.
+6. Expected Result: The 'Set QA0 Status' button is not available (testcase12-6.png).
+7. Passed: OK.
+
+*Test Case #13: Set QA1 Status with JAO/DSO_ASTRONOMER role (pmerino).*
+
+1. Go to http://sophrosyne.sco.alma.cl:8080/webaqua/
+2. Input NetID pmerino
+3. Input Password and click Login
+4. Go to 'Manual Search" tab > Search Sessions (QA1) > Interval Other, From 2014/01/01 03:51:54 PM to 2014/04/06 05:51:54 PM and click in Search button.
+5. Select some ExecBlock UID without QA1 Status.
+6. Expected Result: The 'Set QA1 Status' button is not available (testcase13-6.png).
+7. Passed: OK.
+
+*Test Case #14: Set QA2 Status with JAO/DSO_ASTRONOMER role (pmerino).*
+
+1. Go to http://sophrosyne.sco.alma.cl:8080/webaqua/
+2. Input NetID pmerino
+3. Input Password and click Login
+4. Go to 'Manual Search" tab > Search OUSs (QA2) and click in Search button.
+5. Select some ExecBlock UID without QA2 Status.
+6. Expected Result: The 'Set QA2 Status' button is not available (testcase14-6.png).
+7. Passed: OK.
+
+===============================================================================
+*Precondition 6:*
+
+* Open AQUA http://sophrosyne.sco.alma.cl:8080/webaqua/ with user CASA account
+* Using Mozilla Firefox v.13.0.1 (crc-01 of AOS)
+* Now pmerino account has JAO/DSO_STAFF role
+===============================================================================
+
+*Test Case #15: Set QA0 Status with JAO/DSO_STAFF role (pmerino).*
+
+1. Go to http://sophrosyne.sco.alma.cl:8080/webaqua/
+2. Input NetID pmerino
+3. Input Password and click Login
+4. Go to 'Manual Search" tab. Interval > Other, From 2014/01/01 03:51:54 PM to 2014/04/06 05:51:54 PM and click in Search button.
+5. Select some ExecBlock UID without QA0 Status.
+6. Expected Result: The 'Set QA0 Status' button is not available (testcase15-6.png).
+7. Passed: OK.
+
+*Test Case #16: Set QA1 Status with JAO/DSO_STAFF role (pmerino).*
+
+1. Go to http://sophrosyne.sco.alma.cl:8080/webaqua/
+2. Input NetID pmerino
+3. Input Password and click Login
+4. Go to 'Manual Search" tab > Search Sessions (QA1) > Interval Other, From 2014/01/01 03:51:54 PM to 2014/04/06 05:51:54 PM and click in Search button.
+5. Select some ExecBlock UID without QA1 Status.
+6. Expected Result: The 'Set QA1 Status' button is not available (testcase16-6.png).
+7. Passed: OK.
+
+*Test Case #17: Set QA2 Status with JAO/DSO_STAFF role (pmerino).*
+
+1. Go to http://sophrosyne.sco.alma.cl:8080/webaqua/
+2. Input NetID pmerino
+3. Input Password and click Login
+4. Go to 'Manual Search" tab > Search OUSs (QA2) and click in Search button.
+5. Select some ExecBlock UID without QA2 Status.
+6. Expected Result: The 'Set QA2 Status' button is not available (testcase17-6.png).
+7. Passed: OK.
+
+===============================================================================
+*Precondition 7:*
+
+* Open AQUA http://sophrosyne.sco.alma.cl:8080/webaqua/ with user CASA account
+* Using Mozilla Firefox v.13.0.1 (crc-01 of AOS)
+* Now pmerino account has JAO/ENGINEERING_STAFF role
+===============================================================================
+
+*Test Case #18: Set QA0 Status with JAO/ENGINEERING_STAFF role (pmerino).*
+
+1. Go to http://sophrosyne.sco.alma.cl:8080/webaqua/
+2. Input NetID pmerino
+3. Input Password and click Login
+4. Go to 'Manual Search" tab. Interval > Other, From 2014/01/01 03:51:54 PM to 2014/04/06 05:51:54 PM and click in Search button.
+5. Select some ExecBlock UID without QA0 Status.
+6. Expected Result: The 'Set QA0 Status' button is not available (testcase18-6.png).
+7. Passed: OK.
+
+*Test Case #19: Set QA1 Status with JAO/ENGINEERING_STAFF role (pmerino).*
+
+1. Go to http://sophrosyne.sco.alma.cl:8080/webaqua/
+2. Input NetID pmerino
+3. Input Password and click Login
+4. Go to 'Manual Search" tab > Search Sessions (QA1) > Interval Other, From 2014/01/01 03:51:54 PM to 2014/04/06 05:51:54 PM and click in Search button.
+5. Select some ExecBlock UID without QA1 Status.
+6. Expected Result: The 'Set QA1 Status' button is not available (testcase19-6.png).
+7. Passed: OK.
+
+*Test Case #20: Set QA2 Status with JAO/ENGINEERING_STAFF role (pmerino).*
+
+1. Go to http://sophrosyne.sco.alma.cl:8080/webaqua/
+2. Input NetID pmerino
+3. Input Password and click Login
+4. Go to 'Manual Search" tab > Search OUSs (QA2) and click in Search button.
+5. Select some ExecBlock UID without QA2 Status.
+6. Expected Result: The 'Set QA2 Status' button is not available (testcase20-6.png).
+7. Passed: OK.
+
+===============================================================================
+*Precondition 8:*
+
+* Open AQUA http://sophrosyne.sco.alma.cl:8080/webaqua/ with user CASA account
+* Using Mozilla Firefox v.13.0.1 (crc-01 of AOS)
+* Now pmerino account has JAO/SIST_ASTRONOMER role
+===============================================================================
+
+*Test Case #21: Set QA0 Status with JAO/SIST_ASTRONOMER role (pmerino).*
+
+1. Go to http://sophrosyne.sco.alma.cl:8080/webaqua/
+2. Input NetID pmerino
+3. Input Password and click Login
+4. Go to 'Manual Search" tab. Interval > Other, From 2014/01/01 03:51:54 PM to 2014/04/06 05:51:54 PM and click in Search button.
+5. Select some ExecBlock UID without QA0 Status.
+6. Expected Result: The 'Set QA0 Status' button is not available (testcase21-6.png).
+7. Passed: OK.
+
+*Test Case #22: Set QA1 Status with JAO/SIST_ASTRONOMER role (pmerino).*
+
+1. Go to http://sophrosyne.sco.alma.cl:8080/webaqua/
+2. Input NetID pmerino
+3. Input Password and click Login
+4. Go to 'Manual Search" tab > Search Sessions (QA1) > Interval Other, From 2014/01/01 03:51:54 PM to 2014/04/06 05:51:54 PM and click in Search button.
+5. Select some ExecBlock UID without QA1 Status.
+6. Expected Result: The 'Set QA1 Status' button is not available (testcase22-6.png).
+7. Passed: OK.
+
+*Test Case #23: Set QA2 Status with JAO/SIST_ASTRONOMER role (pmerino).*
+
+1. Go to http://sophrosyne.sco.alma.cl:8080/webaqua/
+2. Input NetID pmerino
+3. Input Password and click Login
+4. Go to 'Manual Search" tab > Search OUSs (QA2) and click in Search button.
+5. Select some ExecBlock UID without QA2 Status.
+6. Expected Result: The 'Set QA2 Status' button is not available (testcase23-6.png).
+7. Passed: OK.
+
+{color:red}Note 1: Clicking 'Log out' button and after confirmation of the operation, the browser still in the same page{color}
+
+{color:red}Note 2: Matrix of roles vs events was attached. For some cases, exist conflict of events. For example: If an user account has two roles OBOPS/AOD and OBOPS/QAA it can Set QA2 Status (OBOPS/QAA role) and can't Set QA2 Status (OBOPS/AOD). But, probably this will be controlled by a validation in the application{color}
